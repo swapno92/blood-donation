@@ -1,7 +1,10 @@
+import SharedBanner from "@/components/banner/SharedBanner";
+import aboutImage from './public/about-image.jpg'
+
 const About = () => {
     return (
         <div>
-            <h2 className="text-3xl font-bold"> This is about page </h2>
+            <SharedBanner bannerImg={aboutImage} heading={'About'}></SharedBanner>
         </div>
     );
 };
