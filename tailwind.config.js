@@ -14,6 +14,10 @@ module.exports = {
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
       },
+      backgroundImage: {
+        'about' : "url(../../public/about-image.jpg)",
+        
+      }
     },
   },
   plugins: [require("daisyui")],
