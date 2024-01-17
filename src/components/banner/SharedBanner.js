@@ -4,7 +4,7 @@ const SharedBanner = ({bannerImg, heading}) => {
     return (
         <div>
             <div className='text-center py-24' style={{backgroundImage: `url(./public/about-image.jpg)`}}>
-                <h2 className='text-3xl font-bold'>{heading}</h2>
+                <h2 className='text-4xl font-bold'>{heading}</h2>
             </div>
         </div>
     );
