@@ -1,8 +1,14 @@
+import AboutSection from "@/components/about/AboutSection";
+import SharedBanner from "@/components/banner/SharedBanner";
+import ServiceSection from "@/components/services/ServiceSection";
+
 const About = () => {
     return (
-        <div>
-            <h2 className="text-3xl font-bold"> This is about page </h2>
-        </div>
+        <>
+            <SharedBanner bannerImg={'https://i.ibb.co/vQxmhLd/about-image.jpg'} heading={'About Us'} />
+            <AboutSection />
+            <ServiceSection></ServiceSection>
+        </>
     );
 };
 
