@@ -3,7 +3,7 @@ import SharedBanner from "@/components/banner/SharedBanner";
 const Contact = () => {
     return (
       <div>
-        {/* banner */}
+        {/* banner  */}
         <SharedBanner
           bannerImg={"https://i.ibb.co/5rsLcx5/header-bg-45474302.jpg"}
           heading={"Contact Us"}
