@@ -1,11 +1,12 @@
+import AboutSection from "@/components/about/AboutSection";
 import SharedBanner from "@/components/banner/SharedBanner";
-import aboutImage from './public/about-image.jpg'
 
 const About = () => {
     return (
-        <div>
-            <SharedBanner bannerImg={aboutImage} heading={'About'}></SharedBanner>
-        </div>
+        <>
+            <SharedBanner bannerImg={'https://i.ibb.co/vQxmhLd/about-image.jpg'} heading={'About Us'} />
+            <AboutSection />
+        </>
     );
 };
 
