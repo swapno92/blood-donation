@@ -5,9 +5,9 @@ import logo from "../../../public/logo.png";
 
 const Navbar = () => {
   return (
-    <div className="h-screen">
-      <nav className="bg-white  fixed w-full z-20 top-0 start-0 border-b border-gray-200 ">
-        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <div className="">
+      <nav className="bg-white w-full z-20 top-0 start-0 border-b border-gray-200 ">
+        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto md:py-1">
           <a
             href="https://flowbite.com/"
             className="flex items-center space-x-3 rtl:space-x-reverse"
@@ -15,18 +15,17 @@ const Navbar = () => {
             <Image
               src={logo}
               alt="Flowbite Logo"
-              className=""
-              width={120}
-              height={100}
+              className=" w-28 md:w-44 ld lg:w-48"
+            
             />
             
           </a>
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
             <button
               type="button"
-              className="text-white bg-primary hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center  "
+              className="text-white bg-primary font-medium  rounded-md md:text-sm text-[13px] md:px-4  px-2 py-2 text-center  "
             >
-              Get started
+              Sign In
             </button>
             <button
               data-collapse-toggle="navbar-sticky"
@@ -59,46 +58,46 @@ const Navbar = () => {
           >
             <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white ">
               <li>
-                <a
-                  href="#"
-                  className="block py-2 px-3 text-primary  rounded md:bg-transparent md:text-rimary md:p-0 "
+                <Link
+                  href="/"
+                  className="block py-2 px-3 text-primary uppercase font-semibold  rounded md:bg-transparent md:text-rimary md:p-0 "
                   aria-current="page"
                 >
                   Home
-                </a>
+                </Link>
               </li>
               
               <li>
-                <a
+                <Link
                   href="/about"
-                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary md:p-0  "
+                  className="block py-2 px-3 text-gray-900 uppercase font-semibold rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary md:p-0  "
                 >
                   About Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="#"
-                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary md:p-0 "
+                  className="block py-2 px-3 text-gray-900  uppercase font-semibold rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary md:p-0 "
                 >
                   community
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="#"
-                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary md:p-0 "
+                  className="block py-2 px-3 text-gray-900 uppercase font-semibold rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary md:p-0 "
                 >
                   Support
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary md:p-0 "
+                <Link
+                  href="/contact"
+                  className="block py-2 px-3 text-gray-900 uppercase font-semibold rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary md:p-0 "
                 >
                   Contact Us
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
