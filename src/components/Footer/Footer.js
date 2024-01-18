@@ -1,10 +1,12 @@
 import React from "react";
 import logo from "../../../public/logo.png";
 import Image from "next/image";
+import Newsletter from "./Newsletter";
 
 const Footer = () => {
   return (
     <div>
+      <Newsletter/>
       <footer class="bg-[#decbcb] ">
         <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
           <div class="md:flex md:justify-between">
