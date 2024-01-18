@@ -1,4 +1,5 @@
 import AboutSection from "@/components/about/AboutSection";
+import CounterSection from "@/components/about/CounterSection";
 import SharedBanner from "@/components/banner/SharedBanner";
 import ServiceSection from "@/components/services/ServiceSection";
 
@@ -7,7 +8,8 @@ const About = () => {
         <>
             <SharedBanner bannerImg={'https://i.ibb.co/vQxmhLd/about-image.jpg'} heading={'About Us'} />
             <AboutSection />
-            <ServiceSection></ServiceSection>
+            <ServiceSection />
+            <CounterSection />
         </>
     );
 };
