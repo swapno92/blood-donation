@@ -10,4 +10,4 @@ const SharedBanner = ({bannerImg, heading}) => {
     );
 };
 
-export default SharedBanner;
+export default SharedBanner; ru
