@@ -3,11 +3,11 @@ import { BiDonateBlood, BiSolidTimer, BiSolidHappyHeartEyes  } from "react-icons
 const ServiceSection = () => {
     return (
         <>
-            <div className="container max-w-7xl mx-auto my-24">
+            <div className="container max-w-7xl mx-auto my-24 lg:px-0 md:px-10 px-5">
                 <div className="text-center">
-                    <h2 className='text-5xl font-bold mb-12'>Our Best Services</h2>
+                    <h2 className='lg:text-5xl text-4xl font-bold mb-12'>Our Best Services</h2>
                 </div>
-                <div className="grid grid-cols-3 gap-10">
+                <div className="grid lg:grid-cols-3 md:grid-cols-2 lg:gap-10 gap-5">
                     <div className="card shadow-md rounded-md">
                         <figure className="px-10 pt-10">
                             <BiDonateBlood className="text-7xl text-primary"></BiDonateBlood>

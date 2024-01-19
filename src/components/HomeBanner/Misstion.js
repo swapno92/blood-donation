@@ -3,13 +3,14 @@ import misson1 from "../../../public/missstion img/img2.jpg"
 import misson2 from "../../../public/missstion img/img3.jpg"
 import misson3 from "../../../public/missstion img/img4.jpg"
 import Image from "next/image";
+import Link from "next/link";
 
 const Misstion = () => {
   return (
     <div>
-      <div className="max-w-screen-xl mx-auto py-7 px-4 md:px-8 lg-px-12 md:py-12">
-        <div className="flex flex-col lg:flex-row  md:px-28 justify-center items-center gap-2 md:gap-12">
-          <div className="flex gap-4 ">
+      <div className="max-w-screen-xl mx-auto py-20 px-4 md:px-8 lg-px-12 md:py-24">
+        <div className="flex flex-col lg:flex-row  md:px-16 justify-center items-center gap-2 md:gap-12">
+          <div className="flex gap-4 lg:w-1/2">
             <div>
               <Image src={misson1} alt="misstion 1 image" />
               <Image
@@ -24,12 +25,11 @@ const Misstion = () => {
             </div>
           </div>
 
-          <div  className="space-y-4">
+          <div  className="space-y-4 lg:w-1/2">
             <div
-              
               className="border-2 w-1/6  border-red-700"
             ></div>
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold">
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold">
             Our Mission
             </h2>
             <p className="text-gray-500">
@@ -44,6 +44,7 @@ const Misstion = () => {
               <li> Emergency Response and Preparedness</li>
               <li> Community Building and Support</li>
             </ul>
+            <button className="btn bg-primary hover:bg-secondary px-10 text-white rounded"><Link href={'/about'}>Learn More</Link></button>
           </div>
         </div>
       </div>
