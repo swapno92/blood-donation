@@ -2,7 +2,7 @@ import React from "react";
 
 const Newsletter = () => {
   return (
-    <section className="mt-24">
+    <section className="my-5 md:my-12 lg:my-24">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="relative bg-primary py-10 px-8 md:py-16 md:px-12 aos-init">
           <div
@@ -49,13 +49,13 @@ const Newsletter = () => {
               <div className="flex flex-col sm:flex-row justify-center max-w-xs mx-auto sm:max-w-md lg:max-w-none">
                 <input
                   type="email"
-                  className="w-full appearance-none bg-primary border border-white  rounded px-4 py-3 mb-2 sm:mb-0 sm:mr-2 text-white placeholder-white "
+                  className="w-full appearance-none bg-primary border border-white  rounded px-4 py-3 mb-2 sm:mb-0 sm:mr-2 text-white placeholder-white outline-none "
                   placeholder="Your best email…"
                   aria-label="Your best email…"
                   
                 />
                 <a
-                  className="flex justify-center items-center font-semibold p-2 text-primary rounded hover:text-white bg-blue-100 hover:bg-primary hover:border hover:rounded-md"
+                  className="flex justify-center items-center font-semibold p-2 text-primary rounded hover:text-white bg-blue-100  hover:bg-primary hover:border hover:rounded-md"
                   href="#0"
                 >
                   Subscribe

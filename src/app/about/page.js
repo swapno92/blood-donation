@@ -1,3 +1,4 @@
+"use client"
 import AboutSection from "@/components/about/AboutSection";
 import CounterSection from "@/components/about/CounterSection";
 import SharedBanner from "@/components/banner/SharedBanner";
