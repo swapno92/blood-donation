@@ -45,10 +45,10 @@ const Banner = () => {
               <div className="text-center">
                 <h2 className="md:text-3xl text-[12px] font-bold mb-4">Donate Blood & Save Life</h2>
                 <p className="text-[7px] md:text-sm  mb-6">Blood has a short shelf life, so blood donations are always needed. Platelets can only <br></br>  be stored for five to seven days, and red blood cells for up to 42 days.</p>
-                <button className="bg-primary text-[8px] md:text-sm text-white hover:bg-secondary  py-2 px-4 rounded-full">
+                <button className="bg-primary text-[8px] md:text-sm text-white hover:bg-secondary md:px-6  py-2 px-4 rounded">
                   <Link href="/">Our Service</Link>
                 </button>
-                <button className="bg-white text-[8px] md:text-sm text-primary hover:text-secondary font-semibold hover:bg-slate-200 ml-3 md:ml-6 py-2 px-4 rounded-full">
+                <button className="bg-white text-[8px] md:text-sm text-primary hover:text-secondary font-semibold hover:bg-slate-200 ml-3 md:ml-6 md:px-6 py-2 px-4 rounded">
                 <Link href="/contact">Contact Us</Link>
                 </button>
               </div>
