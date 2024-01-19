@@ -6,9 +6,9 @@ import {FaHandsHelping , FaRegSmileBeam ,FaUsers , FaAward } from "react-icons/f
 const CounterSection = () => {
     return (
         <>
-            <div className='text-center' style={{backgroundImage: `url('https://i.ibb.co/VtVQScb/counter-bg.webp')`}}>
-                <div className='container max-w-7xl mx-auto py-24'>
-                    <div className='grid grid-cols-4 gap-10'>
+            <div className='text-center bg-cover bg-no-repeat' style={{backgroundImage: `url('https://i.ibb.co/VtVQScb/counter-bg.webp')`}}>
+                <div className='container max-w-7xl mx-auto py-24 lg:px-0 md:px-10 px-5'>
+                    <div className='grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 md:gap-10 gap-5'>
                         <div className="card bg-base-100 shadow-md rounded">
                             <figure className="px-10 pt-10">
                                 <FaHandsHelping className="text-6xl"></FaHandsHelping>
