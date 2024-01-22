@@ -86,7 +86,7 @@ const Navbar = () => {
               <li>
                 <Link
                   onClick={() => toggleMobileMenu(false)}
-                  href="/community"
+                  href="/community/posts"
                   className="block py-2 px-3 text-gray-900  md:text-sm uppercase font-semibold rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary md:p-0 "
                 >
                   community

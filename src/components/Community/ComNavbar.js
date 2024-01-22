@@ -1,6 +1,6 @@
 import React from "react";
 import { MdPostAdd } from "react-icons/md";
-import { BiShekel } from "react-icons/bi";
+import { BiDonateBlood } from "react-icons/bi";
 import { FaRoad } from "react-icons/fa6";
 import { LuUser2 } from "react-icons/lu";
 import { AiOutlineAlert } from "react-icons/ai";
@@ -16,13 +16,13 @@ const ComNavbar = () => {
         <div className="max-w-screen-md mx-auto ">
           <ul className="flex gap-5 text-gray-500">
             <li >
-              <Link href='/community' className="flex items-center gap-2 border-r-2 pr-4 ">
+              <Link href='/community/posts' className="flex items-center gap-2 border-r-2 pr-4 ">
               <MdPostAdd className="text-2xl" /> All Posts
               </Link>
             </li>
             <li >
               <Link href='/community/ourmission' className="flex items-center gap-2 border-r-2 pr-4 ">
-              <BiShekel className="text-2xl" /> Our Mission
+              <BiDonateBlood className="text-2xl" /> Campaign
               </Link>
             </li>
             <li >
@@ -45,7 +45,7 @@ const ComNavbar = () => {
           />
           <input
             type="search"
-            className=" border w-full px-4 py-2 rounded-2xl outline-primary shadow-ms ml-5 "
+            className=" border w-full px-4 py-2 rounded-2xl outline-[#fcd5d5] shadow-ms ml-5 "
             placeholder="Share & Ask Something to everyone?"
           />
         </div>
