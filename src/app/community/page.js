@@ -4,7 +4,7 @@ import React from 'react';
 const Community = () => {
     return (
         <div >
-           <ComNavbar></ComNavbar>
+         
         </div>
     );
 };
