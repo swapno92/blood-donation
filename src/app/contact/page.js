@@ -1,3 +1,4 @@
+import Newsletter from "@/components/Footer/Newsletter";
 import SharedBanner from "@/components/banner/SharedBanner";
 
 const Contact = () => {
@@ -92,6 +93,7 @@ const Contact = () => {
             </div>
           </div>
         </section>
+        <Newsletter/>
       </div>
     );
 };
