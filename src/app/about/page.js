@@ -1,4 +1,5 @@
 "use client"
+import Newsletter from "@/components/Footer/Newsletter";
 import AboutSection from "@/components/about/AboutSection";
 import CounterSection from "@/components/about/CounterSection";
 import SharedBanner from "@/components/banner/SharedBanner";
@@ -11,6 +12,7 @@ const About = () => {
             <AboutSection />
             <ServiceSection />
             <CounterSection />
+            <Newsletter/>
         </>
     );
 };
