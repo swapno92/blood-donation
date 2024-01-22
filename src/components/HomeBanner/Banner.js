@@ -43,8 +43,8 @@ const Banner = () => {
             <div className="absolute inset-0 bg-black opacity-60"></div>
             <div className="absolute inset-0 flex flex-col justify-center items-center text-white">
               <div className="text-center">
-                <h2 className="md:text-3xl text-[12px] font-bold mb-4">Donate Blood & Save Life</h2>
-                <p className="text-[7px] md:text-sm  mb-6">Blood has a short shelf life, so blood donations are always needed. Platelets can only <br></br>  be stored for five to seven days, and red blood cells for up to 42 days.</p>
+                <h2 className="md:text-3xl lg:text-5xl text-base font-bold mb-4">Donate Blood & Save Life</h2>
+                <p className="text-[7px] md:text-sm lg:text-base  mb-6">Blood has a short shelf life, so blood donations are always needed. Platelets can only <br></br>  be stored for five to seven days, and red blood cells for up to 42 days.</p>
                 <button className="bg-primary text-[8px] md:text-sm text-white hover:bg-secondary md:px-6  py-2 px-4 rounded">
                   <Link href="/">Our Service</Link>
                 </button>
@@ -67,8 +67,8 @@ const Banner = () => {
             <div className="absolute inset-0 bg-black opacity-60"></div>
             <div className="absolute inset-0 flex flex-col justify-center items-center text-white">
               <div className="text-center">
-                <h2 className="md:text-3xl text-[12px] font-bold mb-4">Donate Blood & Save Life</h2>
-                <p className="text-[7px] md:text-sm  mb-6">Blood has a short shelf life, so blood donations are always needed. Platelets can only <br></br>  be stored for five to seven days, and red blood cells for up to 42 days.</p>
+                <h2 className="md:text-3xl lg:text-5xl text-base font-bold mb-4">Donate Blood & Save Life</h2>
+                <p className="text-[7px] md:text-sm lg:text-base  mb-6">Blood has a short shelf life, so blood donations are always needed. Platelets can only <br></br>  be stored for five to seven days, and red blood cells for up to 42 days.</p>
                 <button className="bg-primary text-[8px] md:text-sm text-white hover:bg-secondary  py-2 px-4 rounded-full">
                   <Link href="/">Our Service</Link>
                 </button>
@@ -91,8 +91,8 @@ const Banner = () => {
             <div className="absolute inset-0 bg-black opacity-60"></div>
             <div className="absolute inset-0 flex flex-col justify-center items-center text-white">
               <div className="text-center">
-                <h2 className="md:text-3xl text-[12px] font-bold mb-4">Donate Blood & Save Life</h2>
-                <p className="text-[7px] md:text-sm  mb-6">Blood has a short shelf life, so blood donations are always needed. Platelets can only <br></br>  be stored for five to seven days, and red blood cells for up to 42 days.</p>
+                <h2 className="md:text-3xl lg:text-5xl text-base font-bold mb-4">Donate Blood & Save Life</h2>
+                <p className="text-[7px] md:text-sm lg:text-base  mb-6">Blood has a short shelf life, so blood donations are always needed. Platelets can only <br></br>  be stored for five to seven days, and red blood cells for up to 42 days.</p>
                 <button className="bg-primary text-[8px] md:text-sm text-white hover:bg-secondary  py-2 px-4 rounded-full">
                   <Link href="/">Our Service</Link>
                 </button>
