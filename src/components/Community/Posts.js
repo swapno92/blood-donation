@@ -28,7 +28,7 @@ const Posts = () => {
               typesetting, remaining essentially unchanged. It was popularised
               in the 1960s with the release of Letraset sheets containing Lorem
               Ipsum passages, and more recently with desktop publishing software
-              like Aldus PageMaker including ve
+    
             </p>
             <Image
               className="mt-4 rounded-lg w-full h-64 object-cover object-center"
