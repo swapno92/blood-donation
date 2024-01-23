@@ -7,7 +7,6 @@ import { FaFacebook, FaTwitter, FaInstagram, FaYoutube  } from "react-icons/fa";
 const Footer = () => {
   return (
     <div> 
-      <Newsletter/>
       <footer className="bg-[#e9e9e9] ">
         <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
           <div className="md:flex md:justify-between py-10">
