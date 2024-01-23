@@ -36,8 +36,8 @@ const Registration = () => {
                             </Link>
                             <div className=' pb-0'>
                                 <p className='italic text-sm'>Save A Life</p>
-                                <h2 className='text-4xl font-semibold my-3'>SignIn to <span className='text-primary'>DropSync</span></h2>
-                                <p className='text-sm'>Already A Member? <Link href={'/login'} className='text-blue-500 hover:text-primary font-semibold'>Sign In Now</Link></p>
+                                <h2 className='text-4xl font-semibold my-3'>Sign Up to <span className='text-primary'>DropSync</span></h2>
+                                <p className='text-sm'>Already A Donor? <Link href={'/login'} className='text-blue-500 hover:text-primary font-semibold'>Sign In Now</Link></p>
                                 <div className='divider'></div>
                             </div>
                            

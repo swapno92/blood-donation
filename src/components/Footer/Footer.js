@@ -8,54 +8,54 @@ const Footer = () => {
   return (
     <div> 
       <Newsletter/>
-      <footer class="bg-[#e9e9e9] ">
-        <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
-          <div class="md:flex md:justify-between py-10">
-            <div class="mb-6 md:mb-0">
-              <a href="https://flowbite.com/" class="flex items-center">
-                <Image src={logo} class="" alt="FlowBite Logo" />
+      <footer className="bg-[#e9e9e9] ">
+        <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+          <div className="md:flex md:justify-between py-10">
+            <div className="mb-6 md:mb-0">
+              <a href="https://flowbite.com/" className="flex items-center">
+                <Image src={logo} className="" alt="FlowBite Logo" />
               </a>
             </div>
-            <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+            <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
               <div>
-                <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase ">
+                <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase ">
                   Resources
                 </h2>
-                <ul class="text-gray-500 md:space-y-3 space-y-1">
-                  <li class="">
-                    <a href="https://flowbite.com/" class="hover:underline">
+                <ul className="text-gray-500 md:space-y-3 space-y-1">
+                  <li className="">
+                    <a href="https://flowbite.com/" className="hover:underline">
                       About Us
                     </a>
                   </li>
                   <li>
-                    <a href="https://tailwindcss.com/" class="hover:underline">
+                    <a href="https://tailwindcss.com/" className="hover:underline">
                       Contact Us
                     </a>
                   </li>
                   <li>
-                    <a href="https://tailwindcss.com/" class="hover:underline">
+                    <a href="https://tailwindcss.com/" className="hover:underline">
                       Community
                     </a>
                   </li>
                 </ul>
               </div>
               <div>
-                <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase ">
+                <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase ">
                   Follow Us On
                 </h2>
-                <ul class="text-gray-500 md:space-y-3 space-y-1">
-                  <li class="">
+                <ul className="text-gray-500 md:space-y-3 space-y-1">
+                  <li className="">
                     <a
                       href="#"
-                      class="hover:underline "
+                      className="hover:underline "
                     >
                       Facebook
                     </a>
                   </li>
-                  <li class="">
+                  <li className="">
                     <a
                       href="#"
-                      class="hover:underline "
+                      className="hover:underline "
                     >
                       Twitter
                     </a>
@@ -63,7 +63,7 @@ const Footer = () => {
                   <li>
                     <a
                       href="https://discord.gg/4eeurUVvTy"
-                      class="hover:underline"
+                      className="hover:underline"
                     >
                       Instagram
                     </a>
@@ -71,17 +71,17 @@ const Footer = () => {
                 </ul>
               </div>
               <div>
-                <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase ">
+                <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase ">
                   Legal
                 </h2>
-                <ul class="text-gray-500 ">
-                  <li class="mb-4">
-                    <a href="#" class="hover:underline">
+                <ul className="text-gray-500 ">
+                  <li className="mb-4">
+                    <a href="#" className="hover:underline">
                       Privacy Policy
                     </a>
                   </li>
                   <li>
-                    <a href="#" class="hover:underline">
+                    <a href="#" className="hover:underline">
                       Terms &amp; Conditions
                     </a>
                   </li>
@@ -89,24 +89,24 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <hr class="my-6 border-gray-200 sm:mx-auto " />
-          <div class="sm:flex sm:items-center sm:justify-between border-t-[1px] border-gray-300 pt-3">
-            <span class="text-sm text-gray-600 sm:text-center ">
+          <hr className="my-6 border-gray-200 sm:mx-auto " />
+          <div className="sm:flex sm:items-center sm:justify-between border-t-[1px] border-gray-300 pt-3">
+            <span className="text-sm text-gray-600 sm:text-center ">
               © 2023{" "}
               
               . All Right Binary_Averages
             </span>
-            <div class="flex mt-4 sm:justify-center gap-3 sm:mt-0">
-              <a href="#" class="text-gray-600 hover:text-primary">
+            <div className="flex mt-4 sm:justify-center gap-3 sm:mt-0">
+              <a href="#" className="text-gray-600 hover:text-primary">
                 <FaFacebook className="text-xl" />
               </a>
-              <a href="#" class="text-gray-600 hover:text-primary">
+              <a href="#" className="text-gray-600 hover:text-primary">
                 <FaTwitter className="text-xl" />
               </a>
-              <a href="#" class="text-gray-600 hover:text-primary">
+              <a href="#" className="text-gray-600 hover:text-primary">
                 <FaInstagram className="text-xl" />
               </a>
-              <a href="#" class="text-gray-600 hover:text-primary">
+              <a href="#" className="text-gray-600 hover:text-primary">
                 <FaYoutube className="text-xl" />
               </a>
             </div>

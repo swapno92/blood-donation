@@ -41,7 +41,7 @@ const Login = () => {
                             <div className=' pb-0'>
                                 <p className='italic text-sm'>Save A Life</p>
                                 <h2 className='text-4xl font-semibold my-3'>SignIn to <span className='text-primary'>DropSync</span></h2>
-                                <p className='text-sm'>Not A Member? <Link href={'/registration'} className='text-blue-500 hover:text-primary font-semibold'>Sign Up Now</Link></p>
+                                <p className='text-sm'>Not A Life Saver? <Link href={'/registration'} className='text-blue-500 hover:text-primary font-semibold'>Sign Up Now</Link></p>
                                 <div className='divider'></div>
                             </div>
                            
