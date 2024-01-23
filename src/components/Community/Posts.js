@@ -3,9 +3,16 @@ import React, { useState } from "react";
 import img1 from "../../../public/Banner img/img1.jpg";
 import img2 from "../../../public/Banner img/img2.jpg";
 import userimg from "../../../public/images/profile-circle-icon.png";
+import { LuUser2 } from "react-icons/lu";
+import { AiOutlineAlert } from "react-icons/ai";
+import profileIcon from "../../../public/images/profile-circle-icon.png";
+import galleryIcon from "../../../public/images/gallery-icon.png";
 import { AiFillLike, AiFillDislike } from "react-icons/ai";
+import { MdBloodtype, MdOutlineBloodtype } from "react-icons/md";
+
 import { FaRegComment } from "react-icons/fa";
 import Image from "next/image";
+import { MdPostAdd } from "react-icons/md";
 
 const Posts = () => {
   const [likes, setLikes] = useState(16);
@@ -22,8 +29,60 @@ const Posts = () => {
 
   return (
     <div>
-      <div className=" mx-auto bg-white rounded-xl overflow-hidden px-4 ">
-        <div className="md:flex">
+      <div className="max-w-screen-md mx-auto mt-5 py-7  border px-9 rounded-xl bg-gray-50  shadow text-gray-500">
+        <div className="flex items-center  ">
+          <Image
+            className=" object-cover w-10 "
+            src={profileIcon}
+            alt="Banner 2"
+            width={1200}
+            height={500}
+          />
+          <input
+            type="search"
+            className=" border w-full px-4 py-2 rounded-2xl outline-[#fcd5d5] shadow-ms ml-5 "
+            placeholder="Share & Ask Something to everyone?"
+          />
+        </div>
+
+        <div className="flex items-center justify-between mt-5 mx-3 ">
+          <div className="flex items-center gap-2  cursor-pointer">
+            <Image
+              className=" object-cover w-7  "
+              src={galleryIcon}
+              alt="Banner 2"
+              width={1200}
+              height={500}
+            />
+            <h3> Photo</h3>
+          </div>
+          <div>
+            <button className="btn rounded-lg bg-primary text-white hover:bg-secondary  px-4    ">
+              Share 
+            </button>
+          </div>
+        </div>
+      </div>
+      <div className="max-w-screen-md mx-auto my-4">
+        <div>
+          <ul className="flex gap-6 text-gray-500">
+            <li className="flex items-center gap-2 border-r-2 pr-4 border rounded-md py-2 px-3 ">
+              <MdPostAdd className="text-2xl" /> All Posts
+            </li>
+            <li className="flex items-center gap-2 border-r-2 pr-4 border rounded-md py-2 px-3 ">
+              <LuUser2 className="text-2xl" /> My Post
+            </li>
+            <li className="flex items-center gap-2 border-r-2 pr-4 border rounded-md py-2 px-3 ">
+              <AiOutlineAlert className="text-2xl" /> Emergency
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      {/* ---------post card------------- */}
+      <div className="max-w-screen-md mx-auto border-2 py-8 px-8 bg-gray-100 rounded-md shadow    overflow-hidden  ">
+        {/* -----1------ */}
+        <div className="md:flex bg-white rounded-xl overflow-hidden px-4 my-3">
           <div className="p-8">
             <div className="flex items-center gap-2">
               <Image
@@ -53,14 +112,14 @@ const Posts = () => {
             <div className="flex items-center gap-4 mt-4 ">
               <button
                 onClick={handleLike}
-                className="flex px-4 py-2 bg-primary text-white rounded-full cursor-pointer"
+                className="flex px-4 py-2 bg-gray-100 text-primary rounded-full cursor-pointer"
               >
                 {isLiked ? (
-                  <AiFillDislike className="text-white text-xl text-center" />
+                  <MdBloodtype  className="text-primary text-2xl text-center" />
                 ) : (
-                  <AiFillLike className="text-white text-xl text-center" />
+                  <MdOutlineBloodtype  className="text-primary text-2xl text-center" />
                 )}
-                <span className="text-white ml-2">{likes}</span>
+                <span className="text-primary ml-2 delay-150">{likes}</span>
               </button>
               <button className="bg-gray-500 text-white px-4 py-2 rounded-full flex items-center  gap-2">
                 <FaRegComment className="text-xl" />
@@ -69,8 +128,7 @@ const Posts = () => {
             </div>
           </div>
         </div>
-      </div>
-      {/* -------2--------- */}
+        {/* -------2--------- */}
       <div className=" mx-auto bg-white rounded-xl overflow-hidden px-4 my-3">
         <div className="md:flex">
           <div className="p-8">
@@ -101,16 +159,16 @@ const Posts = () => {
               alt="Card"
             />
             <div className="flex items-center gap-4 mt-4 ">
-              <button
+            <button
                 onClick={handleLike}
-                className="flex px-4 py-2 bg-primary text-white rounded-full cursor-pointer"
+                className="flex px-4 py-2 bg-gray-100 text-primary rounded-full cursor-pointer"
               >
                 {isLiked ? (
-                  <AiFillDislike className="text-white text-xl text-center" />
+                  <MdBloodtype  className="text-primary text-2xl text-center" />
                 ) : (
-                  <AiFillLike className="text-white text-xl text-center" />
+                  <MdOutlineBloodtype  className="text-primary text-2xl text-center" />
                 )}
-                <span className="text-white ml-2">{likes}</span>
+                <span className="text-primary ml-2 delay-150">{likes}</span>
               </button>
               <button className="bg-gray-500 text-white px-4 py-2 rounded-full flex items-center  gap-2">
                 <FaRegComment className="text-xl" />
@@ -151,16 +209,16 @@ const Posts = () => {
               alt="Card"
             />
             <div className="flex items-center gap-4 mt-4 ">
-              <button
+            <button
                 onClick={handleLike}
-                className="flex px-4 py-2 bg-primary text-white rounded-full cursor-pointer"
+                className="flex px-4 py-2 bg-gray-100 text-primary rounded-full cursor-pointer"
               >
                 {isLiked ? (
-                  <AiFillDislike className="text-white text-xl text-center" />
+                  <MdBloodtype  className="text-primary text-2xl text-center" />
                 ) : (
-                  <AiFillLike className="text-white text-xl text-center" />
+                  <MdOutlineBloodtype  className="text-primary text-2xl text-center" />
                 )}
-                <span className="text-white ml-2">{likes}</span>
+                <span className="text-primary ml-2 delay-150">{likes}</span>
               </button>
               <button className="bg-gray-500 text-white px-4 py-2 rounded-full flex items-center  gap-2">
                 <FaRegComment className="text-xl" />
@@ -201,16 +259,16 @@ const Posts = () => {
               alt="Card"
             />
             <div className="flex items-center gap-4 mt-4 ">
-              <button
+            <button
                 onClick={handleLike}
-                className="flex px-4 py-2 bg-primary text-white rounded-full cursor-pointer"
+                className="flex px-4 py-2 bg-gray-100 text-primary rounded-full cursor-pointer"
               >
                 {isLiked ? (
-                  <AiFillDislike className="text-white text-xl text-center" />
+                  <MdBloodtype  className="text-primary text-2xl text-center" />
                 ) : (
-                  <AiFillLike className="text-white text-xl text-center" />
+                  <MdOutlineBloodtype  className="text-primary text-2xl text-center" />
                 )}
-                <span className="text-white ml-2">{likes}</span>
+                <span className="text-primary ml-2 delay-150">{likes}</span>
               </button>
               <button className="bg-gray-500 text-white px-4 py-2 rounded-full flex items-center  gap-2">
                 <FaRegComment className="text-xl" />
@@ -251,16 +309,16 @@ const Posts = () => {
               alt="Card"
             />
             <div className="flex items-center gap-4 mt-4 ">
-              <button
+            <button
                 onClick={handleLike}
-                className="flex px-4 py-2 bg-primary text-white rounded-full cursor-pointer"
+                className="flex px-4 py-2 bg-gray-100 text-primary rounded-full cursor-pointer"
               >
                 {isLiked ? (
-                  <AiFillDislike className="text-white text-xl text-center" />
+                  <MdBloodtype  className="text-primary text-2xl text-center" />
                 ) : (
-                  <AiFillLike className="text-white text-xl text-center" />
+                  <MdOutlineBloodtype  className="text-primary text-2xl text-center" />
                 )}
-                <span className="text-white ml-2">{likes}</span>
+                <span className="text-primary ml-2 delay-150">{likes}</span>
               </button>
               <button className="bg-gray-500 text-white px-4 py-2 rounded-full flex items-center  gap-2">
                 <FaRegComment className="text-xl" />
@@ -270,6 +328,8 @@ const Posts = () => {
           </div>
         </div>
       </div>
+      </div>
+      
     </div>
   );
 };
