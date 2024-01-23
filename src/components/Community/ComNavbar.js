@@ -6,6 +6,7 @@ import { LuUser2 } from "react-icons/lu";
 import { AiOutlineAlert } from "react-icons/ai";
 import profileIcon from "../../../public/images/profile-circle-icon.png";
 import galleryIcon from "../../../public/images/gallery-icon.png";
+import { RiDashboardLine } from "react-icons/ri";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -26,8 +27,13 @@ const ComNavbar = () => {
               </Link>
             </li>
             <li >
-              <Link href='/community' className="flex items-center gap-2 border-r-2 pr-4 ">
+              <Link href='/community/roadmap' className="flex items-center gap-2 border-r-2 pr-4 ">
               <FaRoad className="text-2xl" /> Roadmap
+              </Link>
+            </li>
+            <li >
+              <Link href='/community' className="flex items-center gap-2  pr-4 ">
+              <RiDashboardLine className="text-2xl" /> Dashboard
               </Link>
             </li>
             
