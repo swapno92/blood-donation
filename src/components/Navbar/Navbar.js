@@ -27,12 +27,14 @@ const Navbar = () => {
             />
           </Link>
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+            <Link href='/login'> 
             <button
               type="button"
               className="text-white bg-primary font-medium  rounded-md md:text-sm text-[13px] md:px-4  px-2 py-2 text-center  "
             >
               Sign In
             </button>
+            </Link>
             <button
               type="button"
               onClick={toggleMobileMenu}
@@ -86,7 +88,7 @@ const Navbar = () => {
               <li>
                 <Link
                   onClick={() => toggleMobileMenu(false)}
-                  href="/"
+                  href="/community/posts"
                   className="block py-2 px-3 text-gray-900  md:text-sm uppercase font-semibold rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary md:p-0 "
                 >
                   community
@@ -121,9 +123,3 @@ const Navbar = () => {
 export default Navbar;
 
 
-
-/* 
-className={({ isActive, isPending }) =>
-                                isPending ? "pending" : isActive ? "text-[#FF444A] underline font-semibold" : ""
-                            }
- */

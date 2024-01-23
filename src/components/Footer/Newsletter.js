@@ -24,8 +24,8 @@ const Newsletter = () => {
                   y2="-199.798"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#fff" stop-opacity=".01"></stop>
-                  <stop offset="1" stop-color="#fff" stop-opacity=".24"></stop>
+                  <stop stopColor="#fff" stopOpacity=".01"></stop>
+                  <stop offset="1" stopColor="#fff" stopOpacity=".24"></stop>
                 </linearGradient>
               </defs>
               <path
