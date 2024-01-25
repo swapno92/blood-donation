@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-.line{
+.line {
     border: 1px solid red;
+}
+
+.card-shadow {
+    box-shadow: 15px 15px 24px 0px rgba(195, 65, 76, 0.03)
+}
+
+.hover-icon {
+    transition: 0.3s;
+}
+
+.hover-icon:hover {
+    transform: translateY(-8px);
 }
