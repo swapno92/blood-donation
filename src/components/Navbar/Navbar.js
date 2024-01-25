@@ -1,11 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Image from "next/image";
 import logo from "../../../public/logo.png";
+import { AuthContext } from "../provider/AuthProvider";
 
 const Navbar = () => {
+  const {user} = useContext(AuthContext)
+  console.log(' user:' , user);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
@@ -29,8 +32,7 @@ const Navbar = () => {
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
             <Link href='/login'> 
             <button
-              type="button"
-              className="text-white bg-primary font-medium  rounded-md md:text-sm text-[13px] md:px-4  px-2 py-2 text-center  "
+              className="btn text-white bg-primary hover:bg-secondary font-medium rounded-sm md:text-sm text-[13px] md:px-10  px-2 py-2 text-center  "
             >
               Sign In
             </button>
