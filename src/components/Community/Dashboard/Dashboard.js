@@ -11,8 +11,8 @@ import Link from 'next/link';
 const Dashboard = () => {
   const menus = [
     { name: "Home", link: "/", icon: MdOutlineDashboard },
-    { name: "Donner List", link: "/", icon: AiOutlineUser },
-    { name: "Available Donner", link: "/", icon: FiMessageSquare },
+    { name: "Donner List", link: "/community/dasboardlayout/donner-list", icon: AiOutlineUser },
+    { name: "Available Donner", link: "/community/dasboardlayout/available-dooner", icon: FiMessageSquare },
     { name: "Requsted", link: "/", icon: TbReportAnalytics, margin: true },
     // { name: "File Manager", link: "/", icon: FiFolder },
     // { name: "Cart", link: "/", icon: FiShoppingCart },
@@ -67,7 +67,7 @@ const Dashboard = () => {
         </div>
       </div>
       <div className="m-3 text-xl text-gray-900 font-semibold">
-        Dashboard
+      
       </div>
     </section>
   );

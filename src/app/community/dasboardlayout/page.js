@@ -1,10 +1,11 @@
-import Dashboard from '@/components/Community/Dashboard/Dashboard';
 import React from 'react';
+import Dashboard from '@/components/Community/Dashboard/Dashboard';
 
 const page = () => {
     return (
         <div className=' mx-auto '>
-            <Dashboard/>
+           
+          
         </div>
     );
 };

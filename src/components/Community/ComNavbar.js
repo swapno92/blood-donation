@@ -24,7 +24,7 @@ const ComNavbar = () => {
               </Link>
             </li>
             <li >
-              <Link href='/community/dasboard' className="flex items-center gap-2  pr-4 ">
+              <Link href='/community/dasboardlayout' className="flex items-center gap-2  pr-4 ">
               <RiDashboardLine className="text-2xl" /> Dashboard
               </Link>
             </li>
