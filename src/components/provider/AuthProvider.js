@@ -1,9 +1,11 @@
 'use client'
 import { createContext, useEffect, useState } from 'react';
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { FacebookAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
 import { auth } from '../firebase/firebase.config';
 
 export const AuthContext = createContext(null)
+const googleProvider = new GoogleAuthProvider()
+const facebookProvider = new FacebookAuthProvider()
 
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState();
@@ -13,6 +15,12 @@ const AuthProvider = ({children}) => {
     }
     const login = (email, password) =>{
         return signInWithEmailAndPassword(auth, email, password)
+    }
+    const googleSignIn = () =>{
+        return signInWithPopup(auth, googleProvider)
+    }
+    const facebookSignIn = () =>{
+        return signInWithPopup(auth, facebookProvider)
     }
     const logOut = () =>{
         return signOut(auth)
@@ -25,7 +33,7 @@ const AuthProvider = ({children}) => {
         return unSubscribe;
     },[])
 
-    const authInfo = {user, createUser, login, logOut}
+    const authInfo = {user, createUser, login, logOut, googleSignIn, facebookSignIn}
 
     return (
         <AuthContext.Provider value={authInfo}>
