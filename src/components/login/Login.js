@@ -8,11 +8,12 @@ import { FaEye, FaEyeSlash, FaFacebook } from "react-icons/fa";
 import { SiGmail  } from "react-icons/si";
 import { useContext, useState } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
+import toast from 'react-hot-toast';
 
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false)
-    const {login} = useContext(AuthContext)
+    const {login, googleSignIn, facebookSignIn} = useContext(AuthContext)
 
     const {
         register,
@@ -23,30 +24,30 @@ const Login = () => {
       const onSubmit = (data) => {
         login(data.email, data.password)
         .then(result =>{
-            console.log(result.user)
+            toast.success('Logged In Successful!')
         })
         .catch(error=>{
-            console.log(error)
+            toast.error('Logged In Failed!')
         })
     }
 
     const handleGoogleSignIn = () =>{
         googleSignIn()
         .then(result =>{
-            console.log(result.user)
+            toast.success('Logged In Successful with Google!')
         })
         .catch(error=>{
-            console.log(error)
+            toast.error('Logged In Failed with Google!')
         })
     }
 
     const handleFacebookSignIn = () =>{
         facebookSignIn()
         .then(result=>{
-            console.log(result.user)
+            toast.success('Logged In Successful with Facebook!')
         })
         .catch(error=>{
-            console.log(error)
+            toast.error('Logged In Failed with Facebook!')
         })
     }
     
