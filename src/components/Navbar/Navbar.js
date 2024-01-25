@@ -7,13 +7,19 @@ import logo from "../../../public/logo.png";
 import { AuthContext } from "../provider/AuthProvider";
 
 const Navbar = () => {
-  const {user} = useContext(AuthContext)
-  console.log(' user:' , user);
+  const {user, logOut} = useContext(AuthContext)
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
   };
+
+  const handleSignOut = () =>{
+    logOut()
+    .then(()=>{
+      console.log('logged Out')
+    })
+  }
 
   return (
     <div className="">
@@ -30,13 +36,27 @@ const Navbar = () => {
             />
           </Link>
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-            <Link href='/login'> 
-            <button
-              className="btn text-white bg-primary hover:bg-secondary font-medium rounded-sm md:text-sm text-[13px] md:px-10  px-2 py-2 text-center  "
-            >
-              Sign In
-            </button>
-            </Link>
+            {
+              user? <>
+                <button
+                  onClick={handleSignOut}
+                  className="btn text-white bg-primary hover:bg-secondary font-medium rounded-sm md:text-sm text-[13px] md:px-10  px-2 py-2 text-center"
+                >
+                  Sign Out
+                </button>
+              </> : 
+              <>
+              
+              <Link href='/login'> 
+                <button
+                  className="btn text-white bg-primary hover:bg-secondary font-medium rounded-sm md:text-sm text-[13px] md:px-10  px-2 py-2 text-center"
+                >
+                  Sign In
+                </button>
+              </Link>
+              
+              </>
+            }
             <button
               type="button"
               onClick={toggleMobileMenu}
