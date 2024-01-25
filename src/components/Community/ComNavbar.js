@@ -24,12 +24,7 @@ const ComNavbar = () => {
               </Link>
             </li>
             <li >
-              <Link href='/community/roadmap' className="flex items-center gap-2 border-r-2 pr-4 ">
-              <FaRoad className="text-2xl" /> Roadmap
-              </Link>
-            </li>
-            <li >
-              <Link href='/community' className="flex items-center gap-2  pr-4 ">
+              <Link href='/community/dasboard' className="flex items-center gap-2  pr-4 ">
               <RiDashboardLine className="text-2xl" /> Dashboard
               </Link>
             </li>
