@@ -13,6 +13,7 @@ import { MdBloodtype, MdOutlineBloodtype } from "react-icons/md";
 import { FaRegComment } from "react-icons/fa";
 import Image from "next/image";
 import { MdPostAdd } from "react-icons/md";
+import Link from "next/link";
 
 const Posts = () => {
   const [likes, setLikes] = useState(16);
@@ -65,16 +66,23 @@ const Posts = () => {
       </div>
       <div className="max-w-screen-md mx-auto my-4">
         <div>
-          <ul className="flex gap-6 text-gray-500">
-            <li className="flex items-center gap-2 border-r-2 pr-4 border rounded-md py-2 px-3 ">
-              <MdPostAdd className="text-2xl" /> All Posts
+          <ul className="flex justify-center  md:items-center lg:justify-start gap-6  text-gray-500">
+          <li >
+              <Link href='/community/posts ' className="hover:bg-primary py-2 px-2 hover:text-white duration-500 rounded-sm flex items-center gap-2 border md:pr-4  text-[11px] pr-1 ">
+              <MdPostAdd className="md:text-2xl text-[15px] " /> All Posts
+              </Link>
             </li>
-            <li className="flex items-center gap-2 border-r-2 pr-4 border rounded-md py-2 px-3 ">
-              <LuUser2 className="text-2xl" /> My Post
+          <li >
+              <Link href='/community/posts' className="hover:bg-primary py-2 px-2 hover:text-white duration-500 rounded-sm flex items-center gap-2 border md:pr-4  text-[11px] pr-1  ">
+              <LuUser2 className="md:text-2xl text-[15px]" />  My Post
+              </Link>
             </li>
-            <li className="flex items-center gap-2 border-r-2 pr-4 border rounded-md py-2 px-3 ">
-              <AiOutlineAlert className="text-2xl" /> Emergency
+          <li >
+              <Link href='/community/posts' className="hover:bg-primary py-2 px-2 hover:text-white duration-500 rounded-sm flex items-center gap-2 border md:pr-4  text-[11px] pr-1 ">
+              <AiOutlineAlert className="md:text-2xl text-[15px]" /> Emergency
+              </Link>
             </li>
+           
           </ul>
         </div>
       </div>
@@ -129,7 +137,7 @@ const Posts = () => {
           </div>
         </div>
         {/* -------2--------- */}
-      <div className=" mx-auto bg-white rounded-xl overflow-hidden px-4 my-3">
+      {/* <div className=" mx-auto bg-white rounded-xl overflow-hidden px-4 my-3">
         <div className="md:flex">
           <div className="p-8">
             <div className="flex items-center gap-2">
@@ -177,9 +185,9 @@ const Posts = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       {/* -------3--------- */}
-      <div className=" mx-auto bg-white rounded-xl overflow-hidden px-4 my-3">
+      {/* <div className=" mx-auto bg-white rounded-xl overflow-hidden px-4 my-3">
         <div className="md:flex">
           <div className="p-8">
             <div className="flex items-center gap-2">
@@ -227,9 +235,9 @@ const Posts = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       {/* -------4--------- */}
-      <div className=" mx-auto bg-white rounded-xl overflow-hidden px-4 my-3">
+      {/* <div className=" mx-auto bg-white rounded-xl overflow-hidden px-4 my-3">
         <div className="md:flex">
           <div className="p-8">
             <div className="flex items-center gap-2">
@@ -277,9 +285,9 @@ const Posts = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       {/* -------5--------- */}
-      <div className=" mx-auto bg-white rounded-xl overflow-hidden px-4 my-3">
+      {/* <div className=" mx-auto bg-white rounded-xl overflow-hidden px-4 my-3">
         <div className="md:flex">
           <div className="p-8">
             <div className="flex items-center gap-2">
@@ -327,7 +335,7 @@ const Posts = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       </div>
       
     </div>
