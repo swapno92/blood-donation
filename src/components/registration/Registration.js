@@ -12,7 +12,7 @@ import { AuthContext } from '../provider/AuthProvider';
 
 const Registration = () => {
     const [showPassword, setShowPassword] = useState(false)
-    const {createUser} = useContext(AuthContext)
+    const {createUser, googleSignIn, facebookSignIn} = useContext(AuthContext)
 
     const {
         register,
@@ -26,6 +26,26 @@ const Registration = () => {
             console.log(result)
         })
         .catch(error =>{
+            console.log(error)
+        })
+    }
+
+    const handleGoogleSignIn = () =>{
+        googleSignIn()
+        .then(result =>{
+            console.log(result.user)
+        })
+        .catch(error=>{
+            console.log(error)
+        })
+    }
+
+    const handleFacebookSignIn = () =>{
+        facebookSignIn()
+        .then(result=>{
+            console.log(result.user)
+        })
+        .catch(error=>{
             console.log(error)
         })
     }
@@ -79,14 +99,14 @@ const Registration = () => {
                         </form>
                         <div className="divider divider-error">OR</div>
                         <div className='flex items-center gap-5 mt-4'>
-                            <button className='w-1/2'>
+                            <button onClick={handleFacebookSignIn} className='w-1/2'>
                                 <div className='flex items-center text-white bg-[#3b5998] justify-center p-2 gap-3'>
                                     <FaFacebook />
                                     <p>Facebook</p>
                                 </div>
                             </button>
-                            <button className='w-1/2'>
-                                <div className='flex items-center text-white bg-[#dd4b39] justify-center p-2 gap-3'>
+                            <button onClick={handleGoogleSignIn} className='w-1/2'>
+                                <div className='flex items-center text-white bg-[#dd4b39] justify-center p-2 gap-3 '>
                                     <SiGmail   />
                                     <p>Google</p>
                                 </div>  

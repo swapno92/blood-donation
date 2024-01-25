@@ -2,12 +2,12 @@ import { initializeApp } from "firebase/app";
 import {getAuth} from 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDmxTO1ltzA_YsrTOPaXM34WNa05bq63Dg",
-  authDomain: "blood-donation-455ad.firebaseapp.com",
-  projectId: "blood-donation-455ad",
-  storageBucket: "blood-donation-455ad.appspot.com",
-  messagingSenderId: "86667388029",
-  appId: "1:86667388029:web:691cf96d889c3925a47d14"
+  apiKey: process.env.NEXT_PUBLIC_apiKey,
+  authDomain: process.env.NEXT_PUBLIC_authDomain,
+  projectId: process.env.NEXT_PUBLIC_projectId,
+  storageBucket: process.env.NEXT_PUBLIC_storageBucket,
+  messagingSenderId: process.env.NEXT_PUBLIC_messagingSenderId,
+  appId: process.env.NEXT_PUBLIC_appId
 };
 
 // Initialize Firebase
