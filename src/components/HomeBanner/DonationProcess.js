@@ -1,5 +1,3 @@
-import React from 'react';
-
 import process1 from '../../../public/images/process_1.webp'
 import process2 from '../../../public/images/process_2.webp'
 import process3 from '../../../public/images/process_3.webp'
@@ -52,8 +50,8 @@ const DonationProcess = () => {
                                 <h2 className='text-5xl font-extrabold absolute px-6 py-4 bg-primary text-white bottom-0 right-0'>4</h2>
                             </figure>
                             <div className="card-body px-0">
-                                <h2 className="card-title text-3xl hover:text-primary">DONATION</h2>
-                                <p>After ensuring and passed screening test successfully you will be directed to a donor bed for donation. It will take only 6-10 minutes.</p>
+                                <h2 className="card-title text-3xl hover:text-primary">REFRESHMENT</h2>
+                                <p>You can also stay in sitting room until you feel strong enough to leave our center. You will receive awesome drink from us in donation zone.</p>
                             </div>
                         </div>
                     </div>
