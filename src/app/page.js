@@ -6,6 +6,7 @@ import ServiceSection from "@/components/services/ServiceSection";
 import Newsletter from "@/components/Footer/Newsletter";
 import Banner2 from "@/components/HomeBanner/Banner2";
 import DonationProcess from "@/components/HomeBanner/DonationProcess";
+import Volunteers from "@/components/HomeBanner/Volunteers";
 
 
 
@@ -19,6 +20,7 @@ const Home = () => {
     <ServiceSection/>
     <Misstion></Misstion>
     <CounterSection/>
+    <Volunteers></Volunteers>
     <Newsletter></Newsletter>
     </div>
   );
