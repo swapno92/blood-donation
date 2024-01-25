@@ -6,13 +6,13 @@ import Link from 'next/link';
 import { IoArrowUndoOutline } from "react-icons/io5";
 import { FaEye, FaEyeSlash, FaFacebook } from "react-icons/fa";
 import { SiGmail  } from "react-icons/si";
-import { useState } from 'react';
-
-
+import { useContext, useState } from 'react';
+import { AuthContext } from '../provider/AuthProvider';
 
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false)
+    const {login} = useContext(AuthContext)
 
     const {
         register,
@@ -20,7 +20,15 @@ const Login = () => {
         formState: { errors },
       } = useForm()
     
-      const onSubmit = (data) => console.log(data)
+      const onSubmit = (data) => {
+        login(data.email, data.password)
+        .then(result =>{
+            console.log(result.user)
+        })
+        .catch(error=>{
+            console.log(error)
+        })
+    }
     
 
     return (
