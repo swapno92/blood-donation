@@ -56,11 +56,11 @@ const Login = () => {
         <>
             <div className='max-w-screen-lg mx-auto'>
                 <div className=" flex flex-col lg:flex-row-reverse items-center justify-between gap-5 p-5 my-10 border border-primary/20 rounded-xl">
-                    <div className="w-1/2 lg:text-left">
+                    <div className="lg:w-1/2 w-full lg:text-left">
                         <Lottie animationData={Heart} />
                     </div>
 
-                    <div className="w-1/2 card shrink-0 bg-base-100 p-10">
+                    <div className="lg:w-1/2 w-full card shrink-0 bg-base-100 p-10">
                             <Link href={'/'} className='mb-5'>
                                 <div className='flex items-center gap-2 hover:text-primary text-sm'>
                                     <IoArrowUndoOutline />

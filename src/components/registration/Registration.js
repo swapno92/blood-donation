@@ -57,7 +57,7 @@ const Registration = () => {
               
                 
                 <div className=" flex flex-col lg:flex-row items-center justify-between gap-5 p-5 my-10 border border-primary/20 rounded-xl">
-                    <div className="w-1/2 lg:text-left -mt-12">
+                    <div className="lg:w-1/2 w-full lg:text-left -mt-12">
                         <Link href={'/'} >
                             <div className='flex items-center gap-2 hover:text-primary text-sm'>
                                 <IoArrowUndoOutline />
@@ -67,7 +67,7 @@ const Registration = () => {
                         <Lottie animationData={Heart} />
                     </div>
 
-                    <div className="w-1/2 card shrink-0 bg-base-100 p-10">
+                    <div className="lg:w-1/2 w-full card shrink-0 bg-base-100 p-10">
                             
                             <div className=' pb-0'>
                                 <p className='italic text-sm'>Save A Life</p>
