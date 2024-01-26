@@ -1,25 +1,30 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from 'next/navigation'
 import React, { useContext, useState } from "react";
 import Image from "next/image";
 import logo from "../../../public/logo.png";
 import { AuthContext } from "../provider/AuthProvider";
 
 const Navbar = () => {
-  const {user, logOut} = useContext(AuthContext)
+  const { user, logOut } = useContext(AuthContext);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname()
+
+  const handleDropdownToggle = () => {
+    setDropdownOpen(!isDropdownOpen);
+  };
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  const handleSignOut = () =>{
-    logOut()
-    .then(()=>{
-      toast.success('Successfully Logged Out!')
-    })
-  }
+  const handleSignOut = () => {
+    logOut().then(() => {
+      toast.success("Successfully Logged Out!");
+    });
+  };
 
   return (
     <div className="">
@@ -36,27 +41,90 @@ const Navbar = () => {
             />
           </Link>
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-            {
-              user? <>
+            {user ? (
+              <div className="flex items-center">
+                <button
+                  id="dropdownUserAvatarButton"
+                  className="flex text-sm rounded-full md:me-0"
+                  type="button"
+                  onClick={handleDropdownToggle}
+                >
+                  <span class="sr-only">Open user menu</span>
+                  <Image
+                    className="w-10 rounded-full mr-4 object-cover"
+                    width={100}
+                    height={100}
+                    src={
+                      user.photoURL
+                        ? user.photoURL
+                        : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhyhj1gUUYu1c8817GfPwApJbYzW9lJdjSXQ&usqp=CAU"
+                    }
+                    alt={user.displayName}
+                  />
+                </button>
+                <div></div>
+                <div
+                  id="dropdownAvatar"
+                  class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600"
+                >
+                  <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
+                    <div>Bonnie Green</div>
+                    <div class="font-medium truncate">name@flowbite.com</div>
+                  </div>
+                  <ul
+                    class="py-2 text-sm text-gray-700 dark:text-gray-200"
+                    aria-labelledby="dropdownUserAvatarButton"
+                  >
+                    <li>
+                      <a
+                        href="#"
+                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >
+                        Dashboard
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >
+                        Settings
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >
+                        Earnings
+                      </a>
+                    </li>
+                  </ul>
+                  <div class="py-2">
+                    <a
+                      href="#"
+                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                    >
+                      Sign out
+                    </a>
+                  </div>
+                </div>
                 <button
                   onClick={handleSignOut}
                   className="btn text-white bg-primary hover:bg-secondary font-medium rounded-sm md:text-sm text-[13px] md:px-10  px-2 py-2 text-center"
                 >
                   Sign Out
                 </button>
-              </> : 
+              </div>
+            ) : (
               <>
-              
-              <Link href='/login'> 
-                <button
-                  className="btn text-white bg-primary hover:bg-secondary font-medium rounded-sm md:text-sm text-[13px] md:px-10  px-2 py-2 text-center"
-                >
-                  Sign In
-                </button>
-              </Link>
-              
+                <Link href="/login">
+                  <button className="btn text-white bg-primary hover:bg-secondary font-medium rounded-sm md:text-sm text-[13px] md:px-10  px-2 py-2 text-center">
+                    Sign In
+                  </button>
+                </Link>
               </>
-            }
+            )}
             <button
               type="button"
               onClick={toggleMobileMenu}
@@ -91,8 +159,7 @@ const Navbar = () => {
               <li>
                 <Link
                   href="/"
-                  className="block py-2 px-3 text-primary md:text-sm uppercase font-semibold   rounded md:bg-transparent md:text-rimary md:p-0 "
-                  aria-current="page"
+                  className={`link ${pathname === '/' ? 'active-link font-semibold' : 'font-semibold no-underline hover:text-primary'} `}
                 >
                   Home
                 </Link>
@@ -102,7 +169,7 @@ const Navbar = () => {
                 <Link
                   href="/about"
                   onClick={() => toggleMobileMenu(false)}
-                  className="block py-2 px-3 text-gray-900 md:text-sm uppercase font-semibold rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary md:p-0  "
+                  className={`link ${pathname === '/about' ? 'active-link font-semibold' : 'font-semibold no-underline hover:text-primary'} `}
                 >
                   About Us
                 </Link>
@@ -111,7 +178,7 @@ const Navbar = () => {
                 <Link
                   onClick={() => toggleMobileMenu(false)}
                   href="/community/posts"
-                  className="block py-2 px-3 text-gray-900  md:text-sm uppercase font-semibold rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary md:p-0 "
+                  className={`link ${pathname === '/community/posts' ? 'active-link font-semibold' : 'font-semibold no-underline hover:text-primary'} `}
                 >
                   community
                 </Link>
@@ -119,17 +186,8 @@ const Navbar = () => {
               <li>
                 <Link
                   onClick={() => toggleMobileMenu(false)}
-                  href="/"
-                  className="block py-2 px-3 text-gray-900 md:text-sm uppercase font-semibold rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary md:p-0 "
-                >
-                  Support
-                </Link>
-              </li>
-              <li>
-                <Link
-                onClick={() => toggleMobileMenu(false)}
                   href="/contact"
-                  className="block py-2 px-3 text-gray-900 md:text-sm uppercase font-semibold rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary md:p-0 "
+                  className={`link ${pathname === '/contact' ? 'active-link font-semibold' : 'font-semibold no-underline hover:text-primary'} `}
                 >
                   Contact Us
                 </Link>
@@ -143,5 +201,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-
