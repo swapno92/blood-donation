@@ -7,6 +7,7 @@ import Newsletter from "@/components/Footer/Newsletter";
 import Banner2 from "@/components/HomeBanner/Banner2";
 import DonationProcess from "@/components/HomeBanner/DonationProcess";
 import Volunteers from "@/components/HomeBanner/Volunteers";
+import Sponsors from "@/components/HomeBanner/Sponsors";
 
 
 
@@ -21,7 +22,8 @@ const Home = () => {
     <Misstion></Misstion>
     <CounterSection/>
     <Volunteers></Volunteers>
-    <Newsletter></Newsletter>
+    <Sponsors></Sponsors>
+    {/* <Newsletter></Newsletter> */}
     </div>
   );
 };

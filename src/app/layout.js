@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar/Navbar";
 // import Footer from "@/components/Footer/Footer";
 import Footer2 from "@/components/Footer/Footer2";
 import AuthProvider from "@/components/provider/AuthProvider";
+import { Toaster } from "react-hot-toast";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,12 +18,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" data-theme="light" suppressHydrationWarning={true}>
       <body className={inter.className} suppressHydrationWarning={true}>
-          <AuthProvider>
-            <Navbar></Navbar>
-            {children}
-            {/* <Footer></Footer> */}
-            <Footer2></Footer2>
-          </AuthProvider>
+        <AuthProvider>
+          <Navbar></Navbar>
+          {children}
+          {/* <Footer></Footer> */}
+          <Footer2></Footer2>
+          <Toaster />
+        </AuthProvider>
       </body>
     </html>
   );

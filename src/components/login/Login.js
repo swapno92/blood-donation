@@ -8,11 +8,12 @@ import { FaEye, FaEyeSlash, FaFacebook } from "react-icons/fa";
 import { SiGmail  } from "react-icons/si";
 import { useContext, useState } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
+import toast from 'react-hot-toast';
 
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false)
-    const {login} = useContext(AuthContext)
+    const {login, googleSignIn, facebookSignIn} = useContext(AuthContext)
 
     const {
         register,
@@ -23,10 +24,30 @@ const Login = () => {
       const onSubmit = (data) => {
         login(data.email, data.password)
         .then(result =>{
-            console.log(result.user)
+            toast.success('Logged In Successful!')
         })
         .catch(error=>{
-            console.log(error)
+            toast.error('Logged In Failed!')
+        })
+    }
+
+    const handleGoogleSignIn = () =>{
+        googleSignIn()
+        .then(result =>{
+            toast.success('Logged In Successful with Google!')
+        })
+        .catch(error=>{
+            toast.error('Logged In Failed with Google!')
+        })
+    }
+
+    const handleFacebookSignIn = () =>{
+        facebookSignIn()
+        .then(result=>{
+            toast.success('Logged In Successful with Facebook!')
+        })
+        .catch(error=>{
+            toast.error('Logged In Failed with Facebook!')
         })
     }
     
@@ -80,13 +101,13 @@ const Login = () => {
                         </form>
                         <div className="divider divider-error">OR</div>
                         <div className='flex items-center gap-5 mt-4'>
-                            <button className='w-1/2'>
+                            <button onClick={handleFacebookSignIn} className='w-1/2'>
                                 <div className='flex items-center text-white bg-[#3b5998] justify-center p-2 gap-3'>
                                     <FaFacebook />
                                     <p>Facebook</p>
                                 </div>
                             </button>
-                            <button className='w-1/2'>
+                            <button onClick={handleGoogleSignIn} className='w-1/2'>
                                 <div className='flex items-center text-white bg-[#dd4b39] justify-center p-2 gap-3'>
                                     <SiGmail   />
                                     <p>Google</p>
