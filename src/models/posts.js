@@ -2,9 +2,12 @@ import mongoose, { Schema } from "mongoose";
 
 const postsSchema = new Schema(
   {
-    photo: String,
     description: String,
-    like: Number,
+    photo: String,
+    likes: Number,
+    userName : String,
+    userPhoto : String,
+    userEmail : String
   },
   {
     timestamps: true,

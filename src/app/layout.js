@@ -12,16 +12,17 @@ export const metadata = {
   description: "Drop Sync - Blood Donation Website Created by Binary Avengers",
 };
 
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" data-theme="light" suppressHydrationWarning={true}>
       <body className={inter.className} suppressHydrationWarning={true}>
-        <AuthProvider>
-          <Navbar></Navbar>
-          {children}
-          {/* <Footer></Footer> */}
-          <Footer2></Footer2>
-        </AuthProvider>
+          <AuthProvider>
+            <Navbar></Navbar>
+            {children}
+            {/* <Footer></Footer> */}
+            <Footer2></Footer2>
+          </AuthProvider>
       </body>
     </html>
   );
