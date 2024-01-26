@@ -23,7 +23,7 @@ const Home = () => {
     <CounterSection/>
     <Volunteers></Volunteers>
     <Sponsors></Sponsors>
-    <Newsletter></Newsletter>
+    {/* <Newsletter></Newsletter> */}
     </div>
   );
 };

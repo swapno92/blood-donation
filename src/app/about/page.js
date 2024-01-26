@@ -12,7 +12,7 @@ const About = () => {
             <AboutSection />
             <ServiceSection />
             <CounterSection />
-            <Newsletter/>
+            {/* <Newsletter/> */}
         </>
     );
 };

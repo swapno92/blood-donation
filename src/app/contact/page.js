@@ -11,7 +11,7 @@ const Contact = () => {
           heading={"Contact Us"}
         />
         <ContactPage></ContactPage>
-        <Newsletter/>
+        {/* <Newsletter/> */}
       </div>
     );
 };
