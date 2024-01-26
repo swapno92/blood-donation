@@ -131,6 +131,8 @@ export default async function Home() {
             </button>
           </div>
         </div>
+      </div>
+      <div  className="max-w-screen-md mx-auto my-4">
       </form>
       <div className="max-w-screen-md mx-auto my-4">
         <div>
