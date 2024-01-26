@@ -6,6 +6,11 @@
     border: 1px solid red;
 }
 
+.active-link {
+    color: #C6414C;
+    text-decoration: none;
+}
+
 .card-shadow {
     box-shadow: 15px 15px 24px 0px rgba(195, 65, 76, 0.03)
 }
