@@ -64,7 +64,7 @@ const Posts = () => {
           </div>
         </div>
       </div>
-      <div className="max-w-screen-md mx-auto my-4">
+      <div  className="max-w-screen-md mx-auto my-4">
         <div>
           <ul className="flex justify-center  md:items-center lg:justify-start gap-6  text-gray-500">
           <li >
