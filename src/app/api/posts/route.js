@@ -1,13 +1,20 @@
 import connectMongoDB from "@/libs/mongodb";
 import Posts from "@/models/posts";
 import { NextResponse } from "next/server";
-// import connectMongoDB from "../../../../libs/mongodb";
-// import Posts from "../../../../models/posts";
+
 
 export async function POST(request) {
-  const { photo, like, description } = await request.json();
+  const { description, photo, likes, userName, userPhoto, userEmail } =
+    await request.json();
   await connectMongoDB;
-  await Posts.create({ photo, like, description });
+  await Posts.create({
+    description,
+    photo,
+    likes,
+    userName,
+    userPhoto,
+    userEmail,
+  });
   return NextResponse.json({ message: "Posts created" }, { status: 201 });
 }
 

@@ -52,19 +52,23 @@ const Registration = () => {
 
     return (
         <>
-             <div className='max-w-screen-lg mx-auto'>
-                <div className=" flex flex-col lg:flex-row-reverse items-center justify-between gap-5 p-5 my-10 border border-primary/20 rounded-xl">
-                    <div className="w-1/2 lg:text-left">
+            
+            <div className='max-w-screen-lg mx-auto'>
+              
+                
+                <div className=" flex flex-col lg:flex-row items-center justify-between gap-5 p-5 my-10 border border-primary/20 rounded-xl">
+                    <div className="w-1/2 lg:text-left -mt-12">
+                        <Link href={'/'} >
+                            <div className='flex items-center gap-2 hover:text-primary text-sm'>
+                                <IoArrowUndoOutline />
+                                <p>Back to Home</p>
+                            </div>
+                        </Link>
                         <Lottie animationData={Heart} />
                     </div>
 
                     <div className="w-1/2 card shrink-0 bg-base-100 p-10">
-                            <Link href={'/'} className='mb-5'>
-                                <div className='flex items-center gap-2 hover:text-primary text-sm'>
-                                    <IoArrowUndoOutline />
-                                    <p>Back to Home</p>
-                                </div>
-                            </Link>
+                            
                             <div className=' pb-0'>
                                 <p className='italic text-sm'>Save A Life</p>
                                 <h2 className='text-4xl font-semibold my-3'>Sign Up to <span className='text-primary'>DropSync</span></h2>

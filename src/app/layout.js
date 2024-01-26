@@ -13,6 +13,7 @@ export const metadata = {
   description: "Drop Sync - Blood Donation Website Created by Binary Avengers",
 };
 
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" data-theme="light" suppressHydrationWarning={true}>
