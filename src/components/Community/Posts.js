@@ -1,6 +1,5 @@
 "use client";
 import React, { useContext, useState } from "react";
-import img1 from "../../../public/Banner img/img1.jpg";
 // import img2 from "../../../public/Banner img/img2.jpg";
 import userimg from "../../../public/images/profile-circle-icon.png";
 import { LuUser2 } from "react-icons/lu";
@@ -8,13 +7,13 @@ import { AiOutlineAlert } from "react-icons/ai";
 import profileIcon from "../../../public/images/profile-circle-icon.png";
 import galleryIcon from "../../../public/images/gallery-icon.png";
 // import { AiFillLike, AiFillDislike } from "react-icons/ai";
-import { MdBloodtype, MdOutlineBloodtype } from "react-icons/md";
-import { FaRegComment } from "react-icons/fa";
+
 import Image from "next/image";
 import { MdPostAdd } from "react-icons/md";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { AuthContext } from "../provider/AuthProvider";
+import ThePosts from "../ThePosts/ThePosts";
 
 // const getPosts = async () => {
 //   try {
@@ -34,8 +33,9 @@ export default async function Home() {
   // const { topics } = await getPosts();
   // console.log(topics);
 
-  const [likes, setLikes] = useState(0);
-  const [isLiked, setIsLiked] = useState(false);
+  // const [likes, setLikes] = useState(0);
+  // const [isLiked, setIsLiked] = useState(false);
+  const likes = 0
   const [description, setDescription] = useState("");
   const [photo, setPhoto] = useState("");
   const router = useRouter();
@@ -44,20 +44,20 @@ export default async function Home() {
   const userPhoto = user?.photoURL;
   const userEmail = user?.email;
 
-  const handleLike = () => {
-    if (isLiked) {
-      setLikes(likes - 1);
-    } else {
-      setLikes(likes + 1);
-    }
-    setIsLiked(!isLiked);
-  };
+  // const handleLike = () => {
+  //   if (isLiked) {
+  //     setLikes(likes - 1);
+  //   } else {
+  //     setLikes(likes + 1);
+  //   }
+  //   setIsLiked(!isLiked);
+  // };
 
   // ............. post .....................
   const handleSubmit = async (e) => {
     console.log(description, photo, likes, userName, userPhoto, userEmail);
     e.preventDefault();
-    if (!description || !photo) {
+    if (!description) {
       alert("Title and description are required");
       return;
     }
@@ -156,59 +156,11 @@ export default async function Home() {
           </ul>
         </div>
       </div>
-
+{/* getTopics() */}
       {/* ---------post card------------- */}
       <div className="max-w-screen-md mx-auto border-2 py-8 px-8 bg-gray-100 rounded-md shadow    overflow-hidden  ">
         {/* -----1------ */}
-        <div className="md:flex bg-white rounded-xl overflow-hidden px-4 my-3">
-          <div className="p-8">
-            <div className="flex items-center gap-2">
-              <Image
-                className="  object-cover w-9 mt-1 "
-                src={userimg}
-                alt="User"
-              />
-              <div className="uppercase tracking-wide  text-gray-700 font-semibold">
-                Swapno Dey
-              </div>
-            </div>
-
-            <p className="mt-2 text-gray-500">
-              {" "}
-              since the 1500s, when an unknown printer took a galley of type and
-              scrambled it to make a type specimen book. It has survived not
-              only five centuries, but also the leap into electronic
-              typesetting, remaining essentially unchanged. It was popularised
-              in the 1960s with the release of Letraset sheets containing Lorem
-              Ipsum passages, and more recently with desktop publishing software
-            </p>
-            <Image
-              className="mt-4 rounded-lg w-full h-64 object-cover object-center"
-              src={img1}
-              alt="Card"
-            />
-            <div className="flex items-center gap-4 mt-4 ">
-              <button
-                onClick={handleLike}
-                className="flex px-4 py-2 bg-gray-100 text-primary rounded-full cursor-pointer"
-              >
-                {isLiked ? (
-                  <MdBloodtype className="text-primary text-2xl text-center" />
-                ) : (
-                  <MdOutlineBloodtype className="text-primary text-2xl text-center" />
-                )}
-                <span className="text-primary ml-2 delay-150">{likes}</span>
-              </button>
-              <button className="bg-gray-500 text-white px-4 py-2 rounded-full flex items-center  gap-2">
-                <FaRegComment className="text-xl" />
-                Comment
-              </button>
-            </div>
-          </div>
-        </div>
-        {/* {
-          posts?.map(post => console.log(post))
-        } */}
+<ThePosts></ThePosts>
       </div>
     </div>
   );

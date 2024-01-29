@@ -49,7 +49,6 @@ const Login = () => {
         toast.error("Logged In Failed with Facebook!");
       });
   };
-
   return (
     <>
       <div className="max-w-screen-lg mx-auto">
