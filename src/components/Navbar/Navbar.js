@@ -49,7 +49,7 @@ const Navbar = () => {
                 >
                   <span class="sr-only">Open user menu</span>
                   <Image
-                    className="w-10 rounded-full mr-4 object-cover"
+                    className="w-10 rounded-full mr-4 object-cover "
                     width={100}
                     height={100}
                     src={
