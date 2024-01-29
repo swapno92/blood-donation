@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from 'next/navigation'
 import React, { useContext, useState } from "react";
 import Image from "next/image";
+import defaultUserImage from "../../../public/images/profile-circle-icon.png";
 import logo from "../../../public/logo.png";
 import { AuthContext } from "../provider/AuthProvider";
 
