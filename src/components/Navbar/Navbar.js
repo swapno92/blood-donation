@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from 'next/navigation'
 import React, { useContext, useState } from "react";
 import Image from "next/image";
+import defaultProfile from "../../../public/images/profile-circle-icon.png";
 import logo from "../../../public/logo.png";
 import { AuthContext } from "../provider/AuthProvider";
 
@@ -56,8 +57,9 @@ const Navbar = () => {
                     height={100}
                     src={
                       user.photoURL
-                        ? user.photoURL
-                        : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhyhj1gUUYu1c8817GfPwApJbYzW9lJdjSXQ&usqp=CAU"
+                        ? 
+                        user.photoURL
+                        : defaultProfile
                     }
                     alt={user.displayName}
                   />
