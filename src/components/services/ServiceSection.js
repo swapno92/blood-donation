@@ -8,7 +8,7 @@ const ServiceSection = () => {
                     <h2 className='lg:text-5xl text-4xl font-bold mb-12'>Our Best Services</h2>
                 </div>
                 <div className="grid lg:grid-cols-3 md:grid-cols-2 lg:gap-10 gap-5">
-                    <div className="card shadow-md rounded-md">
+                    <div className="card shadow-xl shadow-gray-100 rounded-md border border-primary/15">
                         <figure className="px-10 pt-10">
                             <BiDonateBlood className="text-7xl text-primary"></BiDonateBlood>
                         </figure>
@@ -17,7 +17,7 @@ const ServiceSection = () => {
                             <p className="">Dropsync's emergency blood request feature allows hospitals and blood banks to quickly connect with willing donors, ensuring a rapid response during critical situations.</p>                            
                         </div>
                     </div>
-                    <div className="card shadow-md rounded-md">
+                    <div className="card shadow-xl shadow-gray-100 rounded-md border border-primary/15">
                         <figure className="px-10 pt-10">
                             <BiSolidTimer className="text-7xl text-primary"></BiSolidTimer>
                         </figure>
@@ -26,7 +26,7 @@ const ServiceSection = () => {
                             <p className="">Dropsync provides real-time updates on blood stocks, helping donors and recipients make informed decisions when it matters most.</p>                            
                         </div>
                     </div>
-                    <div className="card shadow-md rounded-md">
+                    <div className="card shadow-xl shadow-gray-100 rounded-md border border-primary/15">
                         <figure className="px-10 pt-10">
                             <BiSolidHappyHeartEyes className="text-7xl text-primary"></BiSolidHappyHeartEyes>
                         </figure>

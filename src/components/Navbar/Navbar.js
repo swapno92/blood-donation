@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from 'next/navigation'
 import React, { useContext, useState } from "react";
 import Image from "next/image";
 import logo from "../../../public/logo.png";
@@ -9,6 +10,7 @@ import { AuthContext } from "../provider/AuthProvider";
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname()
 
   const handleDropdownToggle = () => {
     setDropdownOpen(!isDropdownOpen);
@@ -157,8 +159,7 @@ const Navbar = () => {
               <li>
                 <Link
                   href="/"
-                  className="block py-2 px-3 text-primary md:text-sm uppercase font-semibold   rounded md:bg-transparent md:text-rimary md:p-0 "
-                  aria-current="page"
+                  className={`link ${pathname === '/' ? 'active-link font-semibold' : 'font-semibold no-underline hover:text-primary'} `}
                 >
                   Home
                 </Link>
@@ -168,7 +169,7 @@ const Navbar = () => {
                 <Link
                   href="/about"
                   onClick={() => toggleMobileMenu(false)}
-                  className="block py-2 px-3 text-gray-900 md:text-sm uppercase font-semibold rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary md:p-0  "
+                  className={`link ${pathname === '/about' ? 'active-link font-semibold' : 'font-semibold no-underline hover:text-primary'} `}
                 >
                   About Us
                 </Link>
@@ -177,7 +178,7 @@ const Navbar = () => {
                 <Link
                   onClick={() => toggleMobileMenu(false)}
                   href="/community/posts"
-                  className="block py-2 px-3 text-gray-900  md:text-sm uppercase font-semibold rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary md:p-0 "
+                  className={`link ${pathname === '/community/posts' ? 'active-link font-semibold' : 'font-semibold no-underline hover:text-primary'} `}
                 >
                   community
                 </Link>
@@ -186,7 +187,7 @@ const Navbar = () => {
                 <Link
                   onClick={() => toggleMobileMenu(false)}
                   href="/contact"
-                  className="block py-2 px-3 text-gray-900 md:text-sm uppercase font-semibold rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary md:p-0 "
+                  className={`link ${pathname === '/contact' ? 'active-link font-semibold' : 'font-semibold no-underline hover:text-primary'} `}
                 >
                   Contact Us
                 </Link>

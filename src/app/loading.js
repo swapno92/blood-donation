@@ -1,9 +1,14 @@
+'use client'
+import Lottie from 'lottie-react';
+import loadingAnimation from '../../public/animations/loading.json'
 
 const Loading = () => {
     return (
-        <div>
-        <h2>loading page</h2>
-        </div>
+        <>
+            <div className="w-full h-screen flex items-center justify-center">
+                <Lottie animationData={loadingAnimation} />
+            </div>
+        </>
     );
 };
 
