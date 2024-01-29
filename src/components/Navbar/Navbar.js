@@ -6,6 +6,7 @@ import React, { useContext, useState } from "react";
 import Image from "next/image";
 import defaultUserImage from "../../../public/images/profile-circle-icon.png";
 import logo from "../../../public/logo.png";
+import userImg from "../../../public/images/user.png";
 import { AuthContext } from "../provider/AuthProvider";
 
 const Navbar = () => {
@@ -55,11 +56,9 @@ const Navbar = () => {
                     className="w-10 rounded-full mr-4 object-cover "
                     width={100}
                     height={100}
-                    src={
-                      user.photoURL
-                        ? user.photoURL
-                        : defaultUserImage
-                    }
+
+                    src={user.photoURL ? user.photoURL : userImg}
+           
                     alt={user.displayName}
                   />
                 </button>
