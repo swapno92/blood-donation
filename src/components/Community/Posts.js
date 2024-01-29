@@ -104,6 +104,7 @@ export default async function Home() {
             type="search"
             className=" border w-full px-4 py-2 rounded-2xl outline-[#fcd5d5] shadow-ms ml-5 "
             placeholder="Share & Ask Something to everyone?"
+            onChange={(e) => setDescription(e.target.value)}
             value={description}
           />
         </div>
@@ -117,7 +118,12 @@ export default async function Home() {
               width={1200}
               height={500}
             />
-            <input type="file" value={photo} name="file-upload" />
+            <input
+              type="file"
+              onChange={(e) => setPhoto(e.target.value)}
+              value={photo}
+              name="file-upload"
+            />
           </div>
           <div>
             <button className="btn rounded-lg bg-primary text-white hover:bg-secondary  px-4    ">
