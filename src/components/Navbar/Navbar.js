@@ -58,7 +58,7 @@ const Navbar = () => {
                     src={
                       user.photoURL
                         ? user.photoURL
-                        : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhyhj1gUUYu1c8817GfPwApJbYzW9lJdjSXQ&usqp=CAU"
+                        : defaultUserImage
                     }
                     alt={user.displayName}
                   />
