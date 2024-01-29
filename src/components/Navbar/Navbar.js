@@ -4,6 +4,7 @@ import Link from "next/link";
 import React, { useContext, useState } from "react";
 import Image from "next/image";
 import logo from "../../../public/logo.png";
+import userImg from "../../../public/images/user.png";
 import { AuthContext } from "../provider/AuthProvider";
 
 const Navbar = () => {
@@ -52,11 +53,7 @@ const Navbar = () => {
                     className="w-10 rounded-full mr-4 object-cover"
                     width={100}
                     height={100}
-                    src={
-                      user.photoURL
-                        ? user.photoURL
-                        : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhyhj1gUUYu1c8817GfPwApJbYzW9lJdjSXQ&usqp=CAU"
-                    }
+                    src={user.photoURL ? user.photoURL : userImg}
                     alt={user.displayName}
                   />
                 </button>
