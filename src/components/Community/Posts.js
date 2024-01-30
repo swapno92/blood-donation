@@ -1,5 +1,5 @@
 "use client";
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 // import img2 from "../../../public/Banner img/img2.jpg";
 import userimg from "../../../public/images/profile-circle-icon.png";
 import { LuUser2 } from "react-icons/lu";
@@ -33,10 +33,8 @@ export default async function Posts() {
   // const { topics } = await getPosts();
   // console.log(topics);
 
-
-  const [likes, setLikes] = useState(0);
-  const [isLiked, setIsLiked] = useState(false);
-  // const router = useRouter();
+  const router = useRouter();
+  const likes = 0;
   const { user } = useContext(AuthContext);
   const userName = user?.displayName;
   const userPhoto = user?.photoURL;
@@ -60,7 +58,7 @@ export default async function Posts() {
     console.log(description, images, likes, userName, userPhoto, userEmail);
 
     // const data = new FormData();
-    // data.append("iamge",  image);
+    // data.append("iamge",  images);
     // fetch(
     //   "https://api.imgbb.com/1/upload?key=12fe474b7bd533a31cc2c49218a513c8",
     //   {
@@ -91,7 +89,8 @@ export default async function Posts() {
         }),
       });
       if (res.ok) {
-        console.log("posts")
+        console.log("posts");
+        router.refresh();
       } else {
         throw new Error("Failed to create a posts");
       }
@@ -170,11 +169,11 @@ export default async function Posts() {
           </ul>
         </div>
       </div>
-{/* getTopics() */}
+      {/* getTopics() */}
       {/* ---------post card------------- */}
       <div className="max-w-screen-md mx-auto border-2 py-8 px-8 bg-gray-100 rounded-md shadow    overflow-hidden  ">
         {/* -----1------ */}
-{/* <ThePosts></ThePosts> */}
+        <ThePosts></ThePosts>
       </div>
     </div>
   );
