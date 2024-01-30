@@ -60,7 +60,7 @@ export default async function Posts() {
     console.log(description, images, likes, userName, userPhoto, userEmail);
 
     // const data = new FormData();
-    // data.append("iamge", image);
+    // data.append("iamge",  image);
     // fetch(
     //   "https://api.imgbb.com/1/upload?key=12fe474b7bd533a31cc2c49218a513c8",
     //   {
