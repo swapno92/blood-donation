@@ -29,16 +29,14 @@ import ThePosts from "../ThePosts/ThePosts";
 // };
 
 // const Home = () => {
-export default async function Home() {
+export default async function Posts() {
   // const { topics } = await getPosts();
   // console.log(topics);
 
-  // const [likes, setLikes] = useState(0);
-  // const [isLiked, setIsLiked] = useState(false);
-  const likes = 0
-  const [description, setDescription] = useState("");
-  const [photo, setPhoto] = useState("");
-  const router = useRouter();
+
+  const [likes, setLikes] = useState(0);
+  const [isLiked, setIsLiked] = useState(false);
+  // const router = useRouter();
   const { user } = useContext(AuthContext);
   const userName = user?.displayName;
   const userPhoto = user?.photoURL;
@@ -55,9 +53,25 @@ export default async function Home() {
 
   // ............. post .....................
   const handleSubmit = async (e) => {
-    console.log(description, photo, likes, userName, userPhoto, userEmail);
     e.preventDefault();
-    if (!description) {
+    const form = new FormData(e.target);
+    const description = form.get("description");
+    const images = form.get("image");
+    console.log(description, images, likes, userName, userPhoto, userEmail);
+
+    // const data = new FormData();
+    // data.append("iamge", image);
+    // fetch(
+    //   "https://api.imgbb.com/1/upload?key=12fe474b7bd533a31cc2c49218a513c8",
+    //   {
+    //     method: "POST",
+    //     body: data,
+    //   }
+    // )
+    //   .then((response) => response.json())
+    //   .then((data) => console.log(data));
+
+    if (!description || !images) {
       alert("Title and description are required");
       return;
     }
@@ -69,7 +83,7 @@ export default async function Home() {
         },
         body: JSON.stringify({
           description,
-          photo,
+          images,
           likes,
           userName,
           userPhoto,
@@ -77,7 +91,7 @@ export default async function Home() {
         }),
       });
       if (res.ok) {
-        router.refresh();
+        console.log("posts")
       } else {
         throw new Error("Failed to create a posts");
       }
@@ -104,8 +118,7 @@ export default async function Home() {
             type="search"
             className=" border w-full px-4 py-2 rounded-2xl outline-[#fcd5d5] shadow-ms ml-5 "
             placeholder="Share & Ask Something to everyone?"
-            onChange={(e) => setDescription(e.target.value)}
-            value={description}
+            name="description"
           />
         </div>
 
@@ -118,12 +131,7 @@ export default async function Home() {
               width={1200}
               height={500}
             />
-            <input
-              type="file"
-              onChange={(e) => setPhoto(e.target.value)}
-              value={photo}
-              name="file-upload"
-            />
+            <input type="text" name="image" className="line" />
           </div>
           <div>
             <button className="btn rounded-lg bg-primary text-white hover:bg-secondary  px-4    ">
