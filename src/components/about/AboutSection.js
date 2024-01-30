@@ -6,7 +6,7 @@ const AboutSection = () => {
            <div className='container max-w-7xl mx-auto my-24'>
                 <div className='lg:flex gap-12 lg:flex-row flex-col'>
                     <div className='md:w-1/2 w-2/3 mx-auto'>
-                        <img src="https://i.ibb.co/LYMzXdy/UVG5CCF.jpg" alt="" />
+                        <img src="https://i.ibb.co/LYMzXdy/UVG5CCF.jpg" alt="d" />
                     </div>
                     <div className='lg:w-1/2 space-y-5 w-full px-10 lg:px-0 lg:mt-0 mt-10'>
                         <h4 className='text-primary text-lg font-medium'>About Us</h4>

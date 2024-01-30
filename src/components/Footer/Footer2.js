@@ -10,7 +10,7 @@ const Footer2 = () => {
             <div className='bg-primary/10' >
                 <footer className="grid lg:grid-cols-6 grid-cols-2 gap-5 py-28 lg:px-0 md:px-10 px-5 max-w-screen-xl mx-auto text-base-content">
                     <aside className='col-span-2 md:pr-10 pr-0 -mt-3 lg:mb-0 mb-10'>
-                        <Image src={logo}/>
+                        <Image alt='logo' src={logo}/>
                         <p className='my-3'>We are world largest and trustful blood donation center. We have been working since 1973 with a prestigious vision to helping patient to provide blood. </p>
                         <div className='social-icon flex gap-5 text-2xl bottom-0 w-full justify-start py-2 mt-2'>
                                 <FaFacebook className='text-primary hover-icon cursor-pointer text-3xl'></FaFacebook>
