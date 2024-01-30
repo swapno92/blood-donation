@@ -60,7 +60,7 @@ export default async function Posts() {
     console.log(description, images, likes, userName, userPhoto, userEmail);
 
     // const data = new FormData();
-    // data.append("iamge", image);
+    // data.append("iamge",  image);
     // fetch(
     //   "https://api.imgbb.com/1/upload?key=12fe474b7bd533a31cc2c49218a513c8",
     //   {
@@ -174,7 +174,7 @@ export default async function Posts() {
       {/* ---------post card------------- */}
       <div className="max-w-screen-md mx-auto border-2 py-8 px-8 bg-gray-100 rounded-md shadow    overflow-hidden  ">
         {/* -----1------ */}
-<ThePosts></ThePosts>
+{/* <ThePosts></ThePosts> */}
       </div>
     </div>
   );
