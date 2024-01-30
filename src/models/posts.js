@@ -3,11 +3,11 @@ import mongoose, { Schema } from "mongoose";
 const postsSchema = new Schema(
   {
     description: String,
-    photo: String,
+    images: String,
     likes: Number,
-    userName : String,
-    userPhoto : String,
-    userEmail : String
+    userName: String,
+    userPhoto: String,
+    userEmail: String,
   },
   {
     timestamps: true,

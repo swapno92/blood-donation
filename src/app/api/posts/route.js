@@ -4,12 +4,12 @@ import { NextResponse } from "next/server";
 
 
 export async function POST(request) {
-  const { description, photo, likes, userName, userPhoto, userEmail } =
+  const { description, images, likes, userName, userPhoto, userEmail } =
     await request.json();
   await connectMongoDB;
   await Posts.create({
     description,
-    photo,
+    images,
     likes,
     userName,
     userPhoto,
