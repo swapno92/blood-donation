@@ -174,7 +174,7 @@ export default async function Posts() {
       {/* ---------post card------------- */}
       <div className="max-w-screen-md mx-auto border-2 py-8 px-8 bg-gray-100 rounded-md shadow    overflow-hidden  ">
         {/* -----1------ */}
-<ThePosts></ThePosts>
+{/* <ThePosts></ThePosts> */}
       </div>
     </div>
   );
