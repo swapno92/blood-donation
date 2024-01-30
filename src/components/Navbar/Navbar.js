@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from 'next/navigation'
 import React, { useContext, useState } from "react";
 import Image from "next/image";
-import defaultProfile from "../../../public/images/profile-circle-icon.png";
+import defaultUserImage from "../../../public/images/profile-circle-icon.png";
 import logo from "../../../public/logo.png";
 import { AuthContext } from "../provider/AuthProvider";
 import toast from "react-hot-toast";
@@ -53,14 +53,13 @@ const Navbar = () => {
                 >
                   <span className="sr-only">Open user menu</span>
                   <Image
-                    className="w-10 rounded-full mr-4 object-cover"
+                    className="w-10 rounded-full mr-4 object-cover "
                     width={100}
                     height={100}
                     src={
                       user.photoURL
-                        ? 
-                        user.photoURL
-                        : defaultProfile
+                        ? user.photoURL
+                        : defaultUserImage
                     }
                     alt={user.displayName}
                   />
