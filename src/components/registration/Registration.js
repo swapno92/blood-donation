@@ -1,5 +1,5 @@
 'use client'
-import Lottie from 'lottie-react';
+// import Lottie from 'lottie-react';
 import Heart from './../../../public/animations/donate-blood.json'
 import { useForm } from "react-hook-form"
 import Link from 'next/link';
@@ -64,7 +64,7 @@ const Registration = () => {
                                 <p>Back to Home</p>
                             </div>
                         </Link>
-                        <Lottie animationData={Heart} />
+                        {/* <Lottie animationData={Heart} /> */}
                     </div>
 
                     <div className="lg:w-1/2 w-full card shrink-0 bg-base-100 p-10">
@@ -79,17 +79,17 @@ const Registration = () => {
                         <form onSubmit={handleSubmit(onSubmit)} className="card-body p-0 my-5">
                             
                             <div className="form-control">
-                                <input {...register("name", { required: true })} type="text" placeholder="Your Name..." className="input focus:border-0 focus-within:outline-none border-0 border-b-2 border-gray-400 focus:border-b-2 focus:border-primary rounded-none px-1" />
+                                <input {...register("name", { required: true })} id='12' type="text" placeholder="Your Name..." className="input focus:border-0 focus-within:outline-none border-0 border-b-2 border-gray-400 focus:border-b-2 focus:border-primary rounded-none px-1" />
                                 {errors.name && <span className='text-red-600 text-sm mt-2'>Enter your Name*</span>}
                             </div>
 
                             <div className="form-control mt-2">
-                                <input {...register("email", { required: true })} type="email" placeholder="Your Email..." className="input focus:border-0 focus-within:outline-none border-0 border-b-2 border-gray-400 focus:border-b-2 focus:border-primary rounded-none px-1" />
+                                <input {...register("email", { required: true })} id='13' type="email" placeholder="Your Email..." className="input focus:border-0 focus-within:outline-none border-0 border-b-2 border-gray-400 focus:border-b-2 focus:border-primary rounded-none px-1" />
                                 {errors.email && <span className='text-red-600 text-sm mt-2'>Enter your Email address*</span>}
                             </div>
 
                             <div className="form-control mt-2 relative">
-                                <input {...register("password", { required: true })} type={showPassword ? 'text' : 'password'} placeholder="Password" className="input focus:border-0 focus-within:outline-none border-0 border-b-2 border-gray-400 focus:border-b-2 focus:border-primary rounded-none px-1" />
+                                <input id='14' {...register("password", { required: true })} type={showPassword ? 'text' : 'password'} placeholder="Password" className="input focus:border-0 focus-within:outline-none border-0 border-b-2 border-gray-400 focus:border-b-2 focus:border-primary rounded-none px-1" />
                                 <span className="cursor-pointer absolute right-3 top-4" onClick={() => setShowPassword(!showPassword)}>
                                     {
                                         showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>

@@ -47,7 +47,8 @@ const Newsletter = () => {
             </div>
             <form className="w-full lg:w-1/2">
               <div className="flex flex-col sm:flex-row justify-center max-w-xs mx-auto sm:max-w-md lg:max-w-none">
-                <input
+                <input 
+                id="8"
                   type="email"
                   className="w-full appearance-none bg-primary border border-white  rounded px-4 py-3 mb-2 sm:mb-0 sm:mr-2 text-white placeholder-white outline-none "
                   placeholder="Your best email…"

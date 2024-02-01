@@ -4,22 +4,43 @@ import { MdBloodtype, MdOutlineBloodtype } from "react-icons/md";
 import { FaRegComment } from "react-icons/fa";
 import img1 from "../../../public/Banner img/img1.jpg";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
-const ThePost = ({post}) => {
-  const [like, setLike] = useState(0);
+const ThePost = ({ post }) => {
+  const router = useRouter();
+  const { userName, userPhoto, _id, likes } = post;
+
+  const [newLikes, setLike] = useState(likes);
   const [isLiked, setIsLiked] = useState(false);
 
-  const handleLike = (_id) => {
-    console.log(_id)
+  const handleLike = async (_id) => {
+    console.log(isLiked)
     if (isLiked) {
-      setLike(like - 1);
+      setLike(likes - 1);
     } else {
-      setLike(like + 1);
+      setLike(likes + 1);
     }
     setIsLiked(!isLiked);
+    console.log(newLikes);
+    // const newLikes = 0;
+    try {
+      const res = await fetch(`http://localhost:3000/api/posts/${_id}`, {
+        method: "PUT",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({ newLikes }),
+      });
+      if (!res.ok) {
+        throw new Error("Failed to update topic");
+      }
+      router.push("http://localhost:3000/community/posts");
+      router.refresh();
+    } catch (error) {
+      console.log(error);
+    }
   };
-  const { userName, userPhoto, _id, likes } = post;
-  
+
   return (
     <div
       key={post._id}
@@ -29,13 +50,13 @@ const ThePost = ({post}) => {
         <div className="flex items-center gap-2">
           <Image
             className="object-cover rounded-full mt-1 "
-            src={post.userPhoto}
+            src={userPhoto}
             width={36}
             height={36}
             alt="User"
           />
           <div className="uppercase tracking-wide  text-gray-700 font-semibold">
-            {post.userName}
+            {userName}
           </div>
         </div>
 
@@ -51,7 +72,7 @@ const ThePost = ({post}) => {
             className="flex px-4 py-2 bg-gray-100 text-primary rounded-full cursor-pointer"
           >
             {isLiked ? (
-              <MdBloodtype className="text-primary text-2xl text-center" />
+            <MdBloodtype className="text-primary text-2xl text-center" />
             ) : (
               <MdOutlineBloodtype className="text-primary text-2xl text-center" />
             )}

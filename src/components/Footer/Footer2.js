@@ -43,7 +43,7 @@ const Footer2 = () => {
                         </div>
                         <form className="">
                             <div className="w-full">
-                                <input type="email" placeholder="Your Email..." className="input focus:border-0 focus-within:outline-none border-0 border-b-2 border-gray-400 focus:border-b-2 focus:border-primary rounded-none px-3 w-full" />
+                                <input id='7' type="email" placeholder="Your Email..." className="input focus:border-0 focus-within:outline-none border-0 border-b-2 border-gray-400 focus:border-b-2 focus:border-primary rounded-none px-3 w-full" />
                                 <button className="btn w-full bg-primary border-0 hover:bg-secondary text-white text-lg shadow-md shadow-primary/30 rounded-sm mt-5">Subscribe</button>
                             </div>
                         </form>

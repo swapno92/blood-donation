@@ -11,44 +11,18 @@ import galleryIcon from "../../../public/images/gallery-icon.png";
 import Image from "next/image";
 import { MdPostAdd } from "react-icons/md";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 import { AuthContext } from "../provider/AuthProvider";
 import ThePosts from "../ThePosts/ThePosts";
 
-// const getPosts = async () => {
-//   try {
-//     const res = await fetch("http://localhost:3000/api/posts", {
-//       cache: "no-store",
-//     });
-//     if (!res.ok) {
-//       throw new Error("Failed to fetch topics");
-//     }
-//     return res.json();
-//   } catch (error) {}
-//   console.log("Error loading Topics: ", error);
-// };
-
-// const Home = () => {
-export default async function Posts() {
-  // const { topics } = await getPosts();
-  // console.log(topics);
-
-  const router = useRouter();
+// export default async function Posts() {
+  const Posts = () => {
+  // const router = useRouter();
   const likes = 0;
   const { user } = useContext(AuthContext);
   const userName = user?.displayName;
   const userPhoto = user?.photoURL;
   const userEmail = user?.email;
-
-  // const handleLike = () => {
-  //   if (isLiked) {
-  //     setLikes(likes - 1);
-  //   } else {
-  //     setLikes(likes + 1);
-  //   }
-  //   setIsLiked(!isLiked);
-  // };
-
   // ............. post .....................
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -57,22 +31,10 @@ export default async function Posts() {
     const images = form.get("image");
     console.log(description, images, likes, userName, userPhoto, userEmail);
 
-    // const data = new FormData();
-    // data.append("iamge",  images);
-    // fetch(
-    //   "https://api.imgbb.com/1/upload?key=12fe474b7bd533a31cc2c49218a513c8",
-    //   {
-    //     method: "POST",
-    //     body: data,
-    //   }
-    // )
-    //   .then((response) => response.json())
-    //   .then((data) => console.log(data));
-
-    if (!description || !images) {
-      alert("Title and description are required");
-      return;
-    }
+    // if (!description || !images) {
+    //   alert("Title and description are required");
+    //   return;
+    // }
     try {
       const res = await fetch("http://localhost:3000/api/posts", {
         method: "POST",
@@ -90,12 +52,13 @@ export default async function Posts() {
       });
       if (res.ok) {
         console.log("posts");
-        router.refresh();
+        // router.refresh();
       } else {
-        throw new Error("Failed to create a posts");
+        // throw new Error("Failed to create a posts");
+        console.log('not posts')
       }
     } catch (error) {
-      console.log(error);
+      console.log("error", error);
     }
   };
 
@@ -114,6 +77,7 @@ export default async function Posts() {
             height={500}
           />
           <input
+          id="1"
             type="search"
             className=" border w-full px-4 py-2 rounded-2xl outline-[#fcd5d5] shadow-ms ml-5 "
             placeholder="Share & Ask Something to everyone?"
@@ -130,7 +94,7 @@ export default async function Posts() {
               width={1200}
               height={500}
             />
-            <input type="text" name="image" className="line" />
+            <input id="2" type="text" name="image" className="line" />
           </div>
           <div>
             <button className="btn rounded-lg bg-primary text-white hover:bg-secondary  px-4    ">
@@ -169,7 +133,6 @@ export default async function Posts() {
           </ul>
         </div>
       </div>
-      {/* getTopics() */}
       {/* ---------post card------------- */}
       <div className="max-w-screen-md mx-auto border-2 py-8 px-8 bg-gray-100 rounded-md shadow    overflow-hidden  ">
         {/* -----1------ */}
@@ -179,4 +142,4 @@ export default async function Posts() {
   );
 }
 
-// export default Posts;
+export default Posts;
