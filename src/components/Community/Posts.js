@@ -14,15 +14,17 @@ import Link from "next/link";
 // import { useRouter } from "next/navigation";
 import { AuthContext } from "../provider/AuthProvider";
 import ThePosts from "../ThePosts/ThePosts";
+import { useRouter } from "next/navigation";
 
 // export default async function Posts() {
-  const Posts = () => {
+const Posts = () => {
   // const router = useRouter();
-  const likes = 0;
+  let likes = 0;
   const { user } = useContext(AuthContext);
   const userName = user?.displayName;
   const userPhoto = user?.photoURL;
   const userEmail = user?.email;
+  const router = useRouter();
   // ............. post .....................
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -36,7 +38,7 @@ import ThePosts from "../ThePosts/ThePosts";
     //   return;
     // }
     try {
-      const res = await fetch("http://localhost:3000/api/posts", {
+      const res = await fetch("http://localhost:5000/posts", {
         method: "POST",
         headers: {
           "Content-type": "application/json",
@@ -52,10 +54,11 @@ import ThePosts from "../ThePosts/ThePosts";
       });
       if (res.ok) {
         console.log("posts");
+        router.refresh();
         // router.refresh();
       } else {
         // throw new Error("Failed to create a posts");
-        console.log('not posts')
+        console.log("not posts");
       }
     } catch (error) {
       console.log("error", error);
@@ -77,7 +80,7 @@ import ThePosts from "../ThePosts/ThePosts";
             height={500}
           />
           <input
-          id="1"
+            id="1"
             type="search"
             className=" border w-full px-4 py-2 rounded-2xl outline-[#fcd5d5] shadow-ms ml-5 "
             placeholder="Share & Ask Something to everyone?"
@@ -140,6 +143,6 @@ import ThePosts from "../ThePosts/ThePosts";
       </div>
     </div>
   );
-}
+};
 
 export default Posts;
