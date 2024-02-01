@@ -8,11 +8,15 @@ import { FaEye, FaEyeSlash, FaFacebook } from "react-icons/fa";
 import { SiGmail  } from "react-icons/si";
 import { useContext, useState } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
+import { axiosPublic } from '../Hooks/useAxiosSecure';
+import { useRouter } from 'next/navigation';
 
 
 const Registration = () => {
     const [showPassword, setShowPassword] = useState(false)
     const {createUser, googleSignIn, facebookSignIn} = useContext(AuthContext)
+    const axiosURL = axiosPublic();
+    const router = useRouter()
 
     const {
         register,
@@ -33,11 +37,19 @@ const Registration = () => {
     const handleGoogleSignIn = () =>{
         googleSignIn()
         .then(result =>{
-            toast.success('Logged In Successful with Google!')
+            const userInfo ={
+                email: result.user.email,
+                name: result.user.displayName,
+                photo: result.user.photoURL,
+            }
+            axiosPublic.post('/users', userInfo )
+            .then(res => {
+                console.log(res.data);
+                toast.success('Logged In Successful with Google!')
+                router.push('/')
+            })
         })
-        .catch(error=>{
-            toast.error('Logged In Failed with Google!')
-        })
+        
     }
 
     const handleFacebookSignIn = () =>{
