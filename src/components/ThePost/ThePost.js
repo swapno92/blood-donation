@@ -8,11 +8,11 @@ import { useRouter } from "next/navigation";
 
 const ThePost = ({ post }) => {
   const router = useRouter();
-  const { userName, userPhoto, _id, likes } = post;
+  const { userName, userPhoto, _id, likes, images } = post;
 
   // const [newLikes, setLike] = useState(likes);
   const [isLiked, setIsLiked] = useState(false);
-  const newLikes = 5
+  const newLikes = 5;
 
   const handleLike = async (_id) => {
     // if (isLiked) {
@@ -22,7 +22,6 @@ const ThePost = ({ post }) => {
     // }
     // setIsLiked(!isLiked);
     console.log(newLikes);
-
 
     const post = { newLikes };
     fetch(`http://localhost:5000/posts/${_id}`, {
@@ -35,7 +34,7 @@ const ThePost = ({ post }) => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        router.refresh()
+        router.refresh();
         // swal({
         //   title: "Success!",
         //   text: "Product Updated Successful",
@@ -65,7 +64,9 @@ const ThePost = ({ post }) => {
         <p className="mt-2 text-gray-500">{post.description}</p>
         <Image
           className="mt-4 rounded-lg w-full h-64 object-cover object-center"
-          src={img1}
+          src={images}
+          width={360}
+          height={360}
           alt="Card"
         />
         <div className="flex items-center gap-4 mt-4 ">
@@ -74,7 +75,7 @@ const ThePost = ({ post }) => {
             className="flex px-4 py-2 bg-gray-100 text-primary rounded-full cursor-pointer"
           >
             {isLiked ? (
-            <MdBloodtype className="text-primary text-2xl text-center" />
+              <MdBloodtype className="text-primary text-2xl text-center" />
             ) : (
               <MdOutlineBloodtype className="text-primary text-2xl text-center" />
             )}
