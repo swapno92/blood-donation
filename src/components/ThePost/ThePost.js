@@ -2,17 +2,17 @@
 import React, { useState } from "react";
 import { MdBloodtype, MdOutlineBloodtype } from "react-icons/md";
 import { FaRegComment } from "react-icons/fa";
-import img1 from "../../../public/Banner img/img1.jpg";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const ThePost = ({ post }) => {
   const router = useRouter();
-  const { userName, userPhoto, _id, likes } = post;
+  const { userName, userPhoto, _id, likes,description,images } = post;
 
   // const [newLikes, setLike] = useState(likes);
   const [isLiked, setIsLiked] = useState(false);
-  const newLikes = 5
+  const newLikes = 5;
 
   const handleLike = async (_id) => {
     // if (isLiked) {
@@ -22,7 +22,6 @@ const ThePost = ({ post }) => {
     // }
     // setIsLiked(!isLiked);
     console.log(newLikes);
-
 
     const post = { newLikes };
     fetch(`http://localhost:5000/posts/${_id}`, {
@@ -35,7 +34,7 @@ const ThePost = ({ post }) => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        router.refresh()
+        router.refresh();
         // swal({
         //   title: "Success!",
         //   text: "Product Updated Successful",
@@ -62,10 +61,12 @@ const ThePost = ({ post }) => {
           </div>
         </div>
 
-        <p className="mt-2 text-gray-500">{post.description}</p>
+        <p className="mt-2 text-gray-500">{description}</p>
         <Image
           className="mt-4 rounded-lg w-full h-64 object-cover object-center"
-          src={img1}
+          src={images}
+          width={36}
+          height={36}
           alt="Card"
         />
         <div className="flex items-center gap-4 mt-4 ">
@@ -74,16 +75,36 @@ const ThePost = ({ post }) => {
             className="flex px-4 py-2 bg-gray-100 text-primary rounded-full cursor-pointer"
           >
             {isLiked ? (
-            <MdBloodtype className="text-primary text-2xl text-center" />
+              <MdBloodtype className="text-primary text-2xl text-center" />
             ) : (
               <MdOutlineBloodtype className="text-primary text-2xl text-center" />
             )}
             <span className="text-primary ml-2 delay-150">{likes}</span>
           </button>
-          <button className="bg-gray-500 text-white px-4 py-2 rounded-full flex items-center  gap-2">
+          <Link
+            href={`/posts/${_id}`}
+            onClick={() => document.getElementById("my_modal_3").showModal()}
+            className="bg-gray-500 text-white px-4 py-2 rounded-full flex items-center  gap-2"
+          >
             <FaRegComment className="text-xl" />
             Comment
-          </button>
+          </Link>
+
+          {/* modal */}
+          <dialog id="my_modal_3" className="modal">
+            <div className="modal-box">
+              <form method="dialog">
+                {/* if there is a button in form, it will close the modal */}
+                <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+                  ✕
+                </button>
+              </form>
+              <h3 className="font-bold text-lg">Hello!</h3>
+              <p className="py-4">
+                Press ESC key or click on ✕ button to close
+              </p>
+            </div>
+          </dialog>
         </div>
       </div>
     </div>
