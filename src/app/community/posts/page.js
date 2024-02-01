@@ -1,9 +1,9 @@
 import Posts from '@/components/Community/Posts';
-import React from 'react';
+// import React from 'react';
 
 const posts = () => {
     return (
-        <div className=''>
+        <div >
             <Posts/>
         </div>
     );

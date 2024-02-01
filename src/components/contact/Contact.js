@@ -88,6 +88,7 @@ const ContactPage = () => {
                   <div className="form-control md:w-1/2 w-full">
                     <input
                       // {...register("name", { required: true })}
+                      id="3"
                       type="text"
                       name="name"
                       placeholder="Your Name..."
@@ -107,6 +108,7 @@ const ContactPage = () => {
 
                   <div className="form-control md:w-1/2 w-full">
                     <input
+                    id="4"
                       // {...register("email", { required: true })}
                       type="email"
                       name="email"
@@ -128,6 +130,7 @@ const ContactPage = () => {
 
                 <div className="form-control mt-3">
                   <input
+                  id="5"
                     //   {...register("subject")}
                     type="text"
                     name="subject"
@@ -143,6 +146,7 @@ const ContactPage = () => {
 
                 <div className="form-control mt-3">
                   <textarea
+                  id="6"
                     //   {...register("subject", { required: true })}
                     type="text"
                     name="description"
