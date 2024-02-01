@@ -10,35 +10,37 @@ const ThePost = ({ post }) => {
   const router = useRouter();
   const { userName, userPhoto, _id, likes } = post;
 
-  const [newLikes, setLike] = useState(likes);
+  // const [newLikes, setLike] = useState(likes);
   const [isLiked, setIsLiked] = useState(false);
+  const newLikes = 5
 
   const handleLike = async (_id) => {
-    console.log(isLiked)
-    if (isLiked) {
-      setLike(likes - 1);
-    } else {
-      setLike(likes + 1);
-    }
-    setIsLiked(!isLiked);
+    // if (isLiked) {
+    //   setLike(likes - 1);
+    // } else {
+    //   setLike(likes + 1);
+    // }
+    // setIsLiked(!isLiked);
     console.log(newLikes);
-    // const newLikes = 0;
-    try {
-      const res = await fetch(`http://localhost:3000/api/posts/${_id}`, {
-        method: "PUT",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify({ newLikes }),
+
+
+    const post = { newLikes };
+    fetch(`http://localhost:5000/posts/${_id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(post),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        router.refresh()
+        // swal({
+        //   title: "Success!",
+        //   text: "Product Updated Successful",
+        // });
       });
-      if (!res.ok) {
-        throw new Error("Failed to update topic");
-      }
-      router.push("http://localhost:3000/community/posts");
-      router.refresh();
-    } catch (error) {
-      console.log(error);
-    }
   };
 
   return (
@@ -76,7 +78,7 @@ const ThePost = ({ post }) => {
             ) : (
               <MdOutlineBloodtype className="text-primary text-2xl text-center" />
             )}
-            <span className="text-primary ml-2 delay-150">{post.likes}</span>
+            <span className="text-primary ml-2 delay-150">{likes}</span>
           </button>
           <button className="bg-gray-500 text-white px-4 py-2 rounded-full flex items-center  gap-2">
             <FaRegComment className="text-xl" />
