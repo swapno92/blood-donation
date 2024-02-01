@@ -8,20 +8,12 @@ import Link from "next/link";
 
 const ThePost = ({ post }) => {
   const router = useRouter();
-  const { userName, userPhoto, _id, likes,description,images } = post;
+  const { userName, userPhoto, _id, likes, images } = post;
 
-  // const [newLikes, setLike] = useState(likes);
   const [isLiked, setIsLiked] = useState(false);
   const newLikes = 5;
 
   const handleLike = async (_id) => {
-    // if (isLiked) {
-    //   setLike(likes - 1);
-    // } else {
-    //   setLike(likes + 1);
-    // }
-    // setIsLiked(!isLiked);
-    console.log(newLikes);
 
     const post = { newLikes };
     fetch(`http://localhost:5000/posts/${_id}`, {
@@ -35,12 +27,11 @@ const ThePost = ({ post }) => {
       .then((data) => {
         console.log(data);
         router.refresh();
-        // swal({
-        //   title: "Success!",
-        //   text: "Product Updated Successful",
-        // });
       });
   };
+
+
+
 
   return (
     <div
@@ -65,8 +56,8 @@ const ThePost = ({ post }) => {
         <Image
           className="mt-4 rounded-lg w-full h-64 object-cover object-center"
           src={images}
-          width={36}
-          height={36}
+          width={360}
+          height={360}
           alt="Card"
         />
         <div className="flex items-center gap-4 mt-4 ">
