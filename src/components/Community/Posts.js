@@ -11,20 +11,19 @@ import galleryIcon from "../../../public/images/gallery-icon.png";
 import Image from "next/image";
 import { MdPostAdd } from "react-icons/md";
 import Link from "next/link";
-// import { useRouter } from "next/navigation";
 import { AuthContext } from "../provider/AuthProvider";
 import ThePosts from "../ThePosts/ThePosts";
 import { useRouter } from "next/navigation";
 
 // export default async function Posts() {
 const Posts = () => {
-  // const router = useRouter();
   let likes = 0;
   const { user } = useContext(AuthContext);
   const userName = user?.displayName;
   const userPhoto = user?.photoURL;
   const userEmail = user?.email;
   const router = useRouter();
+
   // ............. post .....................
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -33,10 +32,6 @@ const Posts = () => {
     const images = form.get("image");
     console.log(description, images, likes, userName, userPhoto, userEmail);
 
-    // if (!description || !images) {
-    //   alert("Title and description are required");
-    //   return;
-    // }
     try {
       const res = await fetch("http://localhost:5000/posts", {
         method: "POST",
@@ -81,6 +76,7 @@ const Posts = () => {
           />
           <input
             id="1"
+            required
             type="search"
             className=" border w-full px-4 py-2 rounded-2xl outline-[#fcd5d5] shadow-ms ml-5 "
             placeholder="Share & Ask Something to everyone?"
@@ -97,7 +93,7 @@ const Posts = () => {
               width={1200}
               height={500}
             />
-            <input id="2" type="text" name="image" className="line" />
+            <input id="2" type="text" required name="image" className="line" />
           </div>
           <div>
             <button className="btn rounded-lg bg-primary text-white hover:bg-secondary  px-4    ">
