@@ -15,54 +15,47 @@ import Link from "next/link";
 import { AuthContext } from "../provider/AuthProvider";
 import ThePosts from "../ThePosts/ThePosts";
 import { useRouter } from "next/navigation";
+import { axiosPublic } from "../Hooks/useAxiosSecure";
+import toast from "react-hot-toast";
 
 // export default async function Posts() {
 const Posts = () => {
-  // const router = useRouter();
+  const router = useRouter();
   let likes = 0;
   const { user } = useContext(AuthContext);
   const userName = user?.displayName;
   const userPhoto = user?.photoURL;
   const userEmail = user?.email;
-  const router = useRouter();
+  const axiosURL = axiosPublic();
   // ............. post .....................
   const handleSubmit = async (e) => {
     e.preventDefault();
     const form = new FormData(e.target);
     const description = form.get("description");
     const images = form.get("image");
-    console.log(description, images, likes, userName, userPhoto, userEmail);
+    const postInfo = {
+      description,
+      images,
+      likes,
+      userName,
+      userPhoto,
+      userEmail,
+    };
+    
+    console.log(postInfo);
 
-    // if (!description || !images) {
-    //   alert("Title and description are required");
-    //   return;
-    // }
-    try {
-      const res = await fetch("http://localhost:5000/posts", {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify({
-          description,
-          images,
-          likes,
-          userName,
-          userPhoto,
-          userEmail,
-        }),
-      });
-      if (res.ok) {
-        console.log("posts");
+
+    axiosPublic
+      .post("/posts", postInfo)
+      .then((res) => {
+        toast.success('post added successfully')
+        e.target.reset();
         router.refresh();
-        // router.refresh();
-      } else {
-        // throw new Error("Failed to create a posts");
-        console.log("not posts");
-      }
-    } catch (error) {
-      console.log("error", error);
-    }
+
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (

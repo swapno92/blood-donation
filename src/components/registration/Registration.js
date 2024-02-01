@@ -42,7 +42,7 @@ const Registration = () => {
                 name: result.user.displayName,
                 photo: result.user.photoURL,
             }
-            axiosPublic.post('/users', userInfo )
+            axiosURL.post('/users', userInfo )
             .then(res => {
                 console.log(res.data);
                 toast.success('Logged In Successful with Google!')
