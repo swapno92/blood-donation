@@ -10,7 +10,7 @@ import Link from 'next/link';
 
 const Dashboard = () => {
   const menus = [
-    { name: "Home", link: "/", icon: MdOutlineDashboard },
+    { name: "Home", link: "/community/dasboardlayout/profile", icon: MdOutlineDashboard },
     { name: "Donner List", link: "/community/dasboardlayout/donner-list", icon: AiOutlineUser },
     { name: "Available Donner", link: "/community/dasboardlayout/available-dooner", icon: FiMessageSquare },
     { name: "Requsted", link: "/", icon: TbReportAnalytics, margin: true },
@@ -22,11 +22,12 @@ const Dashboard = () => {
   const [open, setOpen] = useState(true);
 
   return (
-    <section className="flex gap-6 ">
+    <section className="flex  ">
       <div
         className={`bg-primary min-h-screen ${
-          open ? "w-72" : "w-16"
-        } duration-500 text-gray-100 px-4`}
+          open ? "w-72" :  "w-16"
+        } duration-500 text-gray-100 px-4 md:{ope}`}
+        
       >
         <div className="py-3 flex justify-end">
           <HiMenuAlt3

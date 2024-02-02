@@ -14,6 +14,8 @@ const ThePost = ({ post }) => {
   const [isLiked, setIsLiked] = useState(false);
   const newLikes = 5;
 
+  
+
   const handleLike = async (_id) => {
 
     const post = { newLikes };
@@ -42,7 +44,7 @@ const ThePost = ({ post }) => {
       <div className="p-8">
         <div className="flex items-center gap-2">
           <Image
-            className="object-cover rounded-full mt-1 "
+            className="object-cover rounded-full h-10 w-10 mt-1 "
             src='https://i.ibb.co/PY1b9Vd/photo2.png'
             width={36}
             height={36}
