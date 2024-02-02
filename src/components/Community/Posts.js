@@ -92,7 +92,7 @@ const Posts = () => {
               width={1200}
               height={500}
             />
-            <input id="2" type="text" required name="image" className="line" />
+            <input id="2" type="text" required name="image" className="border-gray-300 focus:outline-none" placeholder="upload Image"/>
           </div>
           <div>
             <button className="btn rounded-lg bg-primary text-white hover:bg-secondary  px-4    ">
