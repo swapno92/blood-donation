@@ -28,7 +28,7 @@ const ComNavbar = () => {
               </Link>
             </li>
             <li className="" >
-              <Link href='/community/dasboardlayout' className={`link px-2 py-2 no-underline font-semibold flex items-center gap-2 md:pr-4 text-[11px] pr-3 rounded-sm ${pathname === '/community/dasboardlayout' ? 'text-white bg-primary' : 'font-semibold no-underline hover:bg-primary hover:text-white duration-500'} `}>
+              <Link href='/community/dasboardlayout/profile' className={`link px-2 py-2 no-underline font-semibold flex items-center gap-2 md:pr-4 text-[11px] pr-3 rounded-sm ${pathname === '/community/dasboardlayout' ? 'text-white bg-primary' : 'font-semibold no-underline hover:bg-primary hover:text-white duration-500'} `}>
               <RiDashboardLine className="md:text-2xl text-[15px]" /> Dashboard
               </Link>
             </li>
