@@ -1,3 +1,4 @@
+import React from "react";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar/Navbar";
@@ -5,6 +6,8 @@ import Navbar from "@/components/Navbar/Navbar";
 import Footer2 from "@/components/Footer/Footer2";
 import AuthProvider from "@/components/provider/AuthProvider";
 import { Toaster } from "react-hot-toast";
+import MassengerItem from "@/components/MassengerItem/MassengerItem";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +19,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en"  data-theme="light" suppressHydrationWarning={true}>
+    <html lang="en" data-theme="light" suppressHydrationWarning={true}>
       <body className={inter.className} suppressHydrationWarning={true}>
         <AuthProvider>
           <Navbar></Navbar>
@@ -24,6 +27,7 @@ export default function RootLayout({ children }) {
           {/* <Footer></Footer> */}
           <Footer2></Footer2>
           <Toaster />
+          <MassengerItem></MassengerItem>
         </AuthProvider>
       </body>
     </html>

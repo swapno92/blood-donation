@@ -9,7 +9,7 @@ import Link from "next/link";
 const ThePost = ({ post }) => {
   const router = useRouter();
 
-  const { userName, userPhoto, _id, likes, images, description} = post;
+  const { userName, userPhoto, _id, likes, images, description } = post;
 
   const [isLiked, setIsLiked] = useState(false);
   const newLikes = 5;
@@ -43,7 +43,7 @@ const ThePost = ({ post }) => {
         <div className="flex items-center gap-2">
           <Image
             className="object-cover rounded-full mt-1 "
-            src={userPhoto}
+            src='https://i.ibb.co/PY1b9Vd/photo2.png'
             width={36}
             height={36}
             alt="User"
