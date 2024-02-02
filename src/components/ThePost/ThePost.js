@@ -8,6 +8,7 @@ import Link from "next/link";
 
 const ThePost = ({ post }) => {
   const router = useRouter();
+
   const { userName, userPhoto, _id, likes, images, description} = post;
 
   const [isLiked, setIsLiked] = useState(false);
@@ -16,7 +17,7 @@ const ThePost = ({ post }) => {
   const handleLike = async (_id) => {
 
     const post = { newLikes };
-    fetch(`http://localhost:5000/posts/${_id}`, {
+    fetch(`https://blood-donation-server-binary-avanger.vercel.app/posts/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
