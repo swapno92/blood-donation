@@ -45,6 +45,7 @@ const Navbar = () => {
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
             {user ? (
               <div className="flex items-center">
+                <h2 className="mr-3">{user.displayName}</h2>
                 <button
                   id="dropdownUserAvatarButton"
                   className="flex text-sm rounded-full md:me-0"

@@ -8,7 +8,7 @@ import Link from "next/link";
 
 const ThePost = ({ post }) => {
   const router = useRouter();
-  const { userName, userPhoto, _id, likes, images } = post;
+  const { userName, userPhoto, _id, likes, images, description} = post;
 
   const [isLiked, setIsLiked] = useState(false);
   const newLikes = 5;
