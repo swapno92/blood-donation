@@ -14,7 +14,7 @@ const ThePost = ({ post }) => {
   const [isLiked, setIsLiked] = useState(false);
   const newLikes = 5;
 
-  
+
 
   const handleLike = async (_id) => {
 
@@ -75,28 +75,44 @@ const ThePost = ({ post }) => {
             )}
             <span className="text-primary ml-2 delay-150">{likes}</span>
           </button>
-          <Link
-            href={`/posts/${_id}`}
+          <button
+
             onClick={() => document.getElementById("my_modal_3").showModal()}
             className="bg-gray-500 text-white px-4 py-2 rounded-full flex items-center  gap-2"
           >
             <FaRegComment className="text-xl" />
             Comment
-          </Link>
+          </button>
 
           {/* modal */}
           <dialog id="my_modal_3" className="modal">
             <div className="modal-box">
               <form method="dialog">
                 {/* if there is a button in form, it will close the modal */}
-                <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
-                  ✕
+                <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-red-500 font-bold text-2xl">
+                  X
                 </button>
               </form>
-              <h3 className="font-bold text-lg">Hello!</h3>
-              <p className="py-4">
-                Press ESC key or click on ✕ button to close
-              </p>
+              <div className="col-span-10 md:col-span-11">
+
+                <form
+                  // onSubmit={handleAddProduct}
+                  className=" mt-4">
+                  <div className="md:py-2 px-4 mb-2 md:mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 d">
+                    <textarea
+                      rows="3"
+                      className="px-0 w-full md:w-1/3 text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none"
+                      placeholder="Write a comment..."
+                      required
+                      name="comment"
+                    ></textarea>
+                  </div>
+                  <button type="submit" className="btn bg-red-500 hover:bg-red-400 text-white">
+                    Post comment
+                  </button>
+                </form>
+
+              </div>
             </div>
           </dialog>
         </div>

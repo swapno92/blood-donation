@@ -11,7 +11,7 @@ const UserInfo = async () => {
   console.log(userInfo);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/users/${currentUser}`)
+    fetch(`https://blood-donation-server-binary-avanger.vercel.app/users/${currentUser}`)
       .then((res) => {
         if (!res.ok) {
           throw new Error(`HTTP error! Status: ${res.status}`);
