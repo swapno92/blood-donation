@@ -1,6 +1,6 @@
 'use client'
 import { createContext, useEffect, useState } from 'react';
-import { FacebookAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
+import { FacebookAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import { auth } from '../firebase/firebase.config';
 
 export const AuthContext = createContext(null)
@@ -22,6 +22,16 @@ const AuthProvider = ({children}) => {
     const facebookSignIn = () =>{
         return signInWithPopup(auth, facebookProvider)
     }
+
+    /* Update Pofile */
+  const updateUaserPofile = (name, photo) => {
+    return updateProfile(auth.currentUser, {
+      displayName: name, photoURL: photo
+    })
+
+  };
+
+
     const logOut = () =>{
         return signOut(auth)
     }
@@ -33,7 +43,7 @@ const AuthProvider = ({children}) => {
         return unSubscribe;
     },[])
 
-    const authInfo = {user, createUser, login, logOut, googleSignIn, facebookSignIn}
+    const authInfo = {user, createUser, login, logOut, googleSignIn, facebookSignIn, updateUaserPofile}
 
     return (
         <AuthContext.Provider value={authInfo}>
