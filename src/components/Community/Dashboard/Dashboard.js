@@ -1,23 +1,32 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { HiMenuAlt3 } from "react-icons/hi";
-import { MdOutlineDashboard } from "react-icons/md";
-import { RiSettings4Line } from "react-icons/ri";
+import { RiProfileLine } from "react-icons/ri";
+import { CiLogout } from "react-icons/ci";
 import { TbReportAnalytics } from "react-icons/tb";
 import { AiOutlineUser, AiOutlineHeart } from "react-icons/ai";
 import { FiMessageSquare, FiFolder, FiShoppingCart } from "react-icons/fi";
-import Link from 'next/link';
+import Link from "next/link";
 
 const Dashboard = () => {
   const menus = [
-    { name: "Home", link: "/community/dasboardlayout/profile", icon: MdOutlineDashboard },
-    { name: "Donner List", link: "/community/dasboardlayout/donner-list", icon: AiOutlineUser },
-    { name: "Available Donner", link: "/community/dasboardlayout/available-dooner", icon: FiMessageSquare },
-    { name: "Requsted", link: "/", icon: TbReportAnalytics, margin: true },
-    // { name: "File Manager", link: "/", icon: FiFolder },
-    // { name: "Cart", link: "/", icon: FiShoppingCart },
-    // { name: "Saved", link: "/", icon: AiOutlineHeart, margin: true },
-    { name: "Log Out", link: "/", icon: RiSettings4Line },
+    {
+      name: "Profile",
+      link: "/community/dasboardlayout/profile",
+      icon: RiProfileLine,
+    },
+    {
+      name: "Donner List",
+      link: "/community/dasboardlayout/donner-list",
+      icon: AiOutlineUser,
+    },
+    {
+      name: "Available Donner",
+      link: "/community/dasboardlayout/available-dooner",
+      icon: FiMessageSquare,
+    },
+    { name: "Request For Blood", link: "/logout", icon: TbReportAnalytics, margin: true },
+    { name: "Log Out", link: "/logout", icon: CiLogout },
   ];
   const [open, setOpen] = useState(true);
 
@@ -25,9 +34,8 @@ const Dashboard = () => {
     <section className="flex  ">
       <div
         className={`bg-primary min-h-screen ${
-          open ? "w-72" :  "w-16"
+          open ? "w-72" : "w-16"
         } duration-500 text-gray-100 px-4 md:{ope}`}
-        
       >
         <div className="py-3 flex justify-end">
           <HiMenuAlt3
@@ -68,7 +76,7 @@ const Dashboard = () => {
         </div>
       </div>
       <div className="m-3 text-xl text-gray-900 font-semibold">
-      
+        
       </div>
     </section>
   );
