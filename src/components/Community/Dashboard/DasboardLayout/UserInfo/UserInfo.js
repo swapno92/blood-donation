@@ -5,11 +5,13 @@ import Image from "next/image";
 import { AuthContext } from "@/components/provider/AuthProvider";
 import { FaRegEdit } from "react-icons/fa";
 import { IoLocationOutline } from "react-icons/io5";
+import UserUpdateModal from "@/components/Modal/UserUpdateModal";
 
 const UserInfo = async () => {
   const { user } = useContext(AuthContext);
   const currentUser = user?.email;
   const [userInfo, setuserInfo] = useState([]);
+  const [showModal, setshowModal] = useState(false);
   console.log(userInfo);
 
   useEffect(() => {
@@ -62,7 +64,7 @@ const UserInfo = async () => {
               <h2 className="text-gray-500 mb-1 flex items-center">
                 <IoLocationOutline className="text-2xl" /> Bogura Sadar,Bogura
               </h2>
-              <button className="flex items-center btn btn-md text-[16px] bg-[#32262614] hover:bg-[#3226262d] text-black mt-1 ">
+              <button onClick={() => setshowModal(true)} className="flex items-center btn btn-md text-[16px] bg-[#32262614] hover:bg-[#3226262d] text-black mt-1 ">
                 <FaRegEdit className="text-[20px] text-primary" />
                 <span className="mt-1">Edit Your Profile</span>
               </button>
@@ -101,6 +103,7 @@ const UserInfo = async () => {
           </div>
         </div>
       </section>
+      <UserUpdateModal showModal={showModal} closeModal={() => setshowModal(false)}/>
     </div>
   );
 };

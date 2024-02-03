@@ -14,27 +14,24 @@ const ThePost = ({ post }) => {
   const [isLiked, setIsLiked] = useState(false);
   const newLikes = 5;
 
-
-
   const handleLike = async (_id) => {
-
     const post = { newLikes };
-    fetch(`https://blood-donation-server-binary-avanger.vercel.app/posts/${_id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(post),
-    })
+    fetch(
+      `https://blood-donation-server-binary-avanger.vercel.app/posts/${_id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(post),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
         router.refresh();
       });
   };
-
-
-
 
   return (
     <div
@@ -45,7 +42,7 @@ const ThePost = ({ post }) => {
         <div className="flex items-center gap-2">
           <Image
             className="object-cover rounded-full h-10 w-10 mt-1 "
-            src='https://i.ibb.co/PY1b9Vd/photo2.png'
+            src="https://i.ibb.co/PY1b9Vd/photo2.png"
             width={36}
             height={36}
             alt="User"
@@ -76,7 +73,6 @@ const ThePost = ({ post }) => {
             <span className="text-primary ml-2 delay-150">{likes}</span>
           </button>
           <button
-
             onClick={() => document.getElementById("my_modal_3").showModal()}
             className="bg-gray-500 text-white px-4 py-2 rounded-full flex items-center  gap-2"
           >
@@ -94,10 +90,10 @@ const ThePost = ({ post }) => {
                 </button>
               </form>
               <div className="col-span-10 md:col-span-11">
-
                 <form
                   // onSubmit={handleAddProduct}
-                  className=" mt-4">
+                  className=" mt-4"
+                >
                   <div className="md:py-2 px-4 mb-2 md:mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 d">
                     <textarea
                       rows="3"
@@ -107,11 +103,13 @@ const ThePost = ({ post }) => {
                       name="comment"
                     ></textarea>
                   </div>
-                  <button type="submit" className="btn bg-red-500 hover:bg-red-400 text-white">
+                  <button
+                    type="submit"
+                    className="btn bg-red-500 hover:bg-red-400 text-white"
+                  >
                     Post comment
                   </button>
                 </form>
-
               </div>
             </div>
           </dialog>
