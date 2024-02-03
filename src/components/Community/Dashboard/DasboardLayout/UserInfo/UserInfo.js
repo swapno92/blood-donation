@@ -3,6 +3,8 @@ import React, { useContext, useEffect, useState } from "react";
 // import Banner from '../../../../../../public/Banner img'
 import Image from "next/image";
 import { AuthContext } from "@/components/provider/AuthProvider";
+import { FaRegEdit } from "react-icons/fa";
+import { IoLocationOutline } from "react-icons/io5";
 
 const UserInfo = async () => {
   const { user } = useContext(AuthContext);
@@ -11,7 +13,9 @@ const UserInfo = async () => {
   console.log(userInfo);
 
   useEffect(() => {
-    fetch(`https://blood-donation-server-binary-avanger.vercel.app/users/${currentUser}`)
+    fetch(
+      `https://blood-donation-server-binary-avanger.vercel.app/users/${currentUser}`
+    )
       .then((res) => {
         if (!res.ok) {
           throw new Error(`HTTP error! Status: ${res.status}`);
@@ -32,16 +36,16 @@ const UserInfo = async () => {
   }, [currentUser]);
 
   return (
-    <div>
-      <div className="">
+    <div className="">
+      <div className="shadow-black shadow-sm ">
         <Image
           src="https://i.ibb.co/F3NqnDC/premium-photo-1664299422915-d67e36404534-hpg.jpg"
           alt="user_Banner"
-          className="w-screen  lg:h-44 h-12 md:h-24   object-cover"
+          className="w-screen  lg:h-36 h-12 md:h-24   object-cover"
           width={1200}
           height={1200}
         />
-        <div className="relative -top-12 left-20">
+        <div className="relative -top-[28px] left-20">
           <div className=" flex items-center gap-6">
             <Image
               src={userInfo.photo}
@@ -50,16 +54,53 @@ const UserInfo = async () => {
               width={1200}
               height={1200}
             />
+
             <div>
               <h2 className="font-bold text-primary text-2xl mt-5">
                 {userInfo.name}
               </h2>
-              <h2 className="text-gray-500">Donner</h2>
-              <h2 className="">Join at 12-01-1024</h2>
+              <h2 className="text-gray-500 mb-1 flex items-center">
+                <IoLocationOutline className="text-2xl" /> Bogura Sadar,Bogura
+              </h2>
+              <button className="flex items-center btn btn-md text-[16px] bg-[#32262614] hover:bg-[#3226262d] text-black mt-1 ">
+                <FaRegEdit className="text-[20px] text-primary" />
+                <span className="mt-1">Edit Your Profile</span>
+              </button>
             </div>
           </div>
         </div>
       </div>
+
+      {/* ----------------Your Information section--------------- */}
+
+      <section className="shadow-black shadow-sm">
+        <div>
+          <h2 className="text-4xl font-bold py-2 px-4 bg-primary text-white shadow-gray-700 shadow-sm text-center mt-6">
+            Your Information
+          </h2>
+        </div>
+        <div className="">
+          <div className=" py-4 shadow-black shadow-sm text-center xl font-bold  px-4">
+            <div>
+              <h3 className="border p-4 my-3 bg-gray-100 shadow-sm text-gray-700 shadow-gray-400 text-xl">
+                Name: {userInfo?.name ? userInfo?.name : "---"}
+              </h3>
+              <h3 className="border p-4 my-3 bg-gray-100 shadow-sm text-gray-700 shadow-gray-400 text-xl">
+                Mobile: {userInfo?.mobile ? userInfo?.mobile : "---"}
+              </h3>
+              <h3 className="border p-4 my-3 bg-gray-100 shadow-sm text-gray-700 shadow-gray-400 text-xl">
+                Email: {userInfo?.email ? userInfo?.email : "---"}
+              </h3>
+              <h3 className="border p-4 my-3 bg-gray-100 shadow-sm text-gray-700 shadow-gray-400 text-xl">
+                Adress: {userInfo?.location ? userInfo?.locaation : "---"}
+              </h3>
+              <h3 className="border p-4 my-3 bg-gray-100 shadow-sm text-gray-700 shadow-gray-400 text-xl">
+                Blood: {userInfo?.blood ? userInfo?.blood : "---"}
+              </h3>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

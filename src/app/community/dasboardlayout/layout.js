@@ -11,7 +11,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <>
-      <div className="flex">
+      <div className="flex h-full">
         <Dashboard />
         {children}
       </div>
