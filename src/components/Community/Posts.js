@@ -67,8 +67,8 @@ const Posts = () => {
       >
         <div className="flex items-center  ">
           <Image
-            className=" object-cover w-10 "
-            src={profileIcon}
+            className=" object-cover w-10 rounded-full "
+            src={user?.photoURL}
             alt="Banner 2"
             width={1200}
             height={500}
