@@ -64,7 +64,10 @@ const UserInfo = async () => {
               <h2 className="text-gray-500 mb-1 flex items-center">
                 <IoLocationOutline className="text-2xl" /> Bogura Sadar,Bogura
               </h2>
-              <button onClick={() => setshowModal(true)} className="flex items-center btn btn-md text-[16px] bg-[#32262614] hover:bg-[#3226262d] text-black mt-1 ">
+              <button
+                onClick={() => setshowModal(true)}
+                className="flex items-center btn btn-md text-[16px] bg-[#32262614] hover:bg-[#3226262d] text-black mt-1 "
+              >
                 <FaRegEdit className="text-[20px] text-primary" />
                 <span className="mt-1">Edit Your Profile</span>
               </button>
@@ -97,13 +100,16 @@ const UserInfo = async () => {
                 Adress: {userInfo?.location ? userInfo?.locaation : "---"}
               </h3>
               <h3 className="border p-4 my-3 bg-gray-100 shadow-sm text-gray-700 shadow-gray-400 text-xl">
+        <UserUpdateModal
+          showModal={showModal}
+          closeModal={() => setshowModal(false)}
+        />
                 Blood: {userInfo?.blood ? userInfo?.blood : "---"}
               </h3>
             </div>
           </div>
         </div>
       </section>
-      <UserUpdateModal showModal={showModal} closeModal={() => setshowModal(false)}/>
     </div>
   );
 };
