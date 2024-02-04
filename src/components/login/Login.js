@@ -1,5 +1,5 @@
 'use client'
-// import Lottie from 'lottie-react';
+import Lottie from 'lottie-react';
 import Heart from './../../../public/animations/donate-blood.json'
 import { useForm } from "react-hook-form"
 import Link from 'next/link';
@@ -69,7 +69,7 @@ const Login = () => {
             <div className='max-w-screen-lg mx-auto'>
                 <div className=" flex flex-col lg:flex-row-reverse items-center justify-between gap-5 p-5 my-10 border border-primary/20 rounded-xl">
                     <div className="lg:w-1/2 w-full lg:text-left">
-                        {/* <Lottie animationData={Heart} /> */}
+                        <Lottie animationData={Heart} /> 
                     </div>
 
                     <div className="lg:w-1/2 w-full card shrink-0 bg-base-100 p-10">

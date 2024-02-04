@@ -1,5 +1,5 @@
 "use client";
-// import Lottie from 'lottie-react';
+import Lottie from 'lottie-react';
 import Heart from "./../../../public/animations/donate-blood.json";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
@@ -86,7 +86,7 @@ const Registration = () => {
                 <p>Back to Home</p>
               </div>
             </Link>
-            {/* <Lottie animationData={Heart} /> */}
+            <Lottie animationData={Heart} />
           </div>
 
           <div className="lg:w-1/2 w-full card shrink-0 bg-base-100 p-10">
