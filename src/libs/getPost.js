@@ -1,4 +1,4 @@
 export default async function getPosts() {
-  const result = await fetch(`https://blood-donation-server-binary-avanger.vercel.app/posts/${id}`);
+  const result = await fetch(`http://localhost:5000/posts/${id}`);
   return result.json();
 }
