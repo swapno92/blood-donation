@@ -25,7 +25,7 @@ const Dashboard = () => {
       link: "/community/dasboardlayout/available-dooner",
       icon: FiMessageSquare,
     },
-    { name: "Request For Blood", link: "/logout", icon: TbReportAnalytics, margin: true },
+    { name: "Request For Blood", link: "/community/dasboardlayout/blood-request", icon: TbReportAnalytics, margin: true },
     { name: "Log Out", link: "/logout", icon: CiLogout },
   ];
   const [open, setOpen] = useState(true);

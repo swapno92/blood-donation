@@ -3,6 +3,7 @@ import React, { useContext} from "react";
 import { AuthContext } from "@/components/provider/AuthProvider";
 import axios from "axios";
 import moment from "moment";
+import toast from "react-hot-toast";
 
 
 const DonatRequest = () => {
@@ -17,6 +18,8 @@ const DonatRequest = () => {
     const date = from.date.value;
     const contactNumber = from.contactNumber.value;
     const location = from.location.value;
+    const patient = from.patient.value;
+    const himoglobing = from.himoglobing.value;
     const bloodGroup = from.bloodGroup.value;
     const quantity = from.quantity.value;
     const gender = from.gender.value;
@@ -28,6 +31,8 @@ const DonatRequest = () => {
       date,
       contactNumber,
       location,
+      patient,
+      himoglobing,
       bloodGroup,
       quantity,
       gender,
@@ -51,8 +56,12 @@ const DonatRequest = () => {
     return (
       <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle w-full">
         <div className="modal-box w-full">
-  <div className="mt-5 px-5 mb-3">
-     <h2 className="text-3xl font-bold  text-center  mb-3">Blood Request</h2>
+  <div className="mt-5 px-5  mb-3">
+     
+     <h2 className="text-3xl font-bold  text-center  mb-6">Blood Request</h2>
+    
+     
+
      <form onSubmit={submitFrom} >
          <div className="form-control w-full pb-3">
            <label>
@@ -60,7 +69,7 @@ const DonatRequest = () => {
                type="text"
                name="name"
                placeholder="Your name"
-               className="input w-full focus:border-0 focus-within:outline-none border-0 border-b-2 border-gray-400 focus:border-b-2   focus:border-gray rounded-none px-1"
+               className="input w-full bg-gray-100 focus:bg-red-100 border-none focus:outline-none  rounded-md py-1 px-2 "
                defaultValue={user?.displayName}
              />
            </label>
@@ -71,7 +80,7 @@ const DonatRequest = () => {
                type="email"
                name="email"
                placeholder="Your Email"
-               className="input w-full focus:border-0 focus-within:outline-none border-0 border-b-2 border-gray-400 focus:border-b-2  focus:border-gray rounded-none px-1"
+               className="input w-full bg-gray-100 focus:bg-red-100 border-none focus:outline-none  rounded-md py-1 px-2 "
                defaultValue={user?.email}
              />
            </label>
@@ -82,7 +91,7 @@ const DonatRequest = () => {
                type="date"
                name="date"
                placeholder=""
-               className="input w-full focus:border-0 focus-within:outline-none border-0 border-b-2 border-gray-400 focus:border-b-2  focus:border-gray rounded-none px-1"
+               className="input w-full bg-gray-100 focus:bg-red-100 border-none focus:outline-none  rounded-md py-1 px-2 "
              />
            </label>
          </div>
@@ -91,8 +100,8 @@ const DonatRequest = () => {
              <input
                type="number"
                name="contactNumber"
-               placeholder="contact Number"
-               className="input w-full focus:border-0 focus-within:outline-none border-0 border-b-2 border-gray-400 focus:border-b-2  focus:border-gray rounded-none px-1"
+               placeholder="Contact Number"
+               className="input w-full bg-gray-100 focus:bg-red-100 border-none focus:outline-none  rounded-md py-1 px-2"
              />
            </label>
          </div>
@@ -101,15 +110,37 @@ const DonatRequest = () => {
              <input
                type="text"
                name="location"
-               placeholder="Location"
-               className="input w-full focus:border-0 focus-within:outline-none border-0 border-b-2 border-gray-400 focus:border-b-2  focus:border-gray rounded-none px-1"
+               placeholder="Address In Details"
+               className="input w-full bg-gray-100 focus:bg-red-100 border-none focus:outline-none  rounded-md py-1 px-2"
              />
            </label>
          </div>
-        <div className="md:flex justify-center gap-10 mb-2">
+       <div className="md:flex justify-center gap-6 mb-2">
+         <div className="form-control w-full pb-3">
+           <label>
+             <input
+               type="text"
+               name="patient"
+               placeholder="Patient Condition"
+               className="input w-full bg-gray-100 focus:bg-red-100 border-none focus:outline-none  rounded-md py-1 px-2 "
+             />
+           </label>
+         </div>
+         <div className="form-control w-full pb-3">
+           <label>
+             <input
+               type="text"
+               name="himoglobing"
+               placeholder="Hemoglobin"
+               className="input w-full bg-gray-100 focus:bg-red-100 border-none focus:outline-none  rounded-md py-1 px-2 "
+             />
+           </label>
+         </div>
+         </div>
+        <div className="md:flex justify-center gap-6 mb-2">
        <div className="form-control w-full pb-3">
-       <select id="" name="bloodGroup" className=" input w-full focus:border-0 focus-within:outline-none border-0 border-b-2 border-gray-400 focus:border-b-2  focus:border-gray rounded-none px-1">
-              <option value="Blood Group">Blood Group</option>
+       <select id="" name="bloodGroup" className="input w-full bg-gray-100 focus:bg-red-100 border-none focus:outline-none  rounded-md py-1 px-2">
+              <option value="Blood Group">Select Blood Group</option>
               <option value="A+">A+</option>
               <option value="A-">A-</option>
               <option value="B+">B+</option>
@@ -120,33 +151,33 @@ const DonatRequest = () => {
               <option value="AB-">AB</option>
             </select>
          </div>
-         <div className="form-control w-full pb-5">
+         <div className="form-control w-full pb-7">
            <label>
              <input
                type="number"
                name="quantity"
                placeholder="Quantity"
-               className="input w-full focus:border-0 focus-within:outline-none border-0 border-b-2 border-gray-400 focus:border-b-2  focus:border-gray rounded-none px-1"
+               className="input w-full bg-gray-100 focus:bg-red-100 border-none focus:outline-none  rounded-md py-1 px-2"
              />
            </label>
          </div>
         </div>
-       <div className="flex gap-4 w-full pb-5">
+       <div className="flex justify-center gap-3 md:gap-6 w-full pb-5">
         <span className="font-semibold"> Gender:</span>
-             <input type="radio" name="gender"/>Male
+             <input type="radio" value="male"  name="gender"/>Male
              <input type="radio" name="gender"/>Female
-             <input type="radio" name="gender"/>Others
+             <input type="radio" value="others" name="gender"/>Others
          </div>
-       <div className="flex justify-center">
-         <button className="py-3 rounded text-white text-xl btn-block mt-3 bg-primary">Send Request</button>
+       <div className="">
+         <button className="btn py-3 rounded text-white text-xl btn-block mt-3 bg-primary">Send Request</button>
          </div>
      </form>
    </div>
    <div className="modal-action px-5">
       <form method="dialog">
-          <button className=""><ImCross /></button>
+          <button className="btn btn-block"><ImCross /></button>
       </form>
-    </div>
+      </div>
   </div>
 </dialog>
     );
