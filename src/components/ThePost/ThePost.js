@@ -1,13 +1,19 @@
 "use client";
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { MdBloodtype, MdOutlineBloodtype } from "react-icons/md";
 import { FaRegComment } from "react-icons/fa";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
+import { axiosPublic } from "../Hooks/useAxiosSecure";
+import toast from "react-hot-toast";
+import { AuthContext } from "../provider/AuthProvider";
+import moment from "moment";
 
-const ThePost = ({ post }) => {
+// const ThePost = async ({ post }) => {
+export default async function ThePost({ post }) {
   const router = useRouter();
+  const axiosURL = axiosPublic();
+  const { user } = useContext(AuthContext);
 
   const { userName, userPhoto, _id, likes, images, description } = post;
 
@@ -16,22 +22,50 @@ const ThePost = ({ post }) => {
 
   const handleLike = async (_id) => {
     const post = { newLikes };
-    fetch(
-      `https://blood-donation-server-binary-avanger.vercel.app/posts/${_id}`,
-      {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(post),
-      }
-    )
+    fetch(`http://localhost:5000/posts/${_id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(post),
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
         router.refresh();
       });
   };
+
+  // comment posting
+  const handleComment = (_id) => (e) => {
+    const userEml = user?.email;
+    const userName = user?.displayName;
+    const currentDate = moment().format("MM-DD-YYYY");
+    e.preventDefault();
+    const postID = _id;
+    const form = new FormData(e.target);
+    const comment = form.get("comment");
+    const postInfo = {
+      postID,
+      comment,
+      userPhoto,
+      userEml,
+      userName,
+      currentDate
+    };
+    console.log(postInfo);
+    axiosPublic
+      .post("/comments", postInfo)
+      .then((res) => {
+        toast.success("add comment");
+        e.target.reset();
+        router.refresh();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
 
   return (
     <div
@@ -60,7 +94,7 @@ const ThePost = ({ post }) => {
           height={360}
           alt="Card"
         />
-        <div className="flex items-center gap-4 mt-4 ">
+        <div className="flex items-center gap-4 mt-4">
           <button
             onClick={() => handleLike(_id)}
             className="flex px-4 py-2 bg-gray-100 text-primary rounded-full cursor-pointer"
@@ -72,16 +106,18 @@ const ThePost = ({ post }) => {
             )}
             <span className="text-primary ml-2 delay-150">{likes}</span>
           </button>
-          <button
-            onClick={() => document.getElementById("my_modal_3").showModal()}
-            className="bg-gray-500 text-white px-4 py-2 rounded-full flex items-center  gap-2"
-          >
-            <FaRegComment className="text-xl" />
-            Comment
-          </button>
+          <div className="line">
+            <button
+              onClick={() => document.getElementById(_id).showModal()}
+              className="bg-gray-500 text-white px-4 py-2 rounded-full flex items-center  gap-2"
+            >
+              <FaRegComment className="text-xl" />
+              Comment
+            </button>
+          </div>
 
           {/* modal */}
-          <dialog id="my_modal_3" className="modal">
+          <dialog id={_id} className="modal">
             <div className="modal-box">
               <form method="dialog">
                 {/* if there is a button in form, it will close the modal */}
@@ -90,17 +126,21 @@ const ThePost = ({ post }) => {
                 </button>
               </form>
               <div className="col-span-10 md:col-span-11">
-                <form
-                  // onSubmit={handleAddProduct}
-                  className=" mt-4"
-                >
+                <form onSubmit={handleComment(_id)} className=" mt-4">
+                  {/* show comments................ */}
+                  {/* {comments?.map((com) => (
+                    <div key={com._id}>
+                      <p>{com.comment}</p>
+                    </div>
+                  ))} */}
                   <div className="md:py-2 px-4 mb-2 md:mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 d">
                     <textarea
+                      required
+                      name="comment"
                       rows="3"
                       className="px-0 w-full md:w-1/3 text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none"
                       placeholder="Write a comment..."
-                      required
-                      name="comment"
+                      // required
                     ></textarea>
                   </div>
                   <button
@@ -117,6 +157,4 @@ const ThePost = ({ post }) => {
       </div>
     </div>
   );
-};
-
-export default ThePost;
+}
