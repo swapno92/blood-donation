@@ -7,12 +7,12 @@ import { FaRegEdit } from "react-icons/fa";
 import { IoLocationOutline } from "react-icons/io5";
 import UserUpdateModal from "@/components/Modal/UserUpdateModal";
 
-const UserInfo = async () => {
+const UserInfo =  () => {
   const { user } = useContext(AuthContext);
   const currentUser = user?.email;
   const [userInfo, setuserInfo] = useState([]);
   const [showModal, setshowModal] = useState(false);
-  console.log(userInfo);
+  // console.log(userInfo);
 
   useEffect(() => {
     fetch(
