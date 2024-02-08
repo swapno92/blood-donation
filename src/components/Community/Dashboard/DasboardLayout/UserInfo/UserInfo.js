@@ -7,7 +7,7 @@ import { FaRegEdit } from "react-icons/fa";
 import { IoLocationOutline } from "react-icons/io5";
 import UserUpdateModal from "@/components/Modal/UserUpdateModal";
 
-const UserInfo =  () => {
+const UserInfo = () => {
   const { user } = useContext(AuthContext);
   const currentUser = user?.email;
   const [userInfo, setuserInfo] = useState([]);
@@ -15,9 +15,7 @@ const UserInfo =  () => {
   // console.log(userInfo);
 
   useEffect(() => {
-    fetch(
-      `http://localhost:5000/users/${currentUser}`
-    )
+    fetch(`http://localhost:5000/users/${currentUser}`)
       .then((res) => {
         if (!res.ok) {
           throw new Error(`HTTP error! Status: ${res.status}`);
@@ -62,7 +60,7 @@ const UserInfo =  () => {
                 {userInfo.name}
               </h2>
               <h2 className="text-gray-500 mb-1 flex items-center">
-                <IoLocationOutline className="text-2xl" /> Bogura Sadar,Bogura
+                <IoLocationOutline className="text-2xl" /> {userInfo?.address ? userInfo?.address : "---"}
               </h2>
               <button
                 onClick={() => setshowModal(true)}
@@ -100,11 +98,11 @@ const UserInfo =  () => {
                 Adress: {userInfo?.address ? userInfo?.address : "---"}
               </h3>
               <h3 className="border p-4 my-3 bg-gray-100 shadow-sm text-gray-700 shadow-gray-400 text-xl">
-        <UserUpdateModal
-          showModal={showModal}
-          userInfo={userInfo}
-          closeModal={() => setshowModal(false)}
-        />
+                <UserUpdateModal
+                  showModal={showModal}
+                  userInfo={userInfo}
+                  closeModal={() => setshowModal(false)}
+                />
                 Blood: {userInfo?.blood ? userInfo?.blood : "---"}
               </h3>
             </div>

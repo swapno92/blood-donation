@@ -3,12 +3,10 @@ import { CiSquareRemove } from "react-icons/ci";
 import { AuthContext } from "../provider/AuthProvider";
 
 const UserUpdateModal = ({ showModal, closeModal, userInfo }) => {
-    const {user}=useContext(AuthContext);
-    const {_id}=userInfo;
-    console.log(_id)
+  const { user } = useContext(AuthContext);
+  const { _id } = userInfo;
+  console.log(_id);
 
-
-   
   if (!showModal) return null;
 
   const updateUser = (e) => {
@@ -29,17 +27,17 @@ const UserUpdateModal = ({ showModal, closeModal, userInfo }) => {
     };
     console.log(userInfo);
 
-    fetch(`http://localhost:5000/users/${_id}`,{
-        method: "PUT",
-        headers:{
-            "content-type": "application/json"
-        },
-        body: JSON.stringify(userInfo)
+    fetch(`http://localhost:5000/users/${_id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(userInfo),
     })
-    .then(res=> res.json())
-    .then(data =>{
-       console.log(data)
-    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
   };
   return (
     <div className=" flex justify-center items-center  fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm">
@@ -62,7 +60,7 @@ const UserUpdateModal = ({ showModal, closeModal, userInfo }) => {
                 name="name"
                 placeholder="Your Name"
                 className="input w-full text-black bg-gray-100 focus:bg-red-100 border-none focus:outline-none  rounded-md py-1 px-2 "
-                  defaultValue={user?.displayName}
+                defaultValue={user?.displayName}
               />
             </label>
           </div>
@@ -71,6 +69,7 @@ const UserUpdateModal = ({ showModal, closeModal, userInfo }) => {
               <input
                 type="number"
                 name="mobile"
+                defaultValue={userInfo?.mobile ? userInfo?.mobile : ""}
                 placeholder="Contact Number"
                 className="input w-full bg-gray-100 focus:bg-red-100 border-none focus:outline-none  rounded-md py-1 px-2 "
               />
@@ -84,6 +83,7 @@ const UserUpdateModal = ({ showModal, closeModal, userInfo }) => {
                 placeholder="Your Email"
                 className="input w-full bg-gray-100 focus:bg-red-100 border-none focus:outline-none  rounded-md py-1 px-2 "
                 defaultValue={user?.email}
+                readOnly="true"
               />
             </label>
           </div>
@@ -91,6 +91,7 @@ const UserUpdateModal = ({ showModal, closeModal, userInfo }) => {
             <label>
               <input
                 type="text"
+                defaultValue={userInfo?.address ? userInfo?.address : ""}
                 name="address"
                 placeholder="Your Address"
                 className="input w-full bg-gray-100 focus:bg-red-100 border-none focus:outline-none  rounded-md py-1 px-2 "
@@ -103,8 +104,9 @@ const UserUpdateModal = ({ showModal, closeModal, userInfo }) => {
               name="blood"
               required
               className="input w-full bg-gray-100 focus:bg-red-100 border-none focus:outline-none  rounded-md py-1 px-2"
+              defaultValue={userInfo?.blood ? userInfo?.blood : ""}
             >
-              <option value="blood">Blood Group</option>
+              <option value="blood">Selact Blood Group</option>
               <option value="A+">A+</option>
               <option value="A-">A-</option>
               <option value="B+">B+</option>
@@ -116,7 +118,7 @@ const UserUpdateModal = ({ showModal, closeModal, userInfo }) => {
             </select>
           </div>
           <div className="">
-            <button className="btn py-3 rounded text-white text-xl btn-block mt-3 bg-primary">
+            <button  className="btn py-3 rounded text-white text-xl btn-block mt-3 bg-primary">
               Update User
             </button>
           </div>
