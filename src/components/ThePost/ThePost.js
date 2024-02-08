@@ -10,9 +10,9 @@ import { AuthContext } from "../provider/AuthProvider";
 import moment from "moment";
 
 // const ThePost = async ({ post }) => {
-export default async function ThePost({ post }) {
-  const { userName, userPhoto, _id, likes, images, description } = post;
+  export default async function ThePost({ post }) {
   const router = useRouter();
+  const { userName, userPhoto, _id, likes, images, description } = post;
   const axiosURL = axiosPublic();
   const { user } = useContext(AuthContext);
   const [isLiked, setIsLiked] = useState(false);
