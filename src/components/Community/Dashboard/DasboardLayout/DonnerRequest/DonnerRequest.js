@@ -17,7 +17,7 @@ const DonnerRequest = () => {
       <h1 className="text-2xl font-bold text-center mb-4 mt-4">
         Donner Request
       </h1>
-      <table className="table w-fulll border w-full">
+      <table className="table">
         {/* head */}
         <thead className="text-lg bg-primary text-white text-center">
           <tr>
