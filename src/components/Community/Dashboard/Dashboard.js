@@ -25,7 +25,12 @@ const Dashboard = () => {
       link: "/community/dasboardlayout/available-dooner",
       icon: FiMessageSquare,
     },
-    { name: "Request For Blood", link: "/community/dasboardlayout/blood-request", icon: TbReportAnalytics, margin: true },
+    {
+      name: "Request For Blood",
+      link: "/community/dasboardlayout/blood-request",
+      icon: TbReportAnalytics,
+      margin: true,
+    },
     { name: "Log Out", link: "/logout", icon: CiLogout },
   ];
   const [open, setOpen] = useState(true);
@@ -75,9 +80,7 @@ const Dashboard = () => {
           ))}
         </div>
       </div>
-      <div className="m-3 text-xl text-gray-900 font-semibold">
-        
-      </div>
+      <div className="m-3 text-xl text-gray-900 font-semibold"></div>
     </section>
   );
 };
