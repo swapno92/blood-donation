@@ -48,6 +48,8 @@ export default async function ThePost({ post }) {
   const handleComment = (_id) => (e) => {
     const userEml = user?.email;
     const userName = user?.displayName;
+    const userPhoto = user?.photoURL;
+    console.log(userPhoto);
     const currentDate = moment().format("MM-DD-YYYY");
     e.preventDefault();
     const postID = _id;
@@ -86,9 +88,7 @@ export default async function ThePost({ post }) {
           <div className="flex items-center gap-2">
             <Image
               className="object-cover rounded-full h-10 w-10 mt-1 "
-              src={
-                userPhoto ? userPhoto : "https://i.ibb.co/PY1b9Vd/photo2.png"
-              }
+              src={userPhoto}
               width={36}
               height={36}
               alt="User"
