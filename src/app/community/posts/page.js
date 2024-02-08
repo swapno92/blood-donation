@@ -1,12 +1,15 @@
-import Posts from '@/components/Community/Posts';
+import Posts from "@/components/Community/Posts";
+import PrivateRoute from "@/components/PrivateRoute/PrivateRoute";
 // import React from 'react';
 
 const posts = () => {
-    return (
-        <div >
-            <Posts/>
-        </div>
-    );
+  return (
+    <div>
+      <PrivateRoute>
+        <Posts />
+      </PrivateRoute>
+    </div>
+  );
 };
 
 export default posts;
