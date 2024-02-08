@@ -97,11 +97,12 @@ const UserInfo =  () => {
                 Email: {userInfo?.email ? userInfo?.email : "---"}
               </h3>
               <h3 className="border p-4 my-3 bg-gray-100 shadow-sm text-gray-700 shadow-gray-400 text-xl">
-                Adress: {userInfo?.location ? userInfo?.locaation : "---"}
+                Adress: {userInfo?.address ? userInfo?.address : "---"}
               </h3>
               <h3 className="border p-4 my-3 bg-gray-100 shadow-sm text-gray-700 shadow-gray-400 text-xl">
         <UserUpdateModal
           showModal={showModal}
+          userInfo={userInfo}
           closeModal={() => setshowModal(false)}
         />
                 Blood: {userInfo?.blood ? userInfo?.blood : "---"}
