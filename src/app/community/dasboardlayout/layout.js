@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
 import Dashboard from "@/components/Community/Dashboard/Dashboard";
+import PrivateRoute from "@/components/PrivateRoute/PrivateRoute";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,7 +13,9 @@ export default function RootLayout({ children }) {
   return (
     <>
       <div className="flex">
-        <Dashboard />
+        <PrivateRoute>
+          <Dashboard />
+        </PrivateRoute>
         {children}
       </div>
     </>
