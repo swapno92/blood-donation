@@ -36,7 +36,7 @@ const UserInfo = () => {
   }, [currentUser]);
 
   return (
-    <div className="">
+    <div className="w-full">
       <div className="shadow-black shadow-sm ">
         <Image
           src="https://i.ibb.co/F3NqnDC/premium-photo-1664299422915-d67e36404534-hpg.jpg"
@@ -76,7 +76,7 @@ const UserInfo = () => {
 
       {/* ----------------Your Information section--------------- */}
 
-      <section className="shadow-black shadow-sm">
+      <section className="shadow-black shadow-sm block">
         <div>
           <h2 className="text-4xl font-bold py-2 px-4 bg-primary text-white shadow-gray-700 shadow-sm text-center mt-6">
             Your Information
