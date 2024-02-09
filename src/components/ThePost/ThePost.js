@@ -48,7 +48,7 @@ import moment from "moment";
   const handleComment = (_id) => (e) => {
     const userEml = user?.email;
     const userName = user?.displayName;
-    const userPhoto = user?.photoURL;
+    const userImage = user?.photoURL;
     console.log(userPhoto);
     const currentDate = moment().format("MM-DD-YYYY");
     e.preventDefault();
@@ -58,7 +58,7 @@ import moment from "moment";
     const postInfo = {
       postID,
       comment,
-      userPhoto,
+      userImage,
       userEml,
       userName,
       currentDate,
@@ -88,7 +88,11 @@ import moment from "moment";
           <div className="flex items-center gap-2">
             <Image
               className="object-cover rounded-full h-10 w-10 mt-1 "
-              src={userPhoto}
+              src={
+                userPhoto
+                  ? userPhoto
+                  : "https://i.ibb.co/RCMBXjt/profile-circle-icon.png"
+              }
               width={36}
               height={36}
               alt="User"
@@ -171,7 +175,11 @@ import moment from "moment";
             <div className="">
               <Image
                 className="object-cover rounded-full h-10 w-10 mt-1 "
-                src={postComment.userPhoto}
+                src={
+                  postComment.userImage
+                    ? postComment.userImage
+                    : "https://i.ibb.co/RCMBXjt/profile-circle-icon.png"
+                }
                 width={36}
                 height={36}
                 alt="User"

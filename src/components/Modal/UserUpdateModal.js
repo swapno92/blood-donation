@@ -1,11 +1,14 @@
 import React, { useContext } from "react";
 import { CiSquareRemove } from "react-icons/ci";
 import { AuthContext } from "../provider/AuthProvider";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 const UserUpdateModal = ({ showModal, closeModal, userInfo }) => {
   const { user } = useContext(AuthContext);
   const { _id } = userInfo;
   console.log(_id);
+  const router = useRouter()
 
   if (!showModal) return null;
 
@@ -36,7 +39,9 @@ const UserUpdateModal = ({ showModal, closeModal, userInfo }) => {
     })
       .then((res) => res.json())
       .then((data) => {
+        toast('user update')
         console.log(data);
+        router.refresh()
       });
   };
   return (
