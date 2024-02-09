@@ -38,11 +38,12 @@ const Login = () => {
     const handleGoogleSignIn = () =>{
         googleSignIn()
         .then(result =>{
-            const userInfo ={
-                email: result.user.email,
-                name: result.user.displayName,
-                photo: result.user.photoURL,
-            }
+            const userInfo = {
+              email: result.user.email,
+              name: result.user.displayName,
+              photo: result.user.photoURL,
+              roll: "user",
+            };
             axiosPublic.post('/users', userInfo )
             .then(res => {
                 console.log(res.data);

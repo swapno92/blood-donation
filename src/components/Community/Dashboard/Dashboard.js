@@ -66,7 +66,7 @@ const Dashboard = () => {
             onClick={() => setOpen(!open)}
           />
         </div>
-        {users?.roll === "admin" ? (
+        {users?.roll === "user" ? (
           <div className="mt-4 flex flex-col gap-4 relative">
             {menusUser?.map((menu, i) => (
               <Link href={menu?.link} key={i} passHref legacyBehavior={true}>
