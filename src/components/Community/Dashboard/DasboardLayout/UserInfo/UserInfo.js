@@ -36,8 +36,10 @@ const UserInfo = () => {
   }, [currentUser]);
 
   return (
+
     <div >
       <div className=" shadow-sm pl-4 ">
+
         <Image
           src="https://i.ibb.co/F3NqnDC/premium-photo-1664299422915-d67e36404534-hpg.jpg"
           alt="user_Banner"
@@ -74,6 +76,7 @@ const UserInfo = () => {
         </div>
         {/* ----------------Your Information section--------------- */}
 
+
         <section className=" shadow-sm block">
           <div>
             <h2 className="text-2xl font-bold py-2 px-4 bg-primary text-white shadow-gray-700 shadow-sm text-center ">
@@ -104,6 +107,7 @@ const UserInfo = () => {
                   Blood: {userInfo?.blood ? userInfo?.blood : "---"}
                 </h3>
               </div>
+
             </div>
           </div>
         </section>
