@@ -38,6 +38,7 @@ const Registration = () => {
         name: data.name,
         email: data.email,
         photo: "https://i.ibb.co/RCMBXjt/profile-circle-icon.png",
+        roll: 'user'
       };
       console.log(userInfo);
       axiosPublic.post("/users", userInfo).then((res) => {
@@ -56,6 +57,7 @@ const Registration = () => {
         email: result.user.email,
         name: result.user.displayName,
         photo: result.user.photoURL,
+        roll: 'user'
       };
       axiosURL.post("/users", userInfo).then((res) => {
         console.log(res.data);
