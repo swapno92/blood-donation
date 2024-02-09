@@ -27,7 +27,7 @@ const UserUpdateModal = ({ showModal, closeModal, userInfo }) => {
     };
     console.log(userInfo);
 
-    fetch(`http://localhost:5000/users/${_id}`, {
+    fetch(`https://blood-donation-server-binary-avanger.vercel.app/users/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -118,7 +118,7 @@ const UserUpdateModal = ({ showModal, closeModal, userInfo }) => {
             </select>
           </div>
           <div className="">
-            <button  className="btn py-3 rounded text-white text-xl btn-block mt-3 bg-primary">
+            <button className="btn py-3 rounded text-white text-xl btn-block mt-3 bg-primary">
               Update User
             </button>
           </div>
