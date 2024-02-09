@@ -59,7 +59,7 @@ const Registration = () => {
         photo: result.user.photoURL,
         roll: 'user'
       };
-      axiosURL.post("/users", userInfo).then((res) => {
+      axiosPublic.post("/users", userInfo).then((res) => {
         console.log(res.data);
         toast.success("Logged In Successful with Google!");
         router.push("/");
