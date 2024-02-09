@@ -53,7 +53,7 @@ const Dashboard = () => {
   const [open, setOpen] = useState(true);
 
   return (
-    <section className="flex  ">
+    
       <div
         className={`bg-primary min-h-screen ${
           open ? "w-72" : "w-16"
@@ -130,8 +130,7 @@ const Dashboard = () => {
           </div>
         )}
       </div>
-      <div className="m-3 text-xl text-gray-900 font-semibold"></div>
-    </section>
+     
   );
 };
 

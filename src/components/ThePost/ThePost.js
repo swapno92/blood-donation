@@ -20,7 +20,7 @@ import moment from "moment";
   const [allcomments, setAllComments] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/comments`)
+    fetch(`https://blood-donation-server-binary-avanger.vercel.app/comments`)
       .then((res) => res.json())
       .then((data) => {
         setAllComments(data);
@@ -30,7 +30,7 @@ import moment from "moment";
 
   const handleLike = async (_id) => {
     const post = { newLikes };
-    fetch(`http://localhost:5000/posts/${_id}`, {
+    fetch(`https://blood-donation-server-binary-avanger.vercel.app/posts/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -150,7 +150,7 @@ import moment from "moment";
                         rows="3"
                         className="px-0 w-full md:w-1/3 text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none"
                         placeholder="Write a comment..."
-                        // required
+                      // required
                       ></textarea>
                     </div>
                     <button

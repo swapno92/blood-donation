@@ -1,6 +1,6 @@
 # Drop Sync
 
-## Live link: http://localhost:5000/
+## Live link: https://blood-donation-server-binary-avanger.vercel.app/
 
 ## Goal:
 

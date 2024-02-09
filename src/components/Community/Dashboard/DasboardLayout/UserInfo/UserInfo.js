@@ -12,10 +12,10 @@ const UserInfo = () => {
   const currentUser = user?.email;
   const [userInfo, setuserInfo] = useState([]);
   const [showModal, setshowModal] = useState(false);
-  // console.log(userInfo);
+  console.log(userInfo);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/users/${currentUser}`)
+    fetch(`https://blood-donation-server-binary-avanger.vercel.app/users/${currentUser}`)
       .then((res) => {
         if (!res.ok) {
           throw new Error(`HTTP error! Status: ${res.status}`);
@@ -36,8 +36,10 @@ const UserInfo = () => {
   }, [currentUser]);
 
   return (
-    <div className="w-full">
-      <div className="shadow-black shadow-sm ">
+
+    <div >
+      <div className=" shadow-sm pl-4 ">
+
         <Image
           src="https://i.ibb.co/F3NqnDC/premium-photo-1664299422915-d67e36404534-hpg.jpg"
           alt="user_Banner"
@@ -72,43 +74,44 @@ const UserInfo = () => {
             </div>
           </div>
         </div>
-      </div>
+        {/* ----------------Your Information section--------------- */}
 
-      {/* ----------------Your Information section--------------- */}
 
-      <section className="shadow-black shadow-sm block">
-        <div>
-          <h2 className="text-4xl font-bold py-2 px-4 bg-primary text-white shadow-gray-700 shadow-sm text-center mt-6">
-            Your Information
-          </h2>
-        </div>
-        <div className="">
-          <div className=" py-4 shadow-black shadow-sm text-center xl font-bold  px-4">
-            <div>
-              <h3 className="border p-4 my-3 bg-gray-100 shadow-sm text-gray-700 shadow-gray-400 text-xl">
-                Name: {userInfo?.name ? userInfo?.name : "---"}
-              </h3>
-              <h3 className="border p-4 my-3 bg-gray-100 shadow-sm text-gray-700 shadow-gray-400 text-xl">
-                Mobile: {userInfo?.mobile ? userInfo?.mobile : "---"}
-              </h3>
-              <h3 className="border p-4 my-3 bg-gray-100 shadow-sm text-gray-700 shadow-gray-400 text-xl">
-                Email: {userInfo?.email ? userInfo?.email : "---"}
-              </h3>
-              <h3 className="border p-4 my-3 bg-gray-100 shadow-sm text-gray-700 shadow-gray-400 text-xl">
-                Adress: {userInfo?.address ? userInfo?.address : "---"}
-              </h3>
-              <h3 className="border p-4 my-3 bg-gray-100 shadow-sm text-gray-700 shadow-gray-400 text-xl">
-                <UserUpdateModal
-                  showModal={showModal}
-                  userInfo={userInfo}
-                  closeModal={() => setshowModal(false)}
-                />
-                Blood: {userInfo?.blood ? userInfo?.blood : "---"}
-              </h3>
+        <section className=" shadow-sm block">
+          <div>
+            <h2 className="text-2xl font-bold py-2 px-4 bg-primary text-white shadow-gray-700 shadow-sm text-center ">
+              Your Information
+            </h2>
+          </div>
+          <div className=" block">
+            <div className=" py-4  shadow-sm text-center xl font-bold">
+              <div>
+                <h3 className="border p-4  bg-gray-100 shadow-sm text-gray-700 shadow-gray-400 text-xl">
+                  Name: {userInfo?.name ? userInfo?.name : "---"}
+                </h3>
+                <h3 className="border p-4  bg-gray-100 shadow-sm text-gray-700 shadow-gray-400 text-xl">
+                  Mobile: {userInfo?.mobile ? userInfo?.mobile : "---"}
+                </h3>
+                <h3 className="border p-4  bg-gray-100 shadow-sm text-gray-700 shadow-gray-400 text-xl">
+                  Email: {userInfo?.email ? userInfo?.email : "---"}
+                </h3>
+                <h3 className="border p-4  bg-gray-100 shadow-sm text-gray-700 shadow-gray-400 text-xl">
+                  Adress: {userInfo?.address ? userInfo?.address : "---"}
+                </h3>
+                <h3 className="border p-4  bg-gray-100 shadow-sm text-gray-700 shadow-gray-400 text-xl">
+                  <UserUpdateModal
+                    showModal={showModal}
+                    userInfo={userInfo}
+                    closeModal={() => setshowModal(false)}
+                  />
+                  Blood: {userInfo?.blood ? userInfo?.blood : "---"}
+                </h3>
+              </div>
+
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
   );
 };

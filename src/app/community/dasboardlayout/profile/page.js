@@ -7,7 +7,6 @@ const Profile = () => {
     <div className="max-w-full pt-4 pr-5 rounded-md flex  h-auto lg:h-screen flex-wrap mx-auto  ">
       <div>
         <PrivateRoute>
-          {" "}
           <UserInfo></UserInfo>
         </PrivateRoute>
       </div>
