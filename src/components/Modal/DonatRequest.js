@@ -4,7 +4,7 @@ import { AuthContext } from "@/components/provider/AuthProvider";
 import axios from "axios";
 import moment from "moment";
 import toast from "react-hot-toast";
-import img from "../../../public/logo.png"
+
 
 const DonatRequest = () => {
   const { user } = useContext(AuthContext);
