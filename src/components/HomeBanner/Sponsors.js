@@ -15,12 +15,12 @@ const Sponsors = () => {
                     <p className='lg:text-xl md:text-lg text-base font-normal mt-5'>The sponsors who give their valuable amount to fulfill our mission.</p>
                 </div>
                 <div className='grid lg:grid-cols-6 gap-5 mt-20'>
-                    <Image alt='a' src={sponsor1} className='border border-gray-200 cursor-pointer hover:border-primary' />
-                    <Image alt='a' src={sponsor4} className='border border-gray-200 cursor-pointer hover:border-primary' />
-                    <Image alt='a' src={sponsor5} className='border border-gray-200 cursor-pointer hover:border-primary' />
-                    <Image alt='aa' src={sponsor6} className='border border-gray-200 cursor-pointer hover:border-primary' />
-                    <Image alt='a' src={sponsor7} className='border border-gray-200 cursor-pointer hover:border-primary' />
-                    <Image alt='a' src={sponsor8} className='border border-gray-200 cursor-pointer hover:border-primary' />
+                    <Image alt='a' src={sponsor1} className='border border-gray-200 cursor-pointer hover:border-primary shadow-md  hover:shadow-2xl hover:shadow-red-100' />
+                    <Image alt='a' src={sponsor4} className='border border-gray-200 cursor-pointer hover:border-primary shadow-md  hover:shadow-2xl hover:shadow-red-100' />
+                    <Image alt='a' src={sponsor5} className='border border-gray-200 cursor-pointer hover:border-primary shadow-md  hover:shadow-2xl hover:shadow-red-100' />
+                    <Image alt='aa' src={sponsor6} className='border border-gray-200 cursor-pointer hover:border-primary shadow-md  hover:shadow-2xl hover:shadow-red-100l' />
+                    <Image alt='a' src={sponsor7} className='border border-gray-200 cursor-pointer hover:border-primary shadow-md  hover:shadow-2xl hover:shadow-red-100' />
+                    <Image alt='a' src={sponsor8} className='border border-gray-200 cursor-pointer hover:border-primary shadow-md  hover:shadow-2xl hover:shadow-red-100' />
                 </div>
 
             </div>
