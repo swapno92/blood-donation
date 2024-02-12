@@ -18,7 +18,7 @@ const Volunteers = () => {
                     <p className='lg:text-xl md:text-lg text-base font-normal mt-5'>The volunteers who give their time and talents help to fulfill our mission.</p>
                 </div>
                 <div className='grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-8'>
-                    <div className="card bg-base-100 rounded-md cursor-pointer card-shadow">
+                    <div className="card bg-base-100 rounded-md cursor-pointer shadow-lg hover:transform hover:scale-110 duration-500 hover:shadow-red-100">
                         <figure className="px-5 pt-5 flex-col">
                             <Image src={member1} alt="Shoes" className="" />
                         </figure>
@@ -33,7 +33,7 @@ const Volunteers = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="card bg-base-100 rounded-md cursor-pointer card-shadow">
+                    <div className="card bg-base-100 rounded-md cursor-pointer shadow-lg hover:transform hover:scale-110 duration-500 hover:shadow-red-100">
                         <figure className="px-5 pt-5 flex-col">
                             <Image src={member3} alt="Shoes" className="" />
                         </figure>
@@ -48,7 +48,7 @@ const Volunteers = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="card bg-base-100 rounded-md cursor-pointer card-shadow">
+                    <div className="card bg-base-100 rounded-md cursor-pointer shadow-lg hover:transform hover:scale-110 duration-500 hover:shadow-red-100">
                         <figure className="px-5 pt-5 flex-col">
                             <Image src={member2} alt="Shoes" className="" />
                         </figure>
@@ -63,7 +63,7 @@ const Volunteers = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="card bg-base-100 rounded-md cursor-pointer card-shadow">
+                    <div className="card bg-base-100 rounded-md cursor-pointer shadow-lg hover:transform hover:scale-110 duration-500 hover:shadow-red-100">
                         <figure className="px-5 pt-5 flex-col">
                             <Image src={member4} alt="Shoes" className="" />
                         </figure>
