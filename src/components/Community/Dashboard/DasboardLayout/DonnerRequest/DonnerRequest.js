@@ -6,7 +6,7 @@ const DonnerRequest = () => {
   const [users, setUsers] = useState();
 
   useEffect(() => {
-    fetch("http://localhost:5000/requests")
+    fetch("https://blood-donation-server-binary-avanger.vercel.app/requests")
       .then((res) => res.json())
       .then((data) => {
         setUsers(data);
@@ -47,7 +47,7 @@ const DonnerRequest = () => {
             <td>{user?.name}</td>
             <td>{user?.bloodGroup}</td>
             <td>{user?.quantity}</td>
-            <td>{user?.location}</td>
+             <td>{user?.address}</td>
           </tr>
           )} 
         </tbody>
