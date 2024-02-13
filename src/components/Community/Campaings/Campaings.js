@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { BsCalendar2Check } from "react-icons/bs";
 import { FiClock } from "react-icons/fi";
 import { FaLocationDot } from "react-icons/fa6";
@@ -30,9 +30,18 @@ const Campaings = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:w-[60%] mx-auto gap-8 px-6">
         {showCampaign?.map((campign) => (
-          <div key={campign._id} className="bg-gray-50 shadow-md hover:shadow-2xl rounded-b-none">
+          <div
+            key={campign._id}
+            className="bg-gray-50 shadow-md hover:shadow-2xl rounded-b-none"
+          >
             <div className="h-[20rem]">
-              <Image src={campign?.img} alt="campaingImg" width={700} height={700} className="w-full h-full" />
+              <Image
+                src={campign?.img}
+                alt="campaingImg"
+                width={700}
+                height={700}
+                className="w-full  object-center object-cover h-full"
+              />
             </div>
             <div className="py-2  px-5">
               <div className="flex items-center gap-3 lg:pt-2 lg:pb-4">
@@ -47,17 +56,17 @@ const Campaings = () => {
                 </h2>
               </div>
               <h5 className="text-2xl lg:text-3xl font-medium text-primary mb-2 lg:mb-4">
-               {campign?.name}
+                {campign?.name}
               </h5>
 
-              <p className="text-lg font-medium text-gray-500 pb-3">
-               {campign?.description}
+              <p className="text-xl text-gray-500 pb-4">
+                {campign?.description.slice(0, 120)}<span className=" font-bold cursor-pointer pl-2"> see more.....</span>
               </p>
               <h2 className="flex items-center gap-1 pb-6 text-gray-500">
                 <FaLocationDot className="text-primary text-xl" />
                 {campign?.location}
               </h2>
-              <div className="flex justify-end">
+              <div className="flex justify-end pb-4">
                 <button className="btn bg-primary text-white text-xl">
                   Read More <FaArrowRightLong />
                 </button>

@@ -31,7 +31,8 @@ const Camping = () => {
     .then((data) => {
       console.log(data);
       if (data.data.insertedId) {
-        toast("Campaign Added");
+        toast("Campaign Post Successfully");
+        from.reset()
       }
     })
     .catch((error) => {
@@ -90,7 +91,7 @@ const Camping = () => {
                 placeholder=" "
                 required
               />
-              <label className="peer-focus:font-medium absolute text-sm text-gray-300  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+              <label className="peer-focus:font-medium absolute text-sm text-gray-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                 Start Time
               </label>
             </div>

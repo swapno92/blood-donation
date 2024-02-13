@@ -39,7 +39,8 @@ const UserUpdateModal = ({ showModal, closeModal, userInfo }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        toast('user update')
+        toast('User Information Update successfully')
+        from.reset()
         console.log(data);
         router.refresh()
       });
