@@ -96,15 +96,26 @@ const UserInfo = () => {
                 <h3 className="border p-4  bg-gray-100 shadow-sm text-gray-700 shadow-gray-400 md:text-xl text-md">
                   Adress: {userInfo?.address ? userInfo?.address : "---"}
                 </h3>
+<<<<<<< HEAD
+                <h3 className="border p-4  bg-gray-100 shadow-sm text-gray-700 shadow-gray-400 text-xl">
+                  Blood: {userInfo?.blood ? userInfo?.blood : "---"}
+                </h3>
+              </div>
+
+=======
                 <h3 className="border p-4  bg-gray-100 shadow-sm text-gray-700 shadow-gray-400 md:text-xl text-md">
+>>>>>>> 59e7ebaefa9c38adc9401699e380548a7738c5e1
                   <UserUpdateModal
                     showModal={showModal}
                     userInfo={userInfo}
                     closeModal={() => setshowModal(false)}
                   />
+<<<<<<< HEAD
+=======
                   Blood: {userInfo?.blood ? userInfo?.blood : "---"}
                 </h3>j
               </div>
+>>>>>>> 59e7ebaefa9c38adc9401699e380548a7738c5e1
             </div>
           </div>
         </section>
