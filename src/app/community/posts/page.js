@@ -1,4 +1,4 @@
-import Posts from "@/components/Community/Posts";
+import Posts from "@/components/Community/Posts/Posts";
 import PrivateRoute from "@/components/PrivateRoute/PrivateRoute";
 // import React from 'react';
 

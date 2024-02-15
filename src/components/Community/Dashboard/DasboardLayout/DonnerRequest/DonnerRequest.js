@@ -47,7 +47,7 @@ const DonnerRequest = () => {
             <td>{user?.name}</td>
             <td>{user?.bloodGroup}</td>
             <td>{user?.quantity}</td>
-             <td>{user?.address}</td>
+             <td>{user?.location}</td>
           </tr>
           )} 
         </tbody>

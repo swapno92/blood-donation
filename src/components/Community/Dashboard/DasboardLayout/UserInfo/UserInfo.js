@@ -99,15 +99,15 @@ const UserInfo = () => {
                   Adress: {userInfo?.address ? userInfo?.address : "---"}
                 </h3>
                 <h3 className="border p-4  bg-gray-100 shadow-sm text-gray-700 shadow-gray-400 text-xl">
-                  <UserUpdateModal
-                    showModal={showModal}
-                    userInfo={userInfo}
-                    closeModal={() => setshowModal(false)}
-                  />
                   Blood: {userInfo?.blood ? userInfo?.blood : "---"}
                 </h3>
               </div>
 
+              <UserUpdateModal
+                showModal={showModal}
+                userInfo={userInfo}
+                closeModal={() => setshowModal(false)}
+              />
             </div>
           </div>
         </section>

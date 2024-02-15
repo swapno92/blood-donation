@@ -1,6 +1,5 @@
 "use client";
 import React from 'react';
-import Dashboard from '@/components/Community/Dashboard/Dashboard';
 
 const page = () => {
     return (

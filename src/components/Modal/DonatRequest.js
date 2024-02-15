@@ -4,7 +4,6 @@ import { AuthContext } from "@/components/provider/AuthProvider";
 import axios from "axios";
 import moment from "moment";
 import toast from "react-hot-toast";
-import img from "../../../public/logo.png"
 
 const DonatRequest = () => {
   const { user } = useContext(AuthContext);
@@ -47,11 +46,15 @@ const DonatRequest = () => {
     console.log(requestBlood);
 
     axios
-      .post("https://blood-donation-server-binary-avanger.vercel.app/requests", requestBlood)
+      .post(
+        "https://blood-donation-server-binary-avanger.vercel.app/requests",
+        requestBlood
+      )
       .then((data) => {
         console.log(data);
         if (data.data.insertedId) {
           toast("User Request successfully");
+          from.reset()
         }
       })
       .catch((error) => {
@@ -65,13 +68,6 @@ const DonatRequest = () => {
     >
       <div className="modal-box w-full">
         <div className="mt-5 px-5  mb-3">
-          {/* <Image
-              className="w-full h-full"
-              src={img}
-              alt="logo"
-              width={20}
-              height={20}
-            /> */}
           <h2 className="text-3xl font-bold  text-center  mb-6">
             Blood Request
           </h2>

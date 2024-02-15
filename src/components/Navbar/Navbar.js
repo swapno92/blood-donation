@@ -1,18 +1,18 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from 'next/navigation'
+import { usePathname } from "next/navigation";
 import React, { useContext, useState } from "react";
 import Image from "next/image";
-import defaultUserImage from "../../../public/images/profile-circle-icon.png";
 import logo from "../../../public/logo.png";
 import { AuthContext } from "../provider/AuthProvider";
 import toast from "react-hot-toast";
+import ProfileDrop from "./ProfileDrop";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const pathname = usePathname()
+  const pathname = usePathname();
 
   const handleDropdownToggle = () => {
     setDropdownOpen(!isDropdownOpen);
@@ -43,91 +43,8 @@ const Navbar = () => {
             />
           </Link>
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-            {user ? (
-              <div className="flex items-center">
-                {/* <h2 className="mr-3">{user.displayName}</h2> */}
-                <button
-                  id="dropdownUserAvatarButton"
-                  className="flex text-sm rounded-full md:me-0"
-                  type="button"
-                  onClick={handleDropdownToggle}
-                >
-                  <span className="sr-only">Open user menu</span>
-                  <Image
-                    className="w-10 rounded-full mr-4 object-cover "
-                    width={100}
-                    height={100}
-                    src={
-                      user.photoURL
-                        ? user.photoURL
-                        : defaultUserImage
-                    }
-                    alt={user.displayName}
-                  />
-                </button>
-                <div></div>
-                <div
-                  id="dropdownAvatar"
-                  className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600"
-                >
-                  <div className="px-4 py-3 text-sm text-gray-900 dark:text-white">
-                    <div>Bonnie Green</div>
-                    <div className="font-medium truncate">name@flowbite.com</div>
-                  </div>
-                  <ul
-                    className="py-2 text-sm text-gray-700 dark:text-gray-200"
-                    aria-labelledby="dropdownUserAvatarButton"
-                  >
-                    <li>
-                      <a
-                        href="#"
-                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                      >
-                        Dashboard
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                      >
-                        Settings
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                      >
-                        Earnings
-                      </a>
-                    </li>
-                  </ul>
-                  <div className="py-2">
-                    <a
-                      href="#"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                    >
-                      Sign out
-                    </a>
-                  </div>
-                </div>
-                <button
-                  onClick={handleSignOut}
-                  className="btn text-white bg-primary hover:bg-secondary font-medium rounded-sm md:text-sm text-[13px] md:px-10  px-2 py-2 text-center"
-                >
-                  Sign Out
-                </button>
-              </div>
-            ) : (
-              <>
-                <Link href="/login">
-                  <button className="btn text-white bg-primary hover:bg-secondary font-medium rounded-sm md:text-sm text-[13px] md:px-10  px-2 py-2 text-center">
-                    Sign In
-                  </button>
-                </Link>
-              </>
-            )}
+            <ProfileDrop />
+
             <button
               type="button"
               onClick={toggleMobileMenu}
@@ -162,7 +79,11 @@ const Navbar = () => {
               <li>
                 <Link
                   href="/"
-                  className={`link ${pathname === '/' ? 'active-link font-semibold' : 'font-semibold no-underline hover:text-primary'} `}
+                  className={`link ${
+                    pathname === "/"
+                      ? "active-link font-semibold"
+                      : "font-semibold no-underline hover:text-primary"
+                  } `}
                 >
                   Home
                 </Link>
@@ -172,7 +93,11 @@ const Navbar = () => {
                 <Link
                   href="/about"
                   onClick={() => toggleMobileMenu(false)}
-                  className={`link ${pathname === '/about' ? 'active-link font-semibold' : 'font-semibold no-underline hover:text-primary'} `}
+                  className={`link ${
+                    pathname === "/about"
+                      ? "active-link font-semibold"
+                      : "font-semibold no-underline hover:text-primary"
+                  } `}
                 >
                   About Us
                 </Link>
@@ -181,7 +106,11 @@ const Navbar = () => {
                 <Link
                   onClick={() => toggleMobileMenu(false)}
                   href="/community/posts"
-                  className={`link ${pathname === '/community/posts' ? 'active-link font-semibold' : 'font-semibold no-underline hover:text-primary'} `}
+                  className={`link ${
+                    pathname === "/community/posts"
+                      ? "active-link font-semibold"
+                      : "font-semibold no-underline hover:text-primary"
+                  } `}
                 >
                   community
                 </Link>
@@ -190,7 +119,11 @@ const Navbar = () => {
                 <Link
                   onClick={() => toggleMobileMenu(false)}
                   href="/contact"
-                  className={`link ${pathname === '/contact' ? 'active-link font-semibold' : 'font-semibold no-underline hover:text-primary'} `}
+                  className={`link ${
+                    pathname === "/contact"
+                      ? "active-link font-semibold"
+                      : "font-semibold no-underline hover:text-primary"
+                  } `}
                 >
                   Contact Us
                 </Link>
