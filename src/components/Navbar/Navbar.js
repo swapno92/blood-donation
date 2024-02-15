@@ -43,8 +43,8 @@ const Navbar = () => {
             />
           </Link>
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-          <ProfileDrop />
-            
+            <ProfileDrop />
+
             <button
               type="button"
               onClick={toggleMobileMenu}
