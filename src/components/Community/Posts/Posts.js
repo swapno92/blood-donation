@@ -1,20 +1,22 @@
 "use client";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
+import Marquee from "react-fast-marquee";
+import { IoCreateOutline } from "react-icons/io5";
 // import img2 from "../../../public/Banner img/img2.jpg";
-import userimg from "../../../public/images/profile-circle-icon.png";
-import { LuUser2 } from "react-icons/lu";
-import { AiOutlineAlert } from "react-icons/ai";
-import profileIcon from "../../../public/images/profile-circle-icon.png";
-import galleryIcon from "../../../public/images/gallery-icon.png";
+// import userimg from "../../../public/images/profile-circle-icon.png";
+// import { LuUser2 } from "react-icons/lu";
+// import { AiOutlineAlert } from "react-icons/ai";
+// import profileIcon from "../../../public/images/profile-circle-icon.png";
+// import galleryIcon from "../../../public/images/gallery-icon.png";
 // import { AiFillLike, AiFillDislike } from "react-icons/ai";
 
 import Image from "next/image";
 import { MdPostAdd } from "react-icons/md";
 import Link from "next/link";
-import { AuthContext } from "../provider/AuthProvider";
-import ThePosts from "../ThePosts/ThePosts";
+import { AuthContext } from "../../provider/AuthProvider";
+import ThePosts from "../../ThePosts/ThePosts";
 import { useRouter } from "next/navigation";
-import { axiosPublic } from "../Hooks/useAxiosSecure";
+import { axiosPublic } from "../../Hooks/useAxiosSecure";
 import toast from "react-hot-toast";
 
 // export default async function Posts() {
@@ -27,6 +29,8 @@ const Posts = () => {
   const userPhoto = user?.photoURL;
   const userEmail = user?.email;
   const axiosURL = axiosPublic();
+  const [showModal, setshowModal] = useState(false);
+
 
   // ............. post .....................
   const handleSubmit = async (e) => {
@@ -60,46 +64,6 @@ const Posts = () => {
 
   return (
     <div className="max-w-screen-xl mx-auto">
-      {/* <form
-        onSubmit={handleSubmit}
-        className="max-w-screen-md mx-auto mt-5 py-7  border px-9 rounded-xl bg-gray-50  shadow text-gray-500"
-      >
-        <div className="flex items-center  ">
-          <Image
-            className=" object-cover w-10 rounded-full "
-            src={user?.photoURL ? user?.photoURL : "https://i.ibb.co/RCMBXjt/profile-circle-icon.png"}
-            alt="Banner 2"
-            width={1200}
-            height={500}
-          />
-          <input
-            id="1"
-            required
-            type="search"
-            className=" border w-full px-4 py-2 rounded-2xl outline-[#fcd5d5] shadow-ms ml-5 "
-            placeholder="Share & Ask Something to everyone?"
-            name="description"
-          />
-        </div>
-
-        <div className="flex items-center justify-between mt-5 mx-3 ">
-          <div className="flex items-center gap-2  cursor-pointer">
-            <Image
-              className=" object-cover w-7  "
-              src={galleryIcon}
-              alt="Banner 2"
-              width={1200}
-              height={500}
-            />
-            <input id="2" type="text" required name="image" className="border-gray-300 focus:outline-none" placeholder="upload Image"/>
-          </div>
-          <div>
-            <button className="btn rounded-lg bg-primary text-white hover:bg-secondary  px-4    ">
-              Share
-            </button>
-          </div>
-        </div>
-      </form> */}
       {/* <div className="max-w-screen-md mx-auto my-4">
         <div>
           <ul className="flex justify-center  md:items-center lg:justify-start gap-6  text-gray-500">
@@ -134,9 +98,9 @@ const Posts = () => {
       {/* <div className="max-w-screen-md mx-auto border-2 py-8 px-8 bg-gray-100 rounded-md shadow    overflow-hidden  ">
       </div> */}
 
-      <div className="flex   gap-6 my-3 ">
+      <div className="flex   gap-3 my-3 ">
         {/* Profile section */}
-        <div className="bg-gray-100 border w-3/12 px-3 min-h-screen">
+        <div className="bg-gray-50 border w-3/12 px-3 min-h-screen">
           <div className="flex items-center js ">
             <Image
               className="w-14 rounded-full object-cover m-2"
@@ -166,8 +130,33 @@ const Posts = () => {
           <div className="divider"></div>
         </div>
         {/* Feed section */}
-        <div className="bg-blue-300 w-6/12">
-          <h2>HEllo2</h2>
+        <div className="bg- w-6/12">
+          <div className="bg-red-50 border-y-2  py-">
+            <div className="flex ">
+              <div className="flex">
+                <button
+                  type="button"
+                  class="btn z-10 btn-md inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-[#1F2937] rounded-lg hover:bg-[#1c2635]  "
+                >
+                  Write
+                  <span class="inline-flex items-center justify-center  ms-2 ">
+                    <IoCreateOutline className="text-white text-lg font-semibold" />
+                  </span>
+                </button>
+              </div>
+
+              <Marquee
+                pauseOnHover={true}
+                speed={100}
+                className="text-xl font-semibold"
+              >
+                Please Share Your Expreance. 💉 Please Share Your Expreance.
+              </Marquee>
+            </div>
+            
+            
+             
+          </div>
         </div>
         {/* Top sectionm */}
         <div className="bg-red-300 w-3/12">

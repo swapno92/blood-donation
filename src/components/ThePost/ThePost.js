@@ -10,7 +10,7 @@ import { AuthContext } from "../provider/AuthProvider";
 import moment from "moment";
 
 // const ThePost = async ({ post }) => {
-  export default async function ThePost({ post }) {
+export default async function ThePost({ post }) {
   const router = useRouter();
   const { userName, userPhoto, _id, likes, images, description } = post;
   const axiosURL = axiosPublic();
@@ -30,13 +30,16 @@ import moment from "moment";
 
   const handleLike = async (_id) => {
     const post = { newLikes };
-    fetch(`https://blood-donation-server-binary-avanger.vercel.app/posts/${_id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(post),
-    })
+    fetch(
+      `https://blood-donation-server-binary-avanger.vercel.app/posts/${_id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(post),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -150,7 +153,7 @@ import moment from "moment";
                         rows="3"
                         className="px-0 w-full md:w-1/3 text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none"
                         placeholder="Write a comment..."
-                      // required
+                        // required
                       ></textarea>
                     </div>
                     <button
