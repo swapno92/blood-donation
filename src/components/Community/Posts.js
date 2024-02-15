@@ -1,13 +1,8 @@
 "use client";
 import React, { useContext } from "react";
-// import img2 from "../../../public/Banner img/img2.jpg";
-import userimg from "../../../public/images/profile-circle-icon.png";
 import { LuUser2 } from "react-icons/lu";
 import { AiOutlineAlert } from "react-icons/ai";
-import profileIcon from "../../../public/images/profile-circle-icon.png";
 import galleryIcon from "../../../public/images/gallery-icon.png";
-// import { AiFillLike, AiFillDislike } from "react-icons/ai";
-
 import Image from "next/image";
 import { MdPostAdd } from "react-icons/md";
 import Link from "next/link";
@@ -41,18 +36,13 @@ const Posts = () => {
       userPhoto,
       userEmail,
     };
-    
-    console.log(postInfo);
-
+    // console.log(postInfo);
     axiosPublic
       .post("/posts", postInfo)
       .then((res) => {
         toast.success('post added successfully')
         e.target.reset();
-
- 
         router.refresh();
-
       })
       .catch((error) => {
         console.log(error);
@@ -92,7 +82,7 @@ const Posts = () => {
               width={1200}
               height={500}
             />
-            <input id="2" type="text" required name="image" className="border-gray-300 focus:outline-none" placeholder="upload Image"/>
+            <input id="2" type="text" required name="image" className="border-gray-300 focus:outline-none" placeholder="upload Image" />
           </div>
           <div>
             <button className="btn rounded-lg bg-primary text-white hover:bg-secondary  px-4    ">

@@ -5,9 +5,9 @@ import PrivateRoute from "@/components/PrivateRoute/PrivateRoute";
 const posts = () => {
   return (
     <div>
-      <PrivateRoute>
+      {/* <PrivateRoute> */}
         <Posts />
-      </PrivateRoute>
+      {/* </PrivateRoute> */}
     </div>
   );
 };
