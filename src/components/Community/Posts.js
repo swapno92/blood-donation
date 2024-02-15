@@ -22,6 +22,7 @@ const Posts = () => {
   const router = useRouter();
   let likes = 0;
   const { user } = useContext(AuthContext);
+  const userEmailSplit = user?.email ? user?.email.split("@")[0] : "";
   const userName = user?.displayName;
   const userPhoto = user?.photoURL;
   const userEmail = user?.email;
@@ -41,18 +42,16 @@ const Posts = () => {
       userPhoto,
       userEmail,
     };
-    
+
     console.log(postInfo);
 
     axiosPublic
       .post("/posts", postInfo)
       .then((res) => {
-        toast.success('post added successfully')
+        toast.success("post added successfully");
         e.target.reset();
 
- 
         router.refresh();
-
       })
       .catch((error) => {
         console.log(error);
@@ -60,81 +59,51 @@ const Posts = () => {
   };
 
   return (
-    <div>
-      <form
-        onSubmit={handleSubmit}
-        className="max-w-screen-md mx-auto mt-5 py-7  border px-9 rounded-xl bg-gray-50  shadow text-gray-500"
-      >
-        <div className="flex items-center  ">
-          <Image
-            className=" object-cover w-10 rounded-full "
-            src={user?.photoURL ? user?.photoURL : "https://i.ibb.co/RCMBXjt/profile-circle-icon.png"}
-            alt="Banner 2"
-            width={1200}
-            height={500}
-          />
-          <input
-            id="1"
-            required
-            type="search"
-            className=" border w-full px-4 py-2 rounded-2xl outline-[#fcd5d5] shadow-ms ml-5 "
-            placeholder="Share & Ask Something to everyone?"
-            name="description"
-          />
-        </div>
+    <div className="max-w-screen-xl mx-auto">
+     
 
-        <div className="flex items-center justify-between mt-5 mx-3 ">
-          <div className="flex items-center gap-2  cursor-pointer">
-            <Image
-              className=" object-cover w-7  "
-              src={galleryIcon}
-              alt="Banner 2"
-              width={1200}
-              height={500}
-            />
-            <input id="2" type="text" required name="image" className="border-gray-300 focus:outline-none" placeholder="upload Image"/>
-          </div>
-          <div>
-            <button className="btn rounded-lg bg-primary text-white hover:bg-secondary  px-4    ">
-              Share
-            </button>
-          </div>
-        </div>
-      </form>
-      <div className="max-w-screen-md mx-auto my-4">
-        <div>
-          <ul className="flex justify-center  md:items-center lg:justify-start gap-6  text-gray-500">
-            <li>
-              <Link
-                href="/community/posts "
-                className="hover:bg-primary py-2 px-2 hover:text-white duration-500 rounded-sm flex items-center gap-2 border md:pr-4  text-[11px] pr-1 "
-              >
-                <MdPostAdd className="md:text-2xl text-[15px] " /> All Posts
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/community/posts"
-                className="hover:bg-primary py-2 px-2 hover:text-white duration-500 rounded-sm flex items-center gap-2 border md:pr-4  text-[11px] pr-1  "
-              >
-                <LuUser2 className="md:text-2xl text-[15px]" /> My Post
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/community/posts"
-                className="hover:bg-primary py-2 px-2 hover:text-white duration-500 rounded-sm flex items-center gap-2 border md:pr-4  text-[11px] pr-1 "
-              >
-                <AiOutlineAlert className="md:text-2xl text-[15px]" /> Emergency
-              </Link>
-            </li>
-          </ul>
-        </div>
-      </div>
-      {/* ---------post card------------- */}
       <div className="max-w-screen-md mx-auto border-2 py-8 px-8 bg-gray-100 rounded-md shadow    overflow-hidden  ">
-        {/* -----1------ */}
-        <ThePosts></ThePosts>
+    
+
+      <div className="flex   gap-6 my-3 ">
+        {/* Profile section */}
+        <div className="bg-gray-100 border w-3/12 px-3 min-h-screen">
+          <div className="flex items-center js ">
+            <Image
+              className="w-14 rounded-full object-cover m-2"
+              src={user.photoURL}
+              alt="user photo"
+              height={1000}
+              width={1000}
+            />
+            <div className="tracking-tight">
+              <h2 className="uppercase font-bold ">{user?.displayName}</h2>
+              <h2>@{userEmailSplit}</h2>{" "}
+              {/* Displaying the first part of the email */}
+            </div>
+          </div>
+          <div className="divider "></div>
+          <div className="space-y-4">
+            <h2 className="hover:bg-slate-600 py-2 px-2 hover:text-white rounded-md post">
+              My Post
+            </h2>
+            <h2 className="hover:bg-slate-600 py-2 px-2 hover:text-white rounded-md post">
+              Emergency
+            </h2>
+            <h2 className="hover:bg-slate-600 py-2 px-2 hover:text-white rounded-md post">
+              Dashboard
+            </h2>
+          </div>
+          <div className="divider"></div>
+        </div>
+        {/* Feed section */}
+        <div className="bg-blue-300 w-6/12">
+          <h2>HEllo2</h2>
+        </div>
+        {/* Top sectionm */}
+        <div className="bg-red-300 w-3/12">
+          <h2>HEllo3</h2>
+        </div>
       </div>
     </div>
   );

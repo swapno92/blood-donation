@@ -1,10 +1,21 @@
+"use client";
 import { BsCalendar2Check } from "react-icons/bs";
 import { FiClock } from "react-icons/fi";
 import { FaLocationDot } from "react-icons/fa6";
 import { FaArrowRightLong } from "react-icons/fa6";
-import campaingImg from "../../../../public/images/process_3.webp";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import Link from "next/link";
+
 const Campaings = () => {
+  const [showCampaign, setShowCampaign] = useState();
+  useEffect(() => {
+    fetch("http://localhost:5000/campaign")
+      .then((res) => res.json())
+      .then((data) => {
+        setShowCampaign(data);
+      });
+  }, []);
   return (
     <div className="my-16">
       <div className="mb-10">
@@ -18,76 +29,57 @@ const Campaings = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:w-[60%] mx-auto gap-8 px-6">
-        <div className="bg-gray-50 shadow-md rounded-b-none">
-          <div>
-          <Image  src={campaingImg} alt='campaing img' className="w-full"/>
-          </div>
-          <div className="py-2  px-5">
-            <div className="flex items-center gap-3 lg:pt-2 lg:pb-4">
-              <h2 className="flex items-center gap-3 text-sm">
-                <BsCalendar2Check className="text-primary text-2xl" />
-                20 SEP, 2017
-              </h2>
-              <div className="divider lg:divider-horizontal"></div>
-              <h2 className="flex items-center gap-2 text-gray-500">
-                <FiClock className="text-primary text-xl" />
-                10:00am - 6:30pm
-              </h2>
+        {showCampaign?.map((campign) => (
+          <div
+            key={campign._id}
+            className="bg-gray-50 shadow-md hover:shadow-2xl rounded-b-none"
+          >
+            <div className="h-[20rem]">
+              <Image
+                src={campign?.img}
+                alt="campaingImg"
+                width={700}
+                height={700}
+                className="w-full  object-center object-cover h-full"
+              />
             </div>
-            <h5 className="text-2xl lg:text-3xl font-medium text-primary mb-2 lg:mb-4">
-              WORLD BLOOD DONORS DAY
-            </h5>
+            <div className="py-2  px-5">
+              <div className="flex items-center gap-3 lg:pt-2 lg:pb-4">
+                <h2 className="flex items-center gap-3 text-sm">
+                  <BsCalendar2Check className="text-primary text-2xl" />
+                  {campign?.currentDate}
+                </h2>
+                <div className="divider lg:divider-horizontal"></div>
+                <h2 className="flex items-center gap-2 text-gray-500">
+                  <FiClock className="text-primary text-xl" />
+                  {campign?.start}am - {campign.end}pm
+                </h2>
+              </div>
+              <h5 className="text-2xl lg:text-3xl font-medium text-primary mb-2 lg:mb-4">
+                {campign?.name}
+              </h5>
 
-            <p className="text-lg font-medium text-gray-500 pb-3">
-              Every year, on 14 June, countries around the world celebrate World
-              Blood Donor Day. The event serves to thank voluntary.
-            </p>
-            <h2 className="flex items-center gap-1 pb-6 text-gray-500">
-              <FaLocationDot className="text-primary text-xl" />
-              Dhaka, Bangladesh
-            </h2>
-            <div className="flex justify-end">
-              <button className="btn bg-primary text-white text-xl">
-                Read More <FaArrowRightLong />
-              </button>
-            </div>
-          </div>
-        </div>
-        <div className="bg-gray-50 shadow-md rounded-b-none">
-          <div>
-          <Image  src={campaingImg} alt='campaing img' className="w-full"/>
-          </div>
-          <div className="py-2  px-5">
-            <div className="flex items-center gap-3 lg:pt-2 lg:pb-4">
-              <h2 className="flex items-center gap-3 text-sm">
-                <BsCalendar2Check className="text-primary text-2xl" />
-                20 SEP, 2017
+              <p className="text-xl text-gray-500 pb-4">
+                {campign?.description.slice(0, 120)}
+                <span className=" font-bold cursor-pointer pl-2">
+                  {" "}
+                  see more.....
+                </span>
+              </p>
+              <h2 className="flex items-center gap-1 pb-6 text-gray-500">
+                <FaLocationDot className="text-primary text-xl" />
+                {campign?.location}
               </h2>
-              <div className="divider lg:divider-horizontal"></div>
-              <h2 className="flex items-center gap-2 text-gray-500">
-                <FiClock className="text-primary text-xl" />
-                10:00am - 6:30pm
-              </h2>
-            </div>
-            <h5 className="text-2xl lg:text-3xl font-medium text-primary mb-2 lg:mb-4">
-              WORLD BLOOD DONORS DAY
-            </h5>
-
-            <p className="text-lg font-medium text-gray-500 pb-3">
-              Every year, on 14 June, countries around the world celebrate World
-              Blood Donor Day. The event serves to thank voluntary.
-            </p>
-            <h2 className="flex items-center gap-1 pb-6 text-gray-500">
-              <FaLocationDot className="text-primary text-xl" />
-              Dhaka, Bangladesh
-            </h2>
-            <div className="flex justify-end">
-              <button className="btn bg-primary text-white text-xl">
-                Read More <FaArrowRightLong />
-              </button>
+              <div className="flex justify-end pb-4">
+                <Link href={`/community/campaings/${campign._id}`}>
+                  <button className="btn bg-primary text-white text-xl">
+                    Read More <FaArrowRightLong />
+                  </button>
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
+        ))}
       </div>
     </div>
   );

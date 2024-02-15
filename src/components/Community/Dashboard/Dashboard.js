@@ -35,6 +35,11 @@ const Dashboard = () => {
       icon: AiOutlineUser,
     },
     {
+      name: "Campaing",
+      link: "/community/dasboardlayout/campaing",
+      icon: AiOutlineUser,
+    },
+    {
       name: "Available Donner",
       link: "/community/dasboardlayout/available-dooner",
       icon: FiMessageSquare,
