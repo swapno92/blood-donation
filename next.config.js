@@ -10,7 +10,8 @@ const nextConfig = {
       "i.ibb.co",
       "images.remotePatterns",
       "blood-donation-binary-avengers.vercel.app",
-      "templates.bwlthemes.com"
+      "templates.bwlthemes.com",
+      "tuhin-hossain2.imgbb.com"
     ],
   },
 };

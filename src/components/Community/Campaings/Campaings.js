@@ -3,9 +3,9 @@ import { BsCalendar2Check } from "react-icons/bs";
 import { FiClock } from "react-icons/fi";
 import { FaLocationDot } from "react-icons/fa6";
 import { FaArrowRightLong } from "react-icons/fa6";
-import campaingImg from "../../../../public/images/process_3.webp";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 const Campaings = () => {
   const [showCampaign, setShowCampaign] = useState();
@@ -60,16 +60,22 @@ const Campaings = () => {
               </h5>
 
               <p className="text-xl text-gray-500 pb-4">
-                {campign?.description.slice(0, 120)}<span className=" font-bold cursor-pointer pl-2"> see more.....</span>
+                {campign?.description.slice(0, 120)}
+                <span className=" font-bold cursor-pointer pl-2">
+                  {" "}
+                  see more.....
+                </span>
               </p>
               <h2 className="flex items-center gap-1 pb-6 text-gray-500">
                 <FaLocationDot className="text-primary text-xl" />
                 {campign?.location}
               </h2>
               <div className="flex justify-end pb-4">
-                <button className="btn bg-primary text-white text-xl">
-                  Read More <FaArrowRightLong />
-                </button>
+                <Link href={`/community/campaings/${campign._id}`}>
+                  <button className="btn bg-primary text-white text-xl">
+                    Read More <FaArrowRightLong />
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
