@@ -40,8 +40,8 @@ const Camping = () => {
     });
   };
   return (
-    <div className="w-full my-10">
-      <h2 className="text-center text-3xl font-medium text-primary mb-5">
+    <div className="w-full my-16">
+      <h2 className="text-center text-4xl font-medium text-primary mb-8">
         Our Campaing
       </h2>
       <div className="w-[40%] mx-auto">

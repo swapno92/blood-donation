@@ -60,79 +60,10 @@ const Posts = () => {
 
   return (
     <div className="max-w-screen-xl mx-auto">
-      {/* <form
-        onSubmit={handleSubmit}
-        className="max-w-screen-md mx-auto mt-5 py-7  border px-9 rounded-xl bg-gray-50  shadow text-gray-500"
-      >
-        <div className="flex items-center  ">
-          <Image
-            className=" object-cover w-10 rounded-full "
-            src={user?.photoURL ? user?.photoURL : "https://i.ibb.co/RCMBXjt/profile-circle-icon.png"}
-            alt="Banner 2"
-            width={1200}
-            height={500}
-          />
-          <input
-            id="1"
-            required
-            type="search"
-            className=" border w-full px-4 py-2 rounded-2xl outline-[#fcd5d5] shadow-ms ml-5 "
-            placeholder="Share & Ask Something to everyone?"
-            name="description"
-          />
-        </div>
+     
 
-        <div className="flex items-center justify-between mt-5 mx-3 ">
-          <div className="flex items-center gap-2  cursor-pointer">
-            <Image
-              className=" object-cover w-7  "
-              src={galleryIcon}
-              alt="Banner 2"
-              width={1200}
-              height={500}
-            />
-            <input id="2" type="text" required name="image" className="border-gray-300 focus:outline-none" placeholder="upload Image"/>
-          </div>
-          <div>
-            <button className="btn rounded-lg bg-primary text-white hover:bg-secondary  px-4    ">
-              Share
-            </button>
-          </div>
-        </div>
-      </form> */}
-      {/* <div className="max-w-screen-md mx-auto my-4">
-        <div>
-          <ul className="flex justify-center  md:items-center lg:justify-start gap-6  text-gray-500">
-            <li>
-              <Link
-                href="/community/posts "
-                className="hover:bg-primary py-2 px-2 hover:text-white duration-500 rounded-sm flex items-center gap-2 border md:pr-4  text-[11px] pr-1 "
-              >
-                <MdPostAdd className="md:text-2xl text-[15px] " /> All Posts
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/community/posts"
-                className="hover:bg-primary py-2 px-2 hover:text-white duration-500 rounded-sm flex items-center gap-2 border md:pr-4  text-[11px] pr-1  "
-              >
-                <LuUser2 className="md:text-2xl text-[15px]" /> My Post
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/community/posts"
-                className="hover:bg-primary py-2 px-2 hover:text-white duration-500 rounded-sm flex items-center gap-2 border md:pr-4  text-[11px] pr-1 "
-              >
-                <AiOutlineAlert className="md:text-2xl text-[15px]" /> Emergency
-              </Link>
-            </li>
-          </ul>
-        </div>
-      </div> */}
-      {/* ---------post card------------- */}
-      {/* <div className="max-w-screen-md mx-auto border-2 py-8 px-8 bg-gray-100 rounded-md shadow    overflow-hidden  ">
-      </div> */}
+      <div className="max-w-screen-md mx-auto border-2 py-8 px-8 bg-gray-100 rounded-md shadow    overflow-hidden  ">
+    
 
       <div className="flex   gap-6 my-3 ">
         {/* Profile section */}
