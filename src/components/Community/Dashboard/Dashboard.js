@@ -55,9 +55,9 @@ const Dashboard = () => {
   return (
     
       <div
-        className={`bg-primary min-h-screen ${
+        className={`bg-primary min-h-screen lg:h-[710px] line ${
           open ? "w-72" : "w-16"
-        } duration-500 text-gray-100 px-4 md:{ope}`}
+        } duration-500 text-gray-100 px-4 md:{ope}` }
       >
         <div className="py-3 flex justify-end">
           <HiMenuAlt3
