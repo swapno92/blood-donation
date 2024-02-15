@@ -51,7 +51,8 @@ const Posts = () => {
 
   return (
     <div className="max-w-screen-xl mx-auto">
-      <div className="flex   gap-12 my-3 ">
+
+      <div className="flex   gap-3 my-3 ">
         {/* Profile section */}
         <div className="bg-gray-50 border w-3/12 px-3 min-h-screen">
           <div className="flex items-center js ">
