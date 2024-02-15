@@ -2,7 +2,7 @@
 import React, { useContext, useState } from "react";
 import Marquee from "react-fast-marquee";
 import { IoCreateOutline } from "react-icons/io5";
-import Image from "next/image"; 
+import Image from "next/image";
 import { AuthContext } from "../../provider/AuthProvider";
 import { axiosPublic } from "../../Hooks/useAxiosSecure";
 import toast from "react-hot-toast";
@@ -51,8 +51,7 @@ const Posts = () => {
 
   return (
     <div className="max-w-screen-xl mx-auto">
-     
-      <div className="flex   gap-3 my-3 ">
+      <div className="flex   gap-12 my-3 ">
         {/* Profile section */}
         <div className="bg-gray-50 border w-3/12 px-3 min-h-screen">
           <div className="flex items-center js ">
@@ -109,13 +108,13 @@ const Posts = () => {
               </Marquee>
             </div>
           </div>
-        <PostCard />
+          <PostCard />
         </div>
         <PostModal
           showModal={showModal}
           closeModal={() => setshowModal(false)}
         ></PostModal>
-        
+
         {/* Top sectionm */}
         <div className="bg-red-300 w-3/12">
           <h2>HEllo3</h2>
