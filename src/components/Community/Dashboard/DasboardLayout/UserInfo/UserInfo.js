@@ -15,7 +15,9 @@ const UserInfo = () => {
   console.log(userInfo);
 
   useEffect(() => {
-    fetch(`https://blood-donation-server-binary-avanger.vercel.app/users/${currentUser}`)
+    fetch(
+      `https://blood-donation-server-binary-avanger.vercel.app/users/${currentUser}`
+    )
       .then((res) => {
         if (!res.ok) {
           throw new Error(`HTTP error! Status: ${res.status}`);
@@ -37,7 +39,7 @@ const UserInfo = () => {
 
   return (
     <div>
-      <div className=" shadow-sm pl-4 ">
+      <div className=" shadow-sm md:pl-4 pl-1 ">
         <Image
           src="https://i.ibb.co/F3NqnDC/premium-photo-1664299422915-d67e36404534-hpg.jpg"
           alt="user_Banner"
@@ -45,7 +47,7 @@ const UserInfo = () => {
           width={1200}
           height={1200}
         />
-        <div className="relative -top-[28px]  line md:left-20">
+        <div className="relative -top-[28px]   md:left-20">
           <div className=" flex items-center gap-6  ">
             <Image
               src={userInfo.photo}
@@ -56,7 +58,7 @@ const UserInfo = () => {
             />
 
             <div>
-              <h2 className="font-bold text-primary md:text-2xl text-md line lg:mt-5 mt-6">
+              <h2 className="font-bold text-primary md:text-2xl text-md  lg:mt-5 mt-6">
                 {userInfo.name}
               </h2>
               <h2 className="text-gray-500 mb-1 flex items-center">
@@ -65,7 +67,7 @@ const UserInfo = () => {
               </h2>
               <button
                 onClick={() => setshowModal(true)}
-                className="flex items-center line  p-4 md:px-4 md:py-5 rounded-md md:text-[16px] text-[10px] h-2  bg-[#32262614] hover:bg-[#3226262d] text-black lg:mt-4 "
+                className="flex items-center   p-4 md:px-4 md:py-5 rounded-md md:text-[16px] text-[10px] h-2  bg-[#32262614] hover:bg-[#3226262d] text-black lg:mt-4 "
               >
                 <FaRegEdit className="text-xl  text-primary" />
                 <span className="mt-1 ">Edit Your Profile</span>
@@ -97,6 +99,7 @@ const UserInfo = () => {
                   Adress: {userInfo?.address ? userInfo?.address : "---"}
                 </h3>
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <h3 className="border p-4  bg-gray-100 shadow-sm text-gray-700 shadow-gray-400 text-xl">
                   Blood: {userInfo?.blood ? userInfo?.blood : "---"}
                 </h3>
@@ -104,21 +107,22 @@ const UserInfo = () => {
             
 
 =======
+=======
+>>>>>>> 6c0befed3bb46eb660e593d76711d487ed19ea98
                 <h3 className="border p-4  bg-gray-100 shadow-sm text-gray-700 shadow-gray-400 md:text-xl text-md">
->>>>>>> 59e7ebaefa9c38adc9401699e380548a7738c5e1
                   <UserUpdateModal
                     showModal={showModal}
                     userInfo={userInfo}
                     closeModal={() => setshowModal(false)}
                   />
-<<<<<<< HEAD
-=======
                   Blood: {userInfo?.blood ? userInfo?.blood : "---"}
                 </h3>
+<<<<<<< HEAD
                
 
+=======
+>>>>>>> 6c0befed3bb46eb660e593d76711d487ed19ea98
               </div>
->>>>>>> 59e7ebaefa9c38adc9401699e380548a7738c5e1
             </div>
             
           </div>

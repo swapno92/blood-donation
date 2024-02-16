@@ -43,9 +43,6 @@ const PostModal = ({ showModal, closeModal }) => {
 
         router.refresh();
       })
-      .catch((error) => {
-        console.log(error);
-      });
   };
   return (
     <div className=" z-10 flex justify-center items-center  fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm">

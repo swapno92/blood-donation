@@ -27,24 +27,24 @@ const Camping = () => {
     console.log(addCampaign);
 
     axios
-    .post("http://localhost:5000/campaign", addCampaign)
-    .then((data) => {
-      console.log(data);
-      if (data.data.insertedId) {
-        toast("Campaign Post Successfully");
-        from.reset()
-      }
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+      .post("https://blood-donation-server-binary-avanger.vercel.app/campaign", addCampaign)
+      .then((data) => {
+        console.log(data);
+        if (data.data.insertedId) {
+          toast("Campaign Post Successfully");
+          from.reset()
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
   return (
     <div className="w-full my-16">
-      <h2 className="text-center text-4xl font-medium text-primary mb-8">
+      <h2 className="text-center md:text-4xl text-2xl font-medium text-primary mb-8">
         Our Campaing
       </h2>
-      <div className="w-[40%] mx-auto">
+      <div className="md:w-[40%] w-[80%] md:mx-auto md:ml-0 ml-5">
         <form onSubmit={addCampaign}>
           <div className="relative z-0 w-full mb-5 group">
             <input
