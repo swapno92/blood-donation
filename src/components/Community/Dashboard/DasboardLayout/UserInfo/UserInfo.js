@@ -15,7 +15,9 @@ const UserInfo = () => {
   console.log(userInfo);
 
   useEffect(() => {
-    fetch(`https://blood-donation-server-binary-avanger.vercel.app/users/${currentUser}`)
+    fetch(
+      `https://blood-donation-server-binary-avanger.vercel.app/users/${currentUser}`
+    )
       .then((res) => {
         if (!res.ok) {
           throw new Error(`HTTP error! Status: ${res.status}`);
@@ -98,7 +100,6 @@ const UserInfo = () => {
                 <h3 className="border p-4  bg-gray-100 shadow-sm text-gray-700 shadow-gray-400 text-xl">
                   Adress: {userInfo?.address ? userInfo?.address : "---"}
                 </h3>
-
                 <h3 className="border p-4  bg-gray-100 shadow-sm text-gray-700 shadow-gray-400 md:text-xl text-md">
                   <UserUpdateModal
                     showModal={showModal}
@@ -108,7 +109,6 @@ const UserInfo = () => {
                   Blood: {userInfo?.blood ? userInfo?.blood : "---"}
                 </h3>j
               </div>
-
             </div>
           </div>
         </section>
