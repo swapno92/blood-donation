@@ -8,7 +8,7 @@ const Footer2 = () => {
     return (
         <>
             <div className='bg-primary/10' >
-                <footer className="grid lg:grid-cols-6 grid-cols-2 gap-5 py-28 lg:px-0 md:px-10 px-5 max-w-screen-xl mx-auto text-base-content">
+                <footer className="grid lg:grid-cols-6 grid-cols-2 gap-5 py-10 lg:px-0 md:px-10 px-5 max-w-screen-xl mx-auto text-base-content">
                     <aside className='col-span-2 md:pr-10 pr-0 -mt-3 lg:mb-0 mb-10'>
                         <Image alt='logo' src={logo}/>
                         <p className='my-3'>We are world largest and trustful blood donation center. We have been working since 1973 with a prestigious vision to helping patient to provide blood. </p>
