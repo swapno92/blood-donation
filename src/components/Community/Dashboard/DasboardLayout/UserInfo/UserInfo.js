@@ -101,6 +101,7 @@ const UserInfo = () => {
                   Blood: {userInfo?.blood ? userInfo?.blood : "---"}
                 </h3>
               </div>
+            
 
 =======
                 <h3 className="border p-4  bg-gray-100 shadow-sm text-gray-700 shadow-gray-400 md:text-xl text-md">
@@ -113,15 +114,22 @@ const UserInfo = () => {
 <<<<<<< HEAD
 =======
                   Blood: {userInfo?.blood ? userInfo?.blood : "---"}
-                </h3>j
+                </h3>
+               
+
               </div>
 >>>>>>> 59e7ebaefa9c38adc9401699e380548a7738c5e1
             </div>
+            
           </div>
+          
         </section>
       </div>
     </div>
-  );
+    
+);
 };
 
 export default UserInfo;
+
+
