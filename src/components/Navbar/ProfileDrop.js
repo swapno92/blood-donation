@@ -46,7 +46,7 @@ const ProfileDrop = () => {
         >
           {/* Content of the dropdown */}
           <div className="px-4 py-3 text-sm text-white rounded-t-md bg-primary">
-            <div>{user.displayName}</div>
+            <div>{user?.displayName}</div>
             <div className="font-medium truncate">{user.email}</div>
           </div>
           <ul

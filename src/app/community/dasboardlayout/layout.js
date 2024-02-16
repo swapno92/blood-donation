@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
 import PrivateRoute from "@/components/PrivateRoute/PrivateRoute";
+import Dashboard from "@/components/Community/Dashboard/Dashboard";
 
 const inter = Inter({ subsets: ["latin"] });
 
