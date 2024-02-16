@@ -14,16 +14,17 @@ import Sponsors from "@/components/HomeBanner/Sponsors";
 const Home = () => {
   return (
     <div>
-    {/* <Banner></Banner> */}
-    <Banner2></Banner2>
-    <Donate></Donate>
-    <DonationProcess></DonationProcess>
-    <ServiceSection/>
-    <Misstion></Misstion>
-    <CounterSection/>
-    <Volunteers></Volunteers>
-    <Sponsors></Sponsors>
-    {/* <Newsletter></Newsletter> */}
+      {/* <Banner></Banner> */}
+      <Banner2></Banner2>
+      <Donate></Donate>
+      <DonationProcess></DonationProcess>
+      <ServiceSection />
+      <Misstion></Misstion>
+      <CounterSection />
+      <Volunteers></Volunteers>
+      <Sponsors></Sponsors>
+
+      {/* <Newsletter></Newsletter> */}
     </div>
   );
 };
