@@ -17,7 +17,7 @@ const AvailableDonner = () => {
               <th>Photo</th>
               <th>Name</th>
               <th className=" md:block hidden">Blood Group </th>
-              <th className="md:hidden block">Blo Gru</th>
+              <th className="md:hidden block">Blood</th>
             </tr>
           </thead>
 

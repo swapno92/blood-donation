@@ -1,25 +1,53 @@
 import { axiosPublic } from "@/components/Hooks/useAxiosSecure";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { MdOutlineDelete } from "react-icons/md";
 import { LuSend } from "react-icons/lu";
 import { FiEdit } from "react-icons/fi";
+import { useRouter } from "next/navigation";
+import { AuthContext } from "@/components/provider/AuthProvider";
+import toast from "react-hot-toast";
+import moment from "moment";
+
+// const getTopics = async () => {
+//   try {
+//     const res = await fetch("http://localhost:5000/posts", {
+//       cache: "no-store",
+//     });
+//     if (!res.ok) {
+//       throw new Error("Failed to fetch topics");
+//     }
+//     return res.json();
+//   } catch (error) {
+//     console.log("Error loading Topics: ", error);
+//   }
+// };
+
+// export default async function PostCard() {
+//   const { topics } = await getTopics();
+//   console.log(topics);
 const PostCard = () => {
+  const { user } = useContext(AuthContext);
   const [post, setPost] = useState();
+  const router = useRouter();
 
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [isCommentVisible, setCommentVisible] = useState(false);
+  const [comment, setComment] = useState("");
 
   const toggleDropdown = () => {
     setDropdownOpen(!isDropdownOpen);
+    console.log("oky");
   };
 
   const toggleCommentVisibility = () => {
     setCommentVisible(!isCommentVisible);
+    console.log("oky2");
   };
 
+  // getPosts
   useEffect(() => {
-    fetch("https://blood-donation-server-binary-avanger.vercel.app/posts")
+    fetch("http://localhost:5000/posts")
       .then((res) => {
         if (!res.ok) {
           throw new Error(`HTTP error! Status: ${res.status}`);
@@ -38,7 +66,47 @@ const PostCard = () => {
         console.error("Error fetching data:", error);
       });
   }, []);
-  console.log(post);
+  // console.log(post);
+
+  // post comment
+  const handleComment = (id) => {
+    const userImage = user?.photoURL;
+    const userEml = user?.email;
+    const userName = user?.displayName;
+    const currentDate = moment().format(" D MMM YYYY");
+    const postID = id;
+    const commentInfo = {
+      postID,
+      comment,
+      userImage,
+      userEml,
+      userName,
+      currentDate,
+    };
+
+    console.log(commentInfo);
+
+    axiosPublic.post("/comments", commentInfo).then((res) => {
+      toast.success("comment posted");
+      // router.push(
+      //   "https://blood-donation-binary-avengers.vercel.app/community/posts"
+      // );
+      router.refresh();
+    });
+  };
+
+  // getComments
+  const [allcomments, setAllComments] = useState([]);
+  useEffect(() => {
+    fetch(`http://localhost:5000/comments`)
+      .then((res) => res.json())
+      .then((data) => {
+        setAllComments(data);
+        router.refresh();
+      });
+  }, []);
+  console.log(allcomments);
+
   return (
     <>
       {post?.map((data) => (
@@ -136,13 +204,47 @@ const PostCard = () => {
               <input
                 type="text "
                 placeholder="Comment"
+                onChange={(e) => setComment(e.target.value)}
+                value={comment}
                 className="border bg-gray-100 hover:bg-white rounded-md w-full py-2.5 px-3 my-3 outline-none"
               />
-              <div className="btn bg-blue-700  hover:bg-blue-600 btn-md">
+              <div
+                onClick={() => handleComment(data?._id)}
+                className="btn bg-blue-700  hover:bg-blue-600 btn-md line"
+              >
                 <LuSend className="text-3xl text-white mx-2" />
               </div>
             </from>
           )}
+
+          {allcomments
+            .filter((comments) => comments.postID === data?._id)
+            .map((postComment) => (
+              <div className="flex border shadow-md rounded-xl p-4 gap-x-3 mt-2 w-full ">
+                <div className="">
+                  <Image
+                    className="object-cover rounded-full h-10 w-10 mt-1 "
+                    src={
+                      postComment.userImage
+                        ? postComment.userImage
+                        : "https://i.ibb.co/RCMBXjt/profile-circle-icon.png"
+                    }
+                    width={36}
+                    height={36}
+                    alt="User"
+                  />
+                </div>
+                <div>
+                  <h1 className="text-[16px] font-semibold">
+                    {postComment.userName}
+                  </h1>
+                  <p className="text-[12px] font-semibold">
+                    {postComment.currentDate}
+                  </p>
+                  <p>{postComment.comment}</p>
+                </div>
+              </div>
+            ))}
         </div>
       ))}
     </>
