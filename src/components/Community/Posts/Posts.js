@@ -51,7 +51,7 @@ const Posts = () => {
 
   return (
     <div className="max-w-screen-xl mx-auto">
-      <div className="flex   gap-12 my-3 ">
+      <div className="flex   gap-5 my-3 ">
         {/* Profile section */}
         <div className="bg-gray-50 border w-3/12 px-3 min-h-screen">
           <div className="flex items-center js ">
@@ -102,7 +102,7 @@ const Posts = () => {
               <Marquee
                 pauseOnHover={true}
                 speed={100}
-                className="text-xl font-semibold"
+                className="text-md font-semibold"
               >
                 Please Share Your Expreance. 💉 Please Share Your Expreance.
               </Marquee>
@@ -116,8 +116,13 @@ const Posts = () => {
         ></PostModal>
 
         {/* Top sectionm */}
-        <div className="bg-red-300 w-3/12">
-          <h2>HEllo3</h2>
+        <div className="bg-gray-50 border w-3/12">
+          <h2 className="text-3xl  text-center font-bold mt-5 border-b-2 pb-3 ">
+            TOP DONNER
+          </h2>
+          <div>
+            
+          </div>
         </div>
       </div>
     </div>
