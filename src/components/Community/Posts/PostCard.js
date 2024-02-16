@@ -5,6 +5,7 @@ import { MdOutlineDelete } from "react-icons/md";
 import { FiEdit } from "react-icons/fi";
 const PostCard = () => {
   const [post, setPost] = useState();
+
   const [isDropdownOpen, setDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {

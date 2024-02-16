@@ -57,7 +57,7 @@ const Posts = () => {
           <div className="flex items-center js ">
             <Image
               className="w-14 rounded-full object-cover m-2"
-              src={user.photoURL}
+              src={user?.photoURL}
               alt="user photo"
               height={1000}
               width={1000}
