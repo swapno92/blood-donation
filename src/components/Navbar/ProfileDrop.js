@@ -3,10 +3,13 @@ import defaultUserImage from "../../../public/images/profile-circle-icon.png";
 import { AuthContext } from "../provider/AuthProvider";
 import Image from "next/image";
 import Link from "next/link";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 const ProfileDrop = () => {
   const { user, logOut } = useContext(AuthContext);
   const [isDropdownOpen, setDropdownOpen] = useState(false);
+  const router = useRouter();
 
   const toggleDropdown = () => {
     setDropdownOpen(!isDropdownOpen);
@@ -14,6 +17,7 @@ const ProfileDrop = () => {
   const handleSignOut = () => {
     logOut().then(() => {
       toast.success("Successfully Logged Out!");
+      router.push("/");
     });
   };
   return (
@@ -47,7 +51,7 @@ const ProfileDrop = () => {
           {/* Content of the dropdown */}
           <div className="px-4 py-3 text-sm text-white rounded-t-md bg-primary">
             <div>{user?.displayName}</div>
-            <div className="font-medium truncate">{user.email}</div>
+            <div className="font-medium truncate">{user?.email}</div>
           </div>
           <ul
             className="py-2 text-sm text-gray-700"

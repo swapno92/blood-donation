@@ -17,12 +17,12 @@ const Campaings = () => {
       });
   }, []);
   return (
-    <div className="my-16">
-      <div className="mb-10">
-        <h2 className="text-4xl text-center font-semibold mb-4">
+    <div className="md:my-16  my-4">
+      <div className="md:mb-10 mb-5">
+        <h2 className="md:text-4xl text-2xl text-center font-semibold md:mb-4 mb-2">
           OUR CAMPAIGNS
         </h2>
-        <p className="text-center text-xl text-gray-500">
+        <p className="text-center md:text-xl text-sm text-gray-500">
           Campaigns to encourage new donors to join and existing to continue to
           give blood.
         </p>

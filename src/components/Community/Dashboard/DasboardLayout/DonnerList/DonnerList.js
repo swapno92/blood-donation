@@ -1,15 +1,15 @@
 import Image from "next/image";
 
 const DonnerList = () => {
-    return (
-        <div className="w-full">
+  return (
+    <div className=" w-full ">
       {/* Section Header */}
-      <div className=" w-4/12 mx-auto text-center md:my-10">
+      <div className=" w-4/12 mx-auto text-center md:my-10 my-3">
         <h1 className="title-header text-red-400 font-bold uppercase border-y-4 md:py-2">
           Doner List
         </h1>
       </div>
-      <div className="overflow-x-auto mx-auto">
+      <div className=" w-[90%]">
         <table className="table">
           {/* head */}
           <thead>
@@ -17,7 +17,8 @@ const DonnerList = () => {
               <th>Number</th>
               <th>Photo</th>
               <th>Name</th>
-              <th>Blood Group</th>
+              <th className=" md:block hidden">Blood Group </th>
+              <th className="md:hidden block">Blo Gru</th>
             </tr>
           </thead>
           {/* table body start */}
@@ -195,7 +196,7 @@ const DonnerList = () => {
         </table>
       </div>
     </div>
-    );
+  );
 };
 
 export default DonnerList;

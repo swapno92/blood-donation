@@ -41,10 +41,10 @@ const Camping = () => {
   };
   return (
     <div className="w-full my-16">
-      <h2 className="text-center text-4xl font-medium text-primary mb-8">
+      <h2 className="text-center md:text-4xl text-2xl font-medium text-primary mb-8">
         Our Campaing
       </h2>
-      <div className="w-[40%] mx-auto">
+      <div className="md:w-[40%] w-[80%] md:mx-auto md:ml-0 ml-5">
         <form onSubmit={addCampaign}>
           <div className="relative z-0 w-full mb-5 group">
             <input
