@@ -2,15 +2,22 @@ import { axiosPublic } from "@/components/Hooks/useAxiosSecure";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { MdOutlineDelete } from "react-icons/md";
+import { LuSend } from "react-icons/lu";
 import { FiEdit } from "react-icons/fi";
 const PostCard = () => {
   const [post, setPost] = useState();
 
   const [isDropdownOpen, setDropdownOpen] = useState(false);
+  const [isCommentVisible, setCommentVisible] = useState(false);
 
   const toggleDropdown = () => {
     setDropdownOpen(!isDropdownOpen);
   };
+
+  const toggleCommentVisibility = () => {
+    setCommentVisible(!isCommentVisible);
+  };
+
   useEffect(() => {
     fetch("https://blood-donation-server-binary-avanger.vercel.app/posts")
       .then((res) => {
@@ -81,13 +88,13 @@ const PostCard = () => {
                     aria-labelledby="dropdownMenuIconHorizontalButton"
                   >
                     <li className="flex items-center ">
-                      <FiEdit className="text-lg"/>
+                      <FiEdit className="text-lg" />
                       <a href="#" className="block px-4 py-2 hover:bg-gray-100">
                         Edit
                       </a>
                     </li>
                     <li className="flex items-center ">
-                    <MdOutlineDelete className="text-2xl"/>
+                      <MdOutlineDelete className="text-2xl" />
                       <a href="#" className="block px-4 py-2 hover:bg-gray-100">
                         Delete
                       </a>
@@ -115,9 +122,27 @@ const PostCard = () => {
           <div className="border-y-2 mt-4">
             <div className="flex justify-evenly py-2 ">
               <h2 className="">Like</h2>
-              <h2 className="">Comment</h2>
+              <button
+                onClick={toggleCommentVisibility}
+                className="inline-flex items-center p-2 text-sm font-medium text-center text-gray-900 bg-white rounded-lg hover:bg-gray-100"
+                type="button"
+              >
+                Comment
+              </button>
             </div>
           </div>
+          {isCommentVisible && (
+            <from className="flex items-center gap-2 ">
+              <input
+                type="text "
+                placeholder="Comment"
+                className="border bg-gray-100 hover:bg-white rounded-md w-full py-2.5 px-3 my-3 outline-none"
+              />
+              <div className="btn bg-blue-700  hover:bg-blue-600 btn-md">
+                <LuSend className="text-3xl text-white mx-2" />
+              </div>
+            </from>
+          )}
         </div>
       ))}
     </>
