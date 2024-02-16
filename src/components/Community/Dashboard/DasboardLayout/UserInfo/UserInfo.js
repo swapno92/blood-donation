@@ -47,7 +47,7 @@ const UserInfo = () => {
           width={1200}
           height={1200}
         />
-        <div className="relative -top-[28px]  line md:left-20">
+        <div className="relative -top-[28px]   md:left-20">
           <div className=" flex items-center gap-6  ">
             <Image
               src={userInfo.photo}
@@ -58,7 +58,7 @@ const UserInfo = () => {
             />
 
             <div>
-              <h2 className="font-bold text-primary md:text-2xl text-md line lg:mt-5 mt-6">
+              <h2 className="font-bold text-primary md:text-2xl text-md  lg:mt-5 mt-6">
                 {userInfo.name}
               </h2>
               <h2 className="text-gray-500 mb-1 flex items-center">
@@ -67,7 +67,7 @@ const UserInfo = () => {
               </h2>
               <button
                 onClick={() => setshowModal(true)}
-                className="flex items-center line  p-4 md:px-4 md:py-5 rounded-md md:text-[16px] text-[10px] h-2  bg-[#32262614] hover:bg-[#3226262d] text-black lg:mt-4 "
+                className="flex items-center   p-4 md:px-4 md:py-5 rounded-md md:text-[16px] text-[10px] h-2  bg-[#32262614] hover:bg-[#3226262d] text-black lg:mt-4 "
               >
                 <FaRegEdit className="text-xl  text-primary" />
                 <span className="mt-1 ">Edit Your Profile</span>

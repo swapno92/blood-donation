@@ -17,7 +17,7 @@ const Campaings = () => {
       });
   }, []);
   return (
-    <div className="md:my-16 line my-4">
+    <div className="md:my-16  my-4">
       <div className="md:mb-10 mb-5">
         <h2 className="md:text-4xl text-2xl text-center font-semibold md:mb-4 mb-2">
           OUR CAMPAIGNS
