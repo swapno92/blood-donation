@@ -10,7 +10,7 @@ import Link from "next/link";
 const Campaings = () => {
   const [showCampaign, setShowCampaign] = useState();
   useEffect(() => {
-    fetch("http://localhost:5000/campaign")
+    fetch("https://blood-donation-server-binary-avanger.vercel.app/campaign")
       .then((res) => res.json())
       .then((data) => {
         setShowCampaign(data);

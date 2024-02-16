@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 const PostCard = () => {
   const [post, setPost] = useState();
   //   useEffect(() => {
-  //     fetch("http://localhost:5000/posts")
+  //     fetch("https://blood-donation-server-binary-avanger.vercel.app/posts")
   //       .then((res) => res.json())
   //       .then((data) => {
   //         setPost(data);
