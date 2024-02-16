@@ -120,11 +120,45 @@ const Posts = () => {
         ></PostModal>
 
         {/* Top sectionm */}
-        <div className="bg-gray-50 border w-3/12">
-          <h2 className="text-3xl  text-center font-bold mt-5 border-b-2 pb-3 ">
+        <div className="bg-gray-50 border w-3/12 ">
+          <h2 className="text-3xl  text-center font-bold mt-5  border-b-2 pb-3 ">
             TOP DONNER
           </h2>
-          <div></div>
+          <div>
+            <div className="join join-vertical w-full">
+              <div className="collapse collapse-arrow join-item border border-base-300">
+                <input
+                  type="radio"
+                  name="my-accordion-4"
+                  defaultChecked={true}
+                />
+                <div className="collapse-title text-xl font-medium">
+                  Click to open this one and close others
+                </div>
+                <div className="collapse-content">
+                  <p>hello</p>
+                </div>
+              </div>
+              <div className="collapse collapse-arrow join-item border border-base-300">
+                <input type="radio" name="my-accordion-4" />
+                <div className="collapse-title text-xl font-medium">
+                  Click to open this one and close others
+                </div>
+                <div className="collapse-content">
+                  <p>hello</p>
+                </div>
+              </div>
+              <div className="collapse collapse-arrow join-item border border-base-300">
+                <input type="radio" name="my-accordion-4" />
+                <div className="collapse-title text-xl font-medium">
+                  Click to open this one and close others
+                </div>
+                <div className="collapse-content">
+                  <p>hello</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
