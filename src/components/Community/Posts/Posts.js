@@ -8,6 +8,7 @@ import { axiosPublic } from "../../Hooks/useAxiosSecure";
 import toast from "react-hot-toast";
 import PostCard from "./PostCard";
 import PostModal from "./PostModal";
+import Link from "next/link";
 
 const Posts = () => {
   // let likes = 0;
@@ -80,9 +81,11 @@ const Posts = () => {
             <h2 className="hover:bg-slate-600 py-2 px-2 hover:text-white rounded-md post">
               Emergency
             </h2>
-            <h2 className="hover:bg-slate-600 py-2 px-2 hover:text-white rounded-md post">
-              Dashboard
-            </h2>
+            <Link href="/community/dasboardlayout/profile">
+              <h2 className="hover:bg-slate-600 py-2 px-2 hover:text-white rounded-md post">
+                Dashboard
+              </h2>
+            </Link>
           </div>
           <div className="divider"></div>
         </div>

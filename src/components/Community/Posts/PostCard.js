@@ -11,7 +11,7 @@ import moment from "moment";
 
 // const getTopics = async () => {
 //   try {
-//     const res = await fetch("http://localhost:5000/posts", {
+//     const res = await fetch("https://blood-donation-server-binary-avanger.vercel.app/posts", {
 //       cache: "no-store",
 //     });
 //     if (!res.ok) {
@@ -47,7 +47,7 @@ const PostCard = () => {
 
   // getPosts
   useEffect(() => {
-    fetch("http://localhost:5000/posts")
+    fetch("https://blood-donation-server-binary-avanger.vercel.app/posts")
       .then((res) => {
         if (!res.ok) {
           throw new Error(`HTTP error! Status: ${res.status}`);
@@ -98,7 +98,7 @@ const PostCard = () => {
   // getComments
   const [allcomments, setAllComments] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/comments`)
+    fetch(`https://blood-donation-server-binary-avanger.vercel.app/comments`)
       .then((res) => res.json())
       .then((data) => {
         setAllComments(data);

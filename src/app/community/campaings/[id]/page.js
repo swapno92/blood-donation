@@ -9,11 +9,11 @@ const DynamicPage = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/campaign/${id}`)
+    fetch(`https://blood-donation-server-binary-avanger.vercel.app/campaign/${id}`)
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
-  
+
   return (
     <div className="my-24">
       <div className="h-[30rem] w-[50%] mx-auto">
