@@ -34,11 +34,7 @@ const Dashboard = () => {
       link: "/community/dasboardlayout/donner-list",
       icon: AiOutlineUser,
     },
-    {
-      name: "Campaing",
-      link: "/community/dasboardlayout/campaing",
-      icon: AiOutlineUser,
-    },
+    
     {
       name: "Available Donner",
       link: "/community/dasboardlayout/available-dooner",
@@ -52,6 +48,11 @@ const Dashboard = () => {
       link: "/community/dasboardlayout/blood-request",
       icon: TbReportAnalytics,
       margin: true,
+    },
+    {
+      name: "Campaing",
+      link: "/community/dasboardlayout/campaing",
+      icon: AiOutlineUser,
     },
     { name: "Log Out", link: "/logout", icon: CiLogout },
   ];
@@ -71,7 +72,7 @@ const Dashboard = () => {
           onClick={() => setOpen(!open)}
         />
       </div>
-      {user ? (
+      {users?.roll === "user" ?(
         <div className="mt-4 flex flex-col gap-4 relative">
           {menusUser?.map((menu, i) => (
             <Link href={menu?.link} key={i} passHref legacyBehavior={true}>
