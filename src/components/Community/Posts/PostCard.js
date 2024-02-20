@@ -149,7 +149,7 @@ const PostCard = () => {
               {isDropdownOpen && (
                 <div
                   id="dropdownDotsHorizontal"
-                  className="z-10 absolute bg-white divide-y divide-gray-100 rounded-lg shadow pr-8 pl-2"
+                  className="z-10 absolute bg-white divide-y divide-gray-100 rounded-lg shadow pr-8 pl-2 -ml-28"
                 >
                   <ul
                     className="py-2 text-sm text-gray-700"
