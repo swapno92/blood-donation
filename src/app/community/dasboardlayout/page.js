@@ -5,7 +5,6 @@ const page = () => {
     return (
         <div className=' mx-auto '>
            
-          
         </div>
     );
 };

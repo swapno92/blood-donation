@@ -62,7 +62,7 @@ const Dashboard = () => {
   return (
 
     <div
-      className={`bg-primary min-h-screen ${open ? "w-72" : "w-16"
+      className={`bg-primary min-h-[710px] ${open ? "w-72" : "w-16"
         } duration-500 text-gray-100 px-4 md:{ope}`}
     >
       <div className="py-3 flex justify-end">
