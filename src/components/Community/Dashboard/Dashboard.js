@@ -14,9 +14,12 @@ const Dashboard = () => {
   console.log(users?.roll);
   const { user } = useContext(AuthContext);
   const currentUser = user?.email;
+  console.log(currentUser);
 
   useEffect(() => {
-    fetch(`https://blood-donation-binary-avengers.vercel.app/users/${currentUser}`)
+    fetch(
+      `https://blood-donation-server-binary-avanger.vercel.app/users/${currentUser}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setUsers(data);
@@ -34,7 +37,7 @@ const Dashboard = () => {
       link: "/community/dasboardlayout/donner-list",
       icon: AiOutlineUser,
     },
-    
+
     {
       name: "Available Donner",
       link: "/community/dasboardlayout/available-dooner",
@@ -44,13 +47,18 @@ const Dashboard = () => {
   ];
   const menusAdmin = [
     {
+      name: "Profile",
+      link: "/community/dasboardlayout/profile",
+      icon: RiProfileLine,
+    },
+    {
       name: "Request For Blood",
       link: "/community/dasboardlayout/blood-request",
       icon: TbReportAnalytics,
       margin: true,
     },
     {
-      name: "Campaing",
+      name: " Add Campaing",
       link: "/community/dasboardlayout/campaing",
       icon: AiOutlineUser,
     },
@@ -60,10 +68,10 @@ const Dashboard = () => {
   console.log(users?.roll);
 
   return (
-
     <div
-      className={`bg-primary min-h-[710px] ${open ? "w-72" : "w-16"
-        } duration-500 text-gray-100 px-4 md:{ope}`}
+      className={`bg-primary min-h-[710px] ${
+        open ? "w-72" : "w-16"
+      } duration-500 text-gray-100 px-4 md:{ope}`}
     >
       <div className="py-3 flex justify-end">
         <HiMenuAlt3
@@ -72,27 +80,30 @@ const Dashboard = () => {
           onClick={() => setOpen(!open)}
         />
       </div>
-      {users?.roll === "user" ?(
+      {users?.roll === "user" ? (
         <div className="mt-4 flex flex-col gap-4 relative">
           {menusUser?.map((menu, i) => (
             <Link href={menu?.link} key={i} passHref legacyBehavior={true}>
               <a
-                className={` ${menu?.margin && "mt-5"
-                  } group flex items-center text-sm  gap-3.5 font-medium p-2 hover:bg-secondary rounded-md`}
+                className={` ${
+                  menu?.margin && "mt-5"
+                } group flex items-center text-sm  gap-3.5 font-medium p-2 hover:bg-secondary rounded-md`}
               >
                 <div>{React.createElement(menu?.icon, { size: "20" })}</div>
                 <h2
                   style={{
                     transitionDelay: `${i + 3}00ms`,
                   }}
-                  className={`whitespace-pre duration-500 ${!open && "opacity-0 translate-x-28 overflow-hidden"
-                    }`}
+                  className={`whitespace-pre duration-500 ${
+                    !open && "opacity-0 translate-x-28 overflow-hidden"
+                  }`}
                 >
                   {menu?.name}
                 </h2>
                 <h2
-                  className={`${open && "hidden"
-                    } absolute left-48 bg-primary font-semibold whitespace-pre text-white rounded-md drop-shadow-lg px-0 py-0 w-0 overflow-hidden group-hover:px-2 group-hover:py-1 group-hover:left-14 group-hover:duration-300 group-hover:w-fit  `}
+                  className={`${
+                    open && "hidden"
+                  } absolute left-48 bg-primary font-semibold whitespace-pre text-white rounded-md drop-shadow-lg px-0 py-0 w-0 overflow-hidden group-hover:px-2 group-hover:py-1 group-hover:left-14 group-hover:duration-300 group-hover:w-fit  `}
                 >
                   {menu?.name}
                 </h2>
@@ -105,22 +116,25 @@ const Dashboard = () => {
           {menusAdmin?.map((menu, i) => (
             <Link href={menu?.link} key={i} passHref legacyBehavior={true}>
               <a
-                className={` ${menu?.margin && "mt-5"
-                  } group flex items-center text-sm  gap-3.5 font-medium p-2 hover:bg-secondary rounded-md`}
+                className={` ${
+                  menu?.margin && "mt-5"
+                } group flex items-center text-sm  gap-3.5 font-medium p-2 hover:bg-secondary rounded-md`}
               >
                 <div>{React.createElement(menu?.icon, { size: "20" })}</div>
                 <h2
                   style={{
                     transitionDelay: `${i + 3}00ms`,
                   }}
-                  className={`whitespace-pre duration-500 ${!open && "opacity-0 translate-x-28 overflow-hidden"
-                    }`}
+                  className={`whitespace-pre duration-500 ${
+                    !open && "opacity-0 translate-x-28 overflow-hidden"
+                  }`}
                 >
                   {menu?.name}
                 </h2>
                 <h2
-                  className={`${open && "hidden"
-                    } absolute left-48 bg-primary font-semibold whitespace-pre text-white rounded-md drop-shadow-lg px-0 py-0 w-0 overflow-hidden group-hover:px-2 group-hover:py-1 group-hover:left-14 group-hover:duration-300 group-hover:w-fit  `}
+                  className={`${
+                    open && "hidden"
+                  } absolute left-48 bg-primary font-semibold whitespace-pre text-white rounded-md drop-shadow-lg px-0 py-0 w-0 overflow-hidden group-hover:px-2 group-hover:py-1 group-hover:left-14 group-hover:duration-300 group-hover:w-fit  `}
                 >
                   {menu?.name}
                 </h2>
@@ -130,7 +144,6 @@ const Dashboard = () => {
         </div>
       )}
     </div>
-
   );
 };
 
