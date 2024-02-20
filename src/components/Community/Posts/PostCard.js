@@ -110,7 +110,7 @@ const PostCard = () => {
   return (
     <>
       {post?.map((data) => (
-        <div className="mt-12" key={data?._id}>
+        <div className="md:mt-12 mt-4 md:px-0 px-2" key={data?._id}>
           <div className="flex justify-between">
             <div className="flex gap-2">
               <Image
