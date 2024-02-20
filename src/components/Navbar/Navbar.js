@@ -29,7 +29,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="">
+    <div className=" sticky top-0 z-10">
       <nav className="bg-white w-full z-20 top-0 start-0 border-b border-gray-200 md:px-2">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto md:py-1">
           <Link

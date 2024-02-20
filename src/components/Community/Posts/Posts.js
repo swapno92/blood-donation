@@ -8,52 +8,53 @@ import { axiosPublic } from "../../Hooks/useAxiosSecure";
 import toast from "react-hot-toast";
 import PostCard from "./PostCard";
 import PostModal from "./PostModal";
+import Link from "next/link";
 
 const Posts = () => {
-  let likes = 0;
+  // let likes = 0;
   const { user } = useContext(AuthContext);
   const userEmailSplit = user?.email ? user?.email.split("@")[0] : "";
-  const userName = user?.displayName;
-  const userPhoto = user?.photoURL;
-  const userEmail = user?.email;
-  const axiosURL = axiosPublic();
+  // const userName = user?.displayName;
+  // const userPhoto = user?.photoURL;
+  // const userEmail = user?.email;
+  // const axiosURL = axiosPublic();
   const [showModal, setshowModal] = useState(false);
 
   // ............. post .....................
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const form = new FormData(e.target);
-    const description = form.get("description");
-    const images = form.get("image");
-    const postInfo = {
-      description,
-      images,
-      likes,
-      userName,
-      userPhoto,
-      userEmail,
-    };
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   const form = new FormData(e.target);
+  //   const description = form.get("description");
+  //   const images = form.get("image");
+  //   const postInfo = {
+  //     description,
+  //     images,
+  //     likes,
+  //     userName,
+  //     userPhoto,
+  //     userEmail,
+  //   };
 
-    console.log(postInfo);
+  //   console.log(postInfo);
 
-    axiosPublic
-      .post("/posts", postInfo)
-      .then((res) => {
-        toast.success("post added successfully");
-        e.target.reset();
+  //   axiosPublic
+  //     .post("/posts", postInfo)
+  //     .then((res) => {
+  //       toast.success("post added successfully");
+  //       e.target.reset();
 
-        router.refresh();
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+  //       router.refresh();
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
 
   return (
-    <div className="max-w-screen-xl mx-auto">
-      <div className="flex   gap-5 my-3 ">
+    <div className="max-w-screen-xl mx-auto ">
+      <div className="flex   gap-5  ">
         {/* Profile section */}
-        <div className="bg-gray-50 border w-3/12 px-3 min-h-screen">
+        <div className="bg-gray-50 border w-3/12 line lg:px-3 lg:top-[143px] md:top-[117px] max-h-screen sticky  md:block hidden">
           <div className="flex items-center js ">
             <Image
               className="w-14 rounded-full object-cover m-2"
@@ -68,26 +69,28 @@ const Posts = () => {
             />
             <div className="tracking-tight">
               <h2 className="uppercase font-bold ">{user?.displayName}</h2>
-              <h2>@{userEmailSplit}</h2>{" "}
+              <h2 className="text-sm">@{userEmailSplit}</h2>{" "}
               {/* Displaying the first part of the email */}
             </div>
           </div>
           <div className="divider "></div>
-          <div className="space-y-4">
+          <div className="space-y-4 px-3">
             <h2 className="hover:bg-slate-600 py-2 px-2 hover:text-white rounded-md post">
               My Post
             </h2>
             <h2 className="hover:bg-slate-600 py-2 px-2 hover:text-white rounded-md post">
               Emergency
             </h2>
-            <h2 className="hover:bg-slate-600 py-2 px-2 hover:text-white rounded-md post">
-              Dashboard
-            </h2>
+            <Link href="/community/dasboardlayout/profile">
+              <h2 className="hover:bg-slate-600 py-2 px-2 hover:text-white rounded-md post">
+                Dashboard
+              </h2>
+            </Link>
           </div>
           <div className="divider"></div>
         </div>
         {/* Feed section */}
-        <div className="bg- w-6/12">
+        <div className="bg- md:w-6/12 line">
           <div className="bg-red-50 border-y-2  py-">
             <div className="flex ">
               <div className="flex">
@@ -112,7 +115,7 @@ const Posts = () => {
               </Marquee>
             </div>
           </div>
-          <PostCard />
+          <PostCard/>
         </div>
         <PostModal
           showModal={showModal}
@@ -120,8 +123,8 @@ const Posts = () => {
         ></PostModal>
 
         {/* Top sectionm */}
-        <div className="bg-gray-50 border w-3/12 ">
-          <h2 className="text-3xl  text-center font-bold mt-5  border-b-2 pb-3 ">
+        <div className="bg-gray-50 border w-3/12 lg:ectop-[143px] md:top-[117px] max-h-screen sticky  md:block hidden">
+          <h2 className="lg:text-3xl md:text-2xl text-primary  text-center font-bold mt-5  border-b-2 pb-3 ">
             TOP DONNER
           </h2>
           <div>
@@ -132,7 +135,7 @@ const Posts = () => {
                   name="my-accordion-4"
                   defaultChecked={true}
                 />
-                <div className="collapse-title text-xl font-medium">
+                <div className="collapse-title lg:text-xl text-lg font-medium">
                   Click to open this one and close others
                 </div>
                 <div className="collapse-content">
@@ -141,7 +144,7 @@ const Posts = () => {
               </div>
               <div className="collapse collapse-arrow join-item border border-base-300">
                 <input type="radio" name="my-accordion-4" />
-                <div className="collapse-title text-xl font-medium">
+                <div className="collapse-title lg:text-xl text-lg font-medium">
                   Click to open this one and close others
                 </div>
                 <div className="collapse-content">
@@ -150,7 +153,7 @@ const Posts = () => {
               </div>
               <div className="collapse collapse-arrow join-item border border-base-300">
                 <input type="radio" name="my-accordion-4" />
-                <div className="collapse-title text-xl font-medium">
+                <div className="collapse-title lg:text-xl text-lg font-medium">
                   Click to open this one and close others
                 </div>
                 <div className="collapse-content">

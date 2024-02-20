@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { AuthContext } from "@/components/provider/AuthProvider";
 import { axiosPublic } from "@/components/Hooks/useAxiosSecure";
 import moment from "moment";
+import toast from "react-hot-toast";
 
 const PostModal = ({ showModal, closeModal }) => {
   if (!showModal) return null;
@@ -35,14 +36,14 @@ const PostModal = ({ showModal, closeModal }) => {
 
     console.log(postInfo);
 
-    axiosPublic
-      .post("/posts", postInfo)
-      .then((res) => {
-        toast.success("post added successfully");
-        e.target.reset();
-
-        router.refresh();
-      })
+    axiosPublic.post("/posts", postInfo).then((res) => {
+      toast.success("post added successfully");
+      e.target.reset();
+      // router.push(
+      //   "https://blood-donation-binary-avengers.vercel.app/community/posts"
+      // );
+      router.refresh();
+    });
   };
   return (
     <div className=" z-10 flex justify-center items-center  fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm">
