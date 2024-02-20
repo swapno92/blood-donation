@@ -54,7 +54,7 @@ const Posts = () => {
     <div className="max-w-screen-xl mx-auto ">
       <div className="flex   gap-5  ">
         {/* Profile section */}
-        <div className="bg-gray-50 border w-3/12 line lg:px-3 lg:top-[143px] md:top-[117px] max-h-screen sticky">
+        <div className="bg-gray-50 border w-3/12 line lg:px-3 lg:top-[143px] md:top-[117px] max-h-screen sticky  md:block hidden">
           <div className="flex items-center js ">
             <Image
               className="w-14 rounded-full object-cover m-2"
@@ -90,7 +90,7 @@ const Posts = () => {
           <div className="divider"></div>
         </div>
         {/* Feed section */}
-        <div className="bg- w-6/12">
+        <div className="bg- md:w-6/12 line">
           <div className="bg-red-50 border-y-2  py-">
             <div className="flex ">
               <div className="flex">
@@ -115,7 +115,7 @@ const Posts = () => {
               </Marquee>
             </div>
           </div>
-          <PostCard />
+          <PostCard/>
         </div>
         <PostModal
           showModal={showModal}
@@ -123,7 +123,7 @@ const Posts = () => {
         ></PostModal>
 
         {/* Top sectionm */}
-        <div className="bg-gray-50 border w-3/12 lg:ectop-[143px] md:top-[117px] max-h-screen sticky">
+        <div className="bg-gray-50 border w-3/12 lg:ectop-[143px] md:top-[117px] max-h-screen sticky  md:block hidden">
           <h2 className="lg:text-3xl md:text-2xl text-primary  text-center font-bold mt-5  border-b-2 pb-3 ">
             TOP DONNER
           </h2>
