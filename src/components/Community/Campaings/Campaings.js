@@ -6,8 +6,6 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import CampaignDetails from "../Dashboard/Modal/CampaignDetails";
-import DynamicPage from "@/app/community/campaings/[id]/page";
 
 const Campaings = () => {
   const [showCampaign, setShowCampaign] = useState();
@@ -77,9 +75,7 @@ const Campaings = () => {
                   <button className="btn bg-primary hover:bg-primary text-white text-xl">
                     Read More <FaArrowRightLong />
                   </button>
-                <DynamicPage></DynamicPage>
                 </Link>
-
               </div>
             </div>
           </div>
