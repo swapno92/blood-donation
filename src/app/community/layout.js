@@ -1,6 +1,7 @@
 
 import { Inter } from "next/font/google";
 import ComNavbar from "@/components/Community/ComNavbar";
+import PrivateRoute from "@/components/PrivateRoute/PrivateRoute";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,8 +13,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <>
-      <ComNavbar/>
-      {children}
+      <PrivateRoute>
+        <ComNavbar />
+        {children}
+      </PrivateRoute>
     </>
   );
 }
