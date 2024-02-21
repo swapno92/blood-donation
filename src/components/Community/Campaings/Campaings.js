@@ -6,6 +6,8 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import CampaignDetails from "../Dashboard/Modal/CampaignDetails";
+import DynamicPage from "@/app/community/campaings/[id]/page";
 
 const Campaings = () => {
   const [showCampaign, setShowCampaign] = useState();
@@ -72,10 +74,12 @@ const Campaings = () => {
               </h2>
               <div className="flex justify-end pb-4">
                 <Link href={`/community/campaings/${campign._id}`}>
-                  <button className="btn bg-primary text-white text-xl">
+                  <button className="btn bg-primary hover:bg-primary text-white text-xl">
                     Read More <FaArrowRightLong />
                   </button>
+                <DynamicPage></DynamicPage>
                 </Link>
+
               </div>
             </div>
           </div>

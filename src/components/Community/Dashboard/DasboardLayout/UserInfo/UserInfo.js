@@ -98,17 +98,6 @@ const UserInfo = () => {
                 <h3 className="border p-4  bg-gray-100 shadow-sm text-gray-700 shadow-gray-400 md:text-xl text-md">
                   Adress: {userInfo?.address ? userInfo?.address : "---"}
                 </h3>
-<<<<<<< HEAD
-<<<<<<< HEAD
-                <h3 className="border p-4  bg-gray-100 shadow-sm text-gray-700 shadow-gray-400 text-xl">
-                  Blood: {userInfo?.blood ? userInfo?.blood : "---"}
-                </h3>
-              </div>
-            
-
-=======
-=======
->>>>>>> 6c0befed3bb46eb660e593d76711d487ed19ea98
                 <h3 className="border p-4  bg-gray-100 shadow-sm text-gray-700 shadow-gray-400 md:text-xl text-md">
                   <UserUpdateModal
                     showModal={showModal}
@@ -117,21 +106,13 @@ const UserInfo = () => {
                   />
                   Blood: {userInfo?.blood ? userInfo?.blood : "---"}
                 </h3>
-<<<<<<< HEAD
-               
-
-=======
->>>>>>> 6c0befed3bb46eb660e593d76711d487ed19ea98
               </div>
             </div>
-            
           </div>
-          
         </section>
       </div>
     </div>
-    
-);
+  );
 };
 
 export default UserInfo;
