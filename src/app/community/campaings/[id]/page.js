@@ -30,7 +30,7 @@ const DynamicPage = () => {
       </div>
       <div className="lg:w-[50%] mx-auto flex mt-8 gap-6">
         <div className="bg-primary">
-          <h2 className="flex items-center gap-3 text-2xl text-white font-bold p-5 text-center flex justify-center items-center">
+          <h2 className="flex items-center gap-3 text-2xl text-white font-bold p-6 text-center flex justify-center items-center">
             {data?.currentDate}
           </h2>
         </div>
