@@ -11,45 +11,10 @@ import PostModal from "./PostModal";
 import Link from "next/link";
 
 const Posts = () => {
-  // let likes = 0;
   const { user } = useContext(AuthContext);
   const userEmailSplit = user?.email ? user?.email.split("@")[0] : "";
-  // const userName = user?.displayName;
-  // const userPhoto = user?.photoURL;
-  // const userEmail = user?.email;
-  // const axiosURL = axiosPublic();
   const [showModal, setshowModal] = useState(false);
-
-  // ............. post .....................
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   const form = new FormData(e.target);
-  //   const description = form.get("description");
-  //   const images = form.get("image");
-  //   const postInfo = {
-  //     description,
-  //     images,
-  //     likes,
-  //     userName,
-  //     userPhoto,
-  //     userEmail,
-  //   };
-
-  //   console.log(postInfo);
-
-  //   axiosPublic
-  //     .post("/posts", postInfo)
-  //     .then((res) => {
-  //       toast.success("post added successfully");
-  //       e.target.reset();
-
-  //       router.refresh();
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // };
-
+  
   return (
     <div className="max-w-screen-xl mx-auto ">
       <div className="flex   gap-5  ">

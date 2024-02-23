@@ -14,6 +14,8 @@ const DonatRequest = () => {
     setSelectedValue(event.target.value);
   };
 
+  const status = 'pending'
+
   const submitFrom = (e) => {
     e.preventDefault();
     const from = e.target;
@@ -42,6 +44,7 @@ const DonatRequest = () => {
       quantity,
       gender,
       currentDate,
+      status
     };
     console.log(requestBlood);
 
