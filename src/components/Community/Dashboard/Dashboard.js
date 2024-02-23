@@ -113,11 +113,12 @@ const Dashboard = () => {
         </div>
       ) : (
         <div className="mt-4 flex flex-col gap-4 relative">
+          <h2 className='text-2xl font-semibold mx-auto border-b-4'>Admin </h2>
           {menusAdmin?.map((menu, i) => (
             <Link href={menu?.link} key={i} passHref legacyBehavior={true}>
               <a
                 className={` ${
-                  menu?.margin && "mt-5"
+                  menu?.margin && "mt-2"
                 } group flex items-center text-sm  gap-3.5 font-medium p-2 hover:bg-secondary rounded-md`}
               >
                 <div>{React.createElement(menu?.icon, { size: "20" })}</div>
