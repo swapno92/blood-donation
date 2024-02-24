@@ -112,7 +112,7 @@ const Navbar = () => {
                       : "font-semibold no-underline hover:text-primary"
                   } `}
                 >
-                  community
+                  Community
                 </Link>
               </li>
               <li>
