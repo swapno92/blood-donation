@@ -72,7 +72,7 @@ const Campaings = () => {
               </h2>
               <div className="flex justify-end pb-4">
                 <Link href={`/community/campaings/${campign._id}`}>
-                  <button className="btn bg-primary text-white text-xl">
+                  <button className="btn bg-primary hover:bg-primary text-white text-xl">
                     Read More <FaArrowRightLong />
                   </button>
                 </Link>
