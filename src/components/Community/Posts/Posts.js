@@ -14,7 +14,6 @@ const Posts = () => {
   const { user } = useContext(AuthContext);
   const userEmailSplit = user?.email ? user?.email.split("@")[0] : "";
   const [showModal, setshowModal] = useState(false);
-  
   return (
     <div className="max-w-screen-xl mx-auto ">
       <div className="flex   gap-5  ">

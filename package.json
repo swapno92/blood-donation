@@ -27,6 +27,7 @@
     "react-hook-form": "^7.49.3",
     "react-hot-toast": "^2.4.1",
     "react-icons": "^5.0.1",
+    "react-query": "^3.39.3",
     "react-responsive-carousel": "^3.2.23",
     "stripe": "^14.17.0",
     "socket.io-client": "^4.7.4",
