@@ -30,7 +30,7 @@ const Donate = () => {
           onClick={() => document.getElementById("my_modal_5").showModal()}
           className="bg-black md:p-10 p-5 mb-5 lg:mb-0 text-left ">
           <h2 className="md:text-4xl text-3xl text-white font-semibold">
-            Donate Now
+            Request For Donate Now
           </h2>
           <div className="flex align-top md:gap-16 gap-5">
             <p className="md:text-xl text-base text-white py-4">

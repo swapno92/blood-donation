@@ -42,7 +42,7 @@ const ProfileDrop = () => {
       {isDropdownOpen && (
         <div
           id="dropdownAvatar"
-          className="z-10 absolute right-0 mt-2 bg-[#fff] divide-y shadow shadow-[#fb8a8a6d] divide-gray-100 border border-[#f28e8e9e] rounder rounded-lg transition-max-height ease-in-out duration-300"
+          className="z-50 absolute right-0 mt-2 bg-[#fff] divide-y shadow shadow-[#fb8a8a6d] divide-gray-100 border border-[#f28e8e9e] rounder rounded-lg transition-max-height ease-in-out duration-300"
           style={{
             maxHeight: isDropdownOpen ? "300px" : "0",
             overflow: "hidden",
