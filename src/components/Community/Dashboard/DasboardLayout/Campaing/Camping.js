@@ -27,12 +27,15 @@ const Camping = () => {
     console.log(addCampaign);
 
     axios
-      .post("https://blood-donation-server-binary-avanger.vercel.app/campaign", addCampaign)
+      .post(
+        "https://blood-donation-server-binary-avanger.vercel.app/campaign",
+        addCampaign
+      )
       .then((data) => {
         console.log(data);
         if (data.data.insertedId) {
           toast("Campaign Post Successfully");
-          from.reset()
+          from.reset();
         }
       })
       .catch((error) => {
