@@ -52,6 +52,11 @@ const Dashboard = () => {
       icon: RiProfileLine,
     },
     {
+      name: "All User",
+      link: "/community/dasboardlayout/admin/userinfo",
+      icon: RiProfileLine,
+    },
+    {
       name: "Request For Blood",
       link: "/community/dasboardlayout/blood-request",
       icon: TbReportAnalytics,
