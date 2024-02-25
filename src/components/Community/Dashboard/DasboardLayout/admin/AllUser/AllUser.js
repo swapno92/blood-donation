@@ -1,11 +1,19 @@
+'use client'
 import getUsers from "@/libs/getUsers";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import { FaRegUserCircle } from "react-icons/fa";
 import { MdDeleteSweep, MdEditNote, MdOutlineAdminPanelSettings } from "react-icons/md";
 
 const AllUser = async () => {
-  const users = await getUsers();
-  console.log(users);
+  const [users,setUsers]= useState()
+  useEffect(() => {
+    fetch("https://blood-donation-server-binary-avanger.vercel.app/users")
+      .then((res) => res.json())
+      .then((data) => {
+        setUsers(data);
+      });
+  }, []);
   return (
     <div className=" mb-12">
       <div className="px-4 w-full">

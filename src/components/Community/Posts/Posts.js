@@ -18,7 +18,7 @@ const Posts = () => {
     <div className="max-w-screen-xl mx-auto ">
       <div className="flex   gap-5  ">
         {/* Profile section */}
-        <div className="bg-gray-50 border w-3/12 line lg:px-3 lg:top-[143px] md:top-[117px] max-h-screen sticky  md:block hidden">
+        <div className="bg-gray-50 border w-3/12  lg:px-3 lg:top-[143px] md:top-[117px] max-h-screen sticky  md:block hidden">
           <div className="flex items-center js ">
             <Image
               className="w-14 rounded-full object-cover m-2"
@@ -54,7 +54,7 @@ const Posts = () => {
           <div className="divider"></div>
         </div>
         {/* Feed section */}
-        <div className="bg- md:w-6/12 line">
+        <div className="bg- md:w-6/12 ">
           <div className="bg-red-50 border-y-2  py-">
             <div className="flex ">
               <div className="flex">
