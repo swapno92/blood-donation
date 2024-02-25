@@ -53,7 +53,7 @@ const Dashboard = () => {
     },
     {
       name: "All User",
-      link: "/community/dasboardlayout/admin/userinfo",
+      link: "/community/dasboardlayout/admin/alluser",
       icon: RiProfileLine,
     },
     {

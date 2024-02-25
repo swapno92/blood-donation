@@ -77,9 +77,6 @@ const PostCard = () => {
 
     axiosPublic.post("/comments", commentInfo).then((res) => {
       toast.success("comment posted");
-      // router.push(
-      //   "https://blood-donation-binary-avengers.vercel.app/community/posts"
-      // );
       router.refresh();
     });
   };
