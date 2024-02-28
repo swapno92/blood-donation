@@ -2,30 +2,14 @@ import { axiosPublic } from "@/components/Hooks/useAxiosSecure";
 import Image from "next/image";
 import React, { useContext, useEffect, useState } from "react";
 import { MdOutlineDelete } from "react-icons/md";
+import { BsDroplet } from "react-icons/bs";
+import { FaDroplet } from "react-icons/fa6";
 import { LuSend } from "react-icons/lu";
 import { FiEdit } from "react-icons/fi";
 import { useRouter } from "next/navigation";
 import { AuthContext } from "@/components/provider/AuthProvider";
 import toast from "react-hot-toast";
 import moment from "moment";
-
-// const getTopics = async () => {
-//   try {
-//     const res = await fetch("https://blood-donation-server-binary-avanger.vercel.app/posts", {
-//       cache: "no-store",
-//     });
-//     if (!res.ok) {
-//       throw new Error("Failed to fetch topics");
-//     }
-//     return res.json();
-//   } catch (error) {
-//     console.log("Error loading Topics: ", error);
-//   }
-// };
-
-// export default async function PostCard() {
-//   const { topics } = await getTopics();
-//   console.log(topics);
 const PostCard = () => {
   const { user } = useContext(AuthContext);
   const [post, setPost] = useState();
@@ -34,6 +18,7 @@ const PostCard = () => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [isCommentVisible, setCommentVisible] = useState(false);
   const [comment, setComment] = useState("");
+  const [liked, setLiked] = useState(false);
 
   const toggleDropdown = () => {
     setDropdownOpen(!isDropdownOpen);
@@ -43,6 +28,10 @@ const PostCard = () => {
   const toggleCommentVisibility = () => {
     setCommentVisible(!isCommentVisible);
     console.log("oky2");
+  };
+
+  const handleLikedClick = () => {
+    setLiked(!liked); 
   };
 
   // getPosts
@@ -88,9 +77,6 @@ const PostCard = () => {
 
     axiosPublic.post("/comments", commentInfo).then((res) => {
       toast.success("comment posted");
-      // router.push(
-      //   "https://blood-donation-binary-avengers.vercel.app/community/posts"
-      // );
       router.refresh();
     });
   };
@@ -189,7 +175,9 @@ const PostCard = () => {
 
           <div className="border-y-2 mt-4">
             <div className="flex justify-evenly py-2 ">
-              <h2 className="">Like</h2>
+              <div className="cursor-pointer" onClick={handleLikedClick}>
+                {liked ? <FaDroplet className="text-primary text-2xl font-extrabold " /> : <BsDroplet className="text-primary font-extrabold  text-2xl " />}
+              </div>
               <button
                 onClick={toggleCommentVisibility}
                 className="inline-flex items-center p-2 text-sm font-medium text-center text-gray-900 bg-white rounded-lg hover:bg-gray-100"

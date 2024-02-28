@@ -12,50 +12,15 @@ import PostModal from "./PostModal";
 import Link from "next/link";
 
 const Posts = () => {
-  // let likes = 0;
   const { user } = useContext(AuthContext);
   const userEmailSplit = user?.email ? user?.email.split("@")[0] : "";
-  // const userName = user?.displayName;
-  // const userPhoto = user?.photoURL;
-  // const userEmail = user?.email;
-  // const axiosURL = axiosPublic();
   const [showModal, setshowModal] = useState(false);
-
-  // ............. post .....................
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   const form = new FormData(e.target);
-  //   const description = form.get("description");
-  //   const images = form.get("image");
-  //   const postInfo = {
-  //     description,
-  //     images,
-  //     likes,
-  //     userName,
-  //     userPhoto,
-  //     userEmail,
-  //   };
-
-  //   console.log(postInfo);
-
-  //   axiosPublic
-  //     .post("/posts", postInfo)
-  //     .then((res) => {
-  //       toast.success("post added successfully");
-  //       e.target.reset();
-
-  //       router.refresh();
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // };
-
   return (
     <div className="max-w-screen-xl mx-auto ">
       <div className="flex   gap-5  ">
         {/* Profile section */}
         <div className="bg-gray-50 border w-3/12 lg:px-3 lg:top-[143px] md:top-[117px] max-h-screen sticky  md:block hidden">
+
           <div className="flex items-center js ">
             <Image
               className="w-14 rounded-full object-cover m-2"
@@ -98,6 +63,7 @@ const Posts = () => {
         {/* Feed section */}
         <div className="md:w-1/2 w-full ">
           <SmDashBoard></SmDashBoard>
+
           <div className="bg-red-50 border-y-2  py-">
             <div className="flex ">
               <div className="flex">
