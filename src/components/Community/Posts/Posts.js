@@ -96,7 +96,7 @@ const Posts = () => {
         </div>
 
         {/* Feed section */}
-        <div className="bg- md:w-6/12">
+        <div className="md:w-1/2 w-full ">
           <SmDashBoard></SmDashBoard>
           <div className="bg-red-50 border-y-2  py-">
             <div className="flex ">
