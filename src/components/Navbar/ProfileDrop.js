@@ -18,8 +18,12 @@ const ProfileDrop = () => {
     logOut().then(() => {
       router.push("/");
       toast.success("Successfully Logged Out!");
+      setDropdownOpen(false)
     });
   };
+  const handleDroupdown =()=>{
+    setDropdownOpen(false)
+  }
   return (
     <div className="relative inline-block text-left">
       <button
@@ -60,6 +64,7 @@ const ProfileDrop = () => {
             <li>
               <Link
                 href="/community/dasboardlayout/profile"
+                onClick={handleDroupdown}
                 className="block px-4 py-2 hover:bg-primary hover:text-white  "
               >
                 Dashboard
@@ -67,7 +72,8 @@ const ProfileDrop = () => {
             </li>
             <li>
               <Link
-                href="#"
+                href="/contact"
+                onClick={handleDroupdown}
                 className="block px-4 py-2 hover:bg-primary hover:text-white"
               >
                 Contact
@@ -76,6 +82,7 @@ const ProfileDrop = () => {
             <li>
               <Link
                 href="#"
+                onClick={handleDroupdown}
                 className="block px-4 py-2 hover:bg-primary hover:text-white"
               >
                 Settings
@@ -93,7 +100,10 @@ const ProfileDrop = () => {
             ) : (
               <>
                 <Link href="/login">
-                  <button className="block px-4 py-2 hover:bg-primary hover:text-white">
+                  <button
+                    onClick={handleDroupdown}
+                    className="block px-4 py-2 hover:bg-primary hover:text-white"
+                  >
                     Sign In
                   </button>
                 </Link>
