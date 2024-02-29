@@ -1,34 +1,26 @@
-import { axiosPublic } from "@/components/Hooks/useAxiosSecure";
 import Image from "next/image";
 import React, { useContext, useEffect, useState } from "react";
 import { MdOutlineDelete } from "react-icons/md";
-import { BsDroplet } from "react-icons/bs";
-import { FaDroplet } from "react-icons/fa6";
 import { LuSend } from "react-icons/lu";
 import { FiEdit } from "react-icons/fi";
-import { useRouter } from "next/navigation";
 import { AuthContext } from "@/components/provider/AuthProvider";
 import toast from "react-hot-toast";
 import moment from "moment";
 import axios from "axios";
+import UseComment from "@/components/Hooks/UseComment";
+import Likes from "./Likes";
 const PostCard = () => {
   const { user } = useContext(AuthContext);
   const [post, setPost] = useState();
-  const router = useRouter();
-
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [isCommentVisible, setCommentVisible] = useState(false);
   const [comment, setComment] = useState("");
-  // const [liked, setLiked] = useState(false);
-
   const toggleDropdown = () => {
     setDropdownOpen(!isDropdownOpen);
-    console.log("oky");
   };
 
   const toggleCommentVisibility = () => {
     setCommentVisible(!isCommentVisible);
-    console.log("oky2");
   };
 
   // getPosts
@@ -52,8 +44,9 @@ const PostCard = () => {
         console.error("Error fetching data:", error);
       });
   }, []);
-  // console.log(post);
 
+  // get comment
+  const [allcomments, refetch] = UseComment();
   // post comment
   const handleComment = (id) => {
     const userImage = user?.photoURL;
@@ -70,119 +63,17 @@ const PostCard = () => {
       currentDate,
     };
 
-    console.log(commentInfo);
-
-    axiosPublic.post("/comments", commentInfo).then((res) => {
-      toast.success("comment posted");
-      router.refresh();
-    });
-  };
-
-  // getComments
-  const [allcomments, setAllComments] = useState([]);
-  useEffect(() => {
-    fetch(`https://blood-donation-server-binary-avanger.vercel.app/comments`)
-      .then((res) => res.json())
+    axios
+      .post("http://localhost:5000/comments", commentInfo)
       .then((data) => {
-        setAllComments(data);
-        router.refresh();
-      });
-  }, []);
-  // console.log(allcomments);
-
-  // get Likes
-  const [allLikes, setAllLikes] = useState([]);
-  // const [fl, setFl] = useState([]);
-
-  const handleLikedClick = (id) => {
-    // setLiked(!liked);
-    // console.log(id);
-    const postsID = id;
-    const likerEmail = user?.email;
-    const likesInfo = {
-      postsID,
-      likerEmail,
-    };
-
-    fetch(`http://localhost:5000/likes/${id}`)
-      .then((res) => res.json())
-      .then((data) => {
-        // setAllLikes(data);
-        // // router.refresh();
-        // console.log(allLikes);
-        console.log(id);
-        console.log(data);
-        if (data.length === 0) {
-          axios
-            .post("http://localhost:5000/likes", likesInfo)
-            .then((data) => {
-              // console.log(data);
-              if (data.data.insertedId) {
-                toast("like");
-                console.log("ager teke id nai tai like hoise");
-                // router.refresh();
-              }
-            })
-            .catch((error) => {
-              console.log(error);
-            });
-        } else {
-          const em = data.filter((uEm) => uEm.likerEmail == user?.email);
-          // console.log(em[0]?.likerEmail);
-          // console.log(uEm?.likerEmail)
-          if (em[0]?.likerEmail == user?.email) {
-            // console.log(uEm);
-            // console.log(user?.email);
-            fetch(`http://localhost:5000/likes/${user?.email}`, {
-              method: "DELETE",
-            })
-              .then((res) => res.json())
-              .then((data) => {
-                // console.log(data);
-                if (data.deletedCount > 0) {
-                  toast("delete");
-                  console.log(
-                    "ei id te ei email dia like kora hoise tai delete"
-                  );
-                  const remainingLikes = allLikes.filter(
-                    (lik) => lik.postID !== id
-                  );
-                  setAllLikes(remainingLikes);
-                }
-              });
-            return;
-          } else {
-            axios
-              .post("http://localhost:5000/likes", likesInfo)
-              .then((data) => {
-                // console.log(data);
-                if (data.data.insertedId) {
-                  toast("like");
-                  console.log("ager teke id nai tai like hoise");
-                  // router.refresh();
-                }
-              });
-            console.log("currnet email dia ei id te like hoy ni tai like");
-          }
+        if (data.data.insertedId) {
         }
+        refetch();
+      })
+      .catch((error) => {
+        console.log(error);
       });
-    fetch(`http://localhost:5000/likes`)
-      .then((res) => res.json())
-      .then((data) => {
-        setAllLikes(data);
-        // router.refresh();
-      });
-    // console.log(allLikes.length)
   };
-
-  useEffect(() => {
-    fetch(`http://localhost:5000/likes`)
-      .then((res) => res.json())
-      .then((data) => {
-        setAllLikes(data);
-        // router.refresh();
-      });
-  }, []);
 
   return (
     <>
@@ -267,19 +158,7 @@ const PostCard = () => {
           <div className="border-y-2 mt-4">
             <div className="flex justify-evenly py-2 ">
               <div className="cursor-pointer flex">
-                {allLikes.filter((likes) => likes.postsID === data?._id).length}
-                {/* {emailData.filter((final) => final.postsID === data?._id)
-                   .length === 0 ? (  */}
-                {/* <BsDroplet */}
-                {/* // onClick={() => handleLikedClick(data?._id)} */}
-                {/* className="text-primary font-extrabold  text-2xl "
-                  />  */}
-                {/* ) : (  */}
-                <FaDroplet
-                  onClick={() => handleLikedClick(data?._id)}
-                  className="text-primary text-2xl font-extrabold "
-                />
-                {/* )}  */}
+                <Likes postId={data?._id}></Likes>
               </div>
 
               <button
