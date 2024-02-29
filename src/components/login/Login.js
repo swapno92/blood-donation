@@ -9,14 +9,14 @@ import { SiGmail  } from "react-icons/si";
 import { useContext, useState } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
 import toast from 'react-hot-toast';
-import { axiosPublic } from '../Hooks/useAxiosSecure';
 import { useRouter } from 'next/navigation';
+import UseAxiosSecure from '../Hooks/useAxiosSecure';
 
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false)
     const {login, googleSignIn, facebookSignIn} = useContext(AuthContext)
-    const axiosURL = axiosPublic();
+ const axiosSecure = UseAxiosSecure();
     const router = useRouter()
 
     const {
@@ -44,12 +44,11 @@ const Login = () => {
               photo: result.user.photoURL,
               roll: "user",
             };
-            axiosPublic.post('/users', userInfo )
-            .then(res => {
-                console.log(res.data);
-                toast.success('Logged In Successful with Google!')
-                router.push('/')
-            })
+            axiosSecure.post("/users", userInfo).then((res) => {
+              console.log(res.data);
+              toast.success("Logged In Successful with Google!");
+              router.push("/");
+            });
         })
         
     }
