@@ -16,7 +16,7 @@ const UserInfo = () => {
 
   useEffect(() => {
     fetch(
-      `http://localhost:5000/users/${currentUser}`
+      `https://blood-donation-server-binary-avanger.vercel.app/users/${currentUser}`
     )
       .then((res) => {
         if (!res.ok) {

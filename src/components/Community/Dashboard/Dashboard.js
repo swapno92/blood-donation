@@ -18,7 +18,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     fetch(
-      `http://localhost:5000/users/${currentUser}`
+      `https://blood-donation-server-binary-avanger.vercel.app/users/${currentUser}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -74,9 +74,8 @@ const Dashboard = () => {
 
   return (
     <div
-      className={`bg-primary min-h-[710px] ${
-        open ? "w-72" : "w-16"
-      } duration-500 text-gray-100 px-4 md:{ope}`}
+      className={`bg-primary min-h-[710px] ${open ? "w-72" : "w-16"
+        } duration-500 text-gray-100 px-4 md:{ope}`}
     >
       <div className="py-3 flex justify-end">
         <HiMenuAlt3
@@ -90,25 +89,22 @@ const Dashboard = () => {
           {menusUser?.map((menu, i) => (
             <Link href={menu?.link} key={i} passHref legacyBehavior={true}>
               <a
-                className={` ${
-                  menu?.margin && "mt-5"
-                } group flex items-center text-sm  gap-3.5 font-medium p-2 hover:bg-secondary rounded-md`}
+                className={` ${menu?.margin && "mt-5"
+                  } group flex items-center text-sm  gap-3.5 font-medium p-2 hover:bg-secondary rounded-md`}
               >
                 <div>{React.createElement(menu?.icon, { size: "20" })}</div>
                 <h2
                   style={{
                     transitionDelay: `${i + 3}00ms`,
                   }}
-                  className={`whitespace-pre duration-500 ${
-                    !open && "opacity-0 translate-x-28 overflow-hidden"
-                  }`}
+                  className={`whitespace-pre duration-500 ${!open && "opacity-0 translate-x-28 overflow-hidden"
+                    }`}
                 >
                   {menu?.name}
                 </h2>
                 <h2
-                  className={`${
-                    open && "hidden"
-                  } absolute left-48 bg-primary font-semibold whitespace-pre text-white rounded-md drop-shadow-lg px-0 py-0 w-0 overflow-hidden group-hover:px-2 group-hover:py-1 group-hover:left-14 group-hover:duration-300 group-hover:w-fit  `}
+                  className={`${open && "hidden"
+                    } absolute left-48 bg-primary font-semibold whitespace-pre text-white rounded-md drop-shadow-lg px-0 py-0 w-0 overflow-hidden group-hover:px-2 group-hover:py-1 group-hover:left-14 group-hover:duration-300 group-hover:w-fit  `}
                 >
                   {menu?.name}
                 </h2>
@@ -122,25 +118,22 @@ const Dashboard = () => {
           {menusAdmin?.map((menu, i) => (
             <Link href={menu?.link} key={i} passHref legacyBehavior={true}>
               <a
-                className={` ${
-                  menu?.margin && "mt-2"
-                } group flex items-center text-sm  gap-3.5 font-medium p-2 hover:bg-secondary rounded-md`}
+                className={` ${menu?.margin && "mt-2"
+                  } group flex items-center text-sm  gap-3.5 font-medium p-2 hover:bg-secondary rounded-md`}
               >
                 <div>{React.createElement(menu?.icon, { size: "20" })}</div>
                 <h2
                   style={{
                     transitionDelay: `${i + 3}00ms`,
                   }}
-                  className={`whitespace-pre duration-500 ${
-                    !open && "opacity-0 translate-x-28 overflow-hidden"
-                  }`}
+                  className={`whitespace-pre duration-500 ${!open && "opacity-0 translate-x-28 overflow-hidden"
+                    }`}
                 >
                   {menu?.name}
                 </h2>
                 <h2
-                  className={`${
-                    open && "hidden"
-                  } absolute left-48 bg-primary font-semibold whitespace-pre text-white rounded-md drop-shadow-lg px-0 py-0 w-0 overflow-hidden group-hover:px-2 group-hover:py-1 group-hover:left-14 group-hover:duration-300 group-hover:w-fit  `}
+                  className={`${open && "hidden"
+                    } absolute left-48 bg-primary font-semibold whitespace-pre text-white rounded-md drop-shadow-lg px-0 py-0 w-0 overflow-hidden group-hover:px-2 group-hover:py-1 group-hover:left-14 group-hover:duration-300 group-hover:w-fit  `}
                 >
                   {menu?.name}
                 </h2>
