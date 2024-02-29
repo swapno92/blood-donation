@@ -11,15 +11,13 @@ import { AuthContext } from "@/components/provider/AuthProvider";
 
 const Dashboard = () => {
   const [users, setUsers] = useState();
-  console.log(users?.roll);
+  console.log(users);
   const { user } = useContext(AuthContext);
   const currentUser = user?.email;
   console.log(currentUser);
 
   useEffect(() => {
-    fetch(
-      `https://blood-donation-server-binary-avanger.vercel.app/users/${currentUser}`
-    )
+    fetch("http://localhost:5000/users")
       .then((res) => res.json())
       .then((data) => {
         setUsers(data);

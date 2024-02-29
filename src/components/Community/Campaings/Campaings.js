@@ -6,16 +6,18 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import UseCampaign from "@/components/Hooks/UseCampaign";
 
 const Campaings = () => {
-  const [showCampaign, setShowCampaign] = useState();
-  useEffect(() => {
-    fetch("https://blood-donation-server-binary-avanger.vercel.app/campaign")
-      .then((res) => res.json())
-      .then((data) => {
-        setShowCampaign(data);
-      });
-  }, []);
+  const [campaign] = UseCampaign();
+  // const [showCampaign, setShowCampaign] = useState();
+  // useEffect(() => {
+  //   fetch("https://blood-donation-server-binary-avanger.vercel.app/campaign")
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setShowCampaign(data);
+  //     });
+  // }, []);
   return (
     <div className="md:my-16  my-4">
       <div className="md:mb-10 mb-5">
@@ -29,7 +31,7 @@ const Campaings = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:w-[60%] mx-auto gap-8 px-6">
-        {showCampaign?.map((campign) => (
+        {campaign?.map((campign) => (
           <div
             key={campign._id}
             className="bg-gray-50 shadow-md hover:shadow-2xl rounded-b-none"
