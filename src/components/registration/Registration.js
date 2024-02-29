@@ -8,15 +8,15 @@ import { FaEye, FaEyeSlash, FaFacebook } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
 import { useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
-import { axiosPublic } from "../Hooks/useAxiosSecure";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+import UseAxiosSecure from '../Hooks/useAxiosSecure';
 
 const Registration = () => {
   const [showPassword, setShowPassword] = useState(false);
   const { createUser, googleSignIn, facebookSignIn, updateUaserPofile } =
     useContext(AuthContext);
-  const axiosURL = axiosPublic();
+   const axiosSecure = UseAxiosSecure();
   const router = useRouter();
 
   const {
@@ -41,7 +41,7 @@ const Registration = () => {
         roll: 'user'
       };
       console.log(userInfo);
-      axiosPublic.post("/users", userInfo).then((res) => {
+      axiosSecure.post("/users", userInfo).then((res) => {
         console.log(res.data);
         if (res.data.insertedId) {
           toast.success("Resgistration  successfully");
@@ -59,7 +59,7 @@ const Registration = () => {
         photo: result.user.photoURL,
         roll: 'user'
       };
-      axiosPublic.post("/users", userInfo).then((res) => {
+      axiosSecure.post("/users", userInfo).then((res) => {
         console.log(res.data);
         toast.success("Logged In Successful with Google!");
         router.push("/");

@@ -16,10 +16,14 @@ const ProfileDrop = () => {
   };
   const handleSignOut = () => {
     logOut().then(() => {
-      toast.success("Successfully Logged Out!");
       router.push("/");
+      toast.success("Successfully Logged Out!");
+      setDropdownOpen(false)
     });
   };
+  const handleDroupdown =()=>{
+    setDropdownOpen(false)
+  }
   return (
     <div className="relative inline-block text-left">
       <button
@@ -42,7 +46,7 @@ const ProfileDrop = () => {
       {isDropdownOpen && (
         <div
           id="dropdownAvatar"
-          className="z-50 absolute right-0 mt-2 bg-[#fff] divide-y shadow shadow-[#fb8a8a6d] divide-gray-100 border border-[#f28e8e9e] rounder rounded-lg transition-max-height ease-in-out duration-300"
+          className="z-40 line absolute right-0 mt-2 bg-[#fff] divide-y shadow shadow-[#fb8a8a6d] divide-gray-100 border border-[#f28e8e9e] rounder rounded-lg transition-max-height ease-in-out duration-300"
           style={{
             maxHeight: isDropdownOpen ? "300px" : "0",
             overflow: "hidden",
@@ -60,6 +64,7 @@ const ProfileDrop = () => {
             <li>
               <Link
                 href="/community/dasboardlayout/profile"
+                onClick={handleDroupdown}
                 className="block px-4 py-2 hover:bg-primary hover:text-white  "
               >
                 Dashboard
@@ -67,7 +72,8 @@ const ProfileDrop = () => {
             </li>
             <li>
               <Link
-                href="#"
+                href="/contact"
+                onClick={handleDroupdown}
                 className="block px-4 py-2 hover:bg-primary hover:text-white"
               >
                 Contact
@@ -76,6 +82,7 @@ const ProfileDrop = () => {
             <li>
               <Link
                 href="#"
+                onClick={handleDroupdown}
                 className="block px-4 py-2 hover:bg-primary hover:text-white"
               >
                 Settings
@@ -93,7 +100,10 @@ const ProfileDrop = () => {
             ) : (
               <>
                 <Link href="/login">
-                  <button className="block px-4 py-2 hover:bg-primary hover:text-white">
+                  <button
+                    onClick={handleDroupdown}
+                    className="block px-4 py-2 hover:bg-primary hover:text-white"
+                  >
                     Sign In
                   </button>
                 </Link>

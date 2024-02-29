@@ -1,37 +1,25 @@
-import { axiosPublic } from "@/components/Hooks/useAxiosSecure";
 import Image from "next/image";
 import React, { useContext, useEffect, useState } from "react";
 import { MdOutlineDelete } from "react-icons/md";
-import { BsDroplet } from "react-icons/bs";
-import { FaDroplet } from "react-icons/fa6";
 import { LuSend } from "react-icons/lu";
 import { FiEdit } from "react-icons/fi";
-import { useRouter } from "next/navigation";
 import { AuthContext } from "@/components/provider/AuthProvider";
-import toast from "react-hot-toast";
 import moment from "moment";
+import axios from "axios";
+import UseComment from "@/components/Hooks/UseComment";
+import Likes from "./Likes";
 const PostCard = () => {
   const { user } = useContext(AuthContext);
   const [post, setPost] = useState();
-  const router = useRouter();
-
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [isCommentVisible, setCommentVisible] = useState(false);
   const [comment, setComment] = useState("");
-  const [liked, setLiked] = useState(false);
-
   const toggleDropdown = () => {
     setDropdownOpen(!isDropdownOpen);
-    console.log("oky");
   };
 
   const toggleCommentVisibility = () => {
     setCommentVisible(!isCommentVisible);
-    console.log("oky2");
-  };
-
-  const handleLikedClick = () => {
-    setLiked(!liked); 
   };
 
   // getPosts
@@ -55,8 +43,9 @@ const PostCard = () => {
         console.error("Error fetching data:", error);
       });
   }, []);
-  // console.log(post);
 
+  // get comment
+  const [allcomments, refetch] = UseComment();
   // post comment
   const handleComment = (id) => {
     const userImage = user?.photoURL;
@@ -73,25 +62,17 @@ const PostCard = () => {
       currentDate,
     };
 
-    console.log(commentInfo);
-
-    axiosPublic.post("/comments", commentInfo).then((res) => {
-      toast.success("comment posted");
-      router.refresh();
-    });
-  };
-
-  // getComments
-  const [allcomments, setAllComments] = useState([]);
-  useEffect(() => {
-    fetch(`https://blood-donation-server-binary-avanger.vercel.app/comments`)
-      .then((res) => res.json())
+    axios
+      .post("http://localhost:5000/comments", commentInfo)
       .then((data) => {
-        setAllComments(data);
-        router.refresh();
+        if (data.data.insertedId) {
+        }
+        refetch();
+      })
+      .catch((error) => {
+        console.log(error);
       });
-  }, []);
-  console.log(allcomments);
+  };
 
   return (
     <>
@@ -135,7 +116,7 @@ const PostCard = () => {
               {isDropdownOpen && (
                 <div
                   id="dropdownDotsHorizontal"
-                  className="z-10 absolute bg-white divide-y divide-gray-100 rounded-lg shadow pr-8 pl-2"
+                  className="z-10 absolute bg-white divide-y divide-gray-100 rounded-lg shadow pr-8 pl-2 -ml-28"
                 >
                   <ul
                     className="py-2 text-sm text-gray-700"
@@ -175,9 +156,10 @@ const PostCard = () => {
 
           <div className="border-y-2 mt-4">
             <div className="flex justify-evenly py-2 ">
-              <div className="cursor-pointer" onClick={handleLikedClick}>
-                {liked ? <FaDroplet className="text-primary text-2xl font-extrabold " /> : <BsDroplet className="text-primary font-extrabold  text-2xl " />}
+              <div className="cursor-pointer flex">
+                <Likes postId={data?._id}></Likes>
               </div>
+
               <button
                 onClick={toggleCommentVisibility}
                 className="inline-flex items-center p-2 text-sm font-medium text-center text-gray-900 bg-white rounded-lg hover:bg-gray-100"
