@@ -1,9 +1,13 @@
 "use client";
-import axios from "axios";
+
+import UseCampaign from "@/components/Hooks/UseCampaign";
+import UseAxiosSecure from "@/components/Hooks/useAxiosSecure";
 import moment from "moment";
 import toast from "react-hot-toast";
 
 const Camping = () => {
+ const axiosSecure = UseAxiosSecure();
+ const [ refatch]=UseCampaign();
   const currentDate = moment().format("MM-DD-YYYY");
   const addCampaign = (e) => {
     e.preventDefault();
@@ -24,19 +28,15 @@ const Camping = () => {
       description,
       currentDate,
     };
-    console.log(addCampaign);
 
-    axios
-      .post(
-        "https://blood-donation-server-binary-avanger.vercel.app/campaign",
-        addCampaign
-      )
+    axiosSecure
+      .post("/campaign", addCampaign)
       .then((data) => {
-        console.log(data);
         if (data.data.insertedId) {
-          toast("Campaign Post Successfully");
+          toast.success("Campaign Post Successfully");
           from.reset();
         }
+        refatch()
       })
       .catch((error) => {
         console.log(error);

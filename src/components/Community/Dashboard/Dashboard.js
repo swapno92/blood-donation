@@ -11,12 +11,13 @@ import { AuthContext } from "@/components/provider/AuthProvider";
 
 const Dashboard = () => {
   const [users, setUsers] = useState();
-  console.log(users?.roll);
+  console.log(users);
   const { user } = useContext(AuthContext);
   const currentUser = user?.email;
   console.log(currentUser);
 
   useEffect(() => {
+    fetch("http://localhost:5000/users")
     fetch(
       `http://localhost:5000/users/${currentUser}`
     )
