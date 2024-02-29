@@ -10,9 +10,9 @@ import Link from "next/link";
 import { AuthContext } from "@/components/provider/AuthProvider";
 
 const Dashboard = () => {
+  const { user } = useContext(AuthContext);
   const [users, setUsers] = useState();
   console.log(users?.roll);
-  const { user } = useContext(AuthContext);
   const currentUser = user?.email;
   console.log(currentUser);
 
