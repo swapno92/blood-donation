@@ -1,9 +1,9 @@
 import UseLikes from "@/components/Hooks/useLIkes";
 import { AuthContext } from "@/components/provider/AuthProvider";
 import React, { useContext } from "react";
-import toast from "react-hot-toast";
 import { FaDroplet } from "react-icons/fa6";
 import axios from "axios";
+import { BsDroplet } from "react-icons/bs";
 
 const Likes = ({ postId }) => {
   // get likes
@@ -35,7 +35,6 @@ const Likes = ({ postId }) => {
         } else {
           const em = data.filter((uEm) => uEm.likerEmail == user?.email);
           if (em[0]?.likerEmail == user?.email) {
-
             fetch(`http://localhost:5000/likes/${user?.email}`, {
               method: "DELETE",
             })
@@ -61,19 +60,22 @@ const Likes = ({ postId }) => {
 
   return (
     <>
+    {/* blood/like count */}
       {allLikes.filter((likes) => likes.postsID === postId).length}
-      {/* {emailData.filter((final) => final.postsID === data?._id)
-                   .length === 0 ? (  */}
-      {/* <BsDroplet */}
-      {/* // onClick={() => handleLikedClick(data?._id)} */}
-      {/* className="text-primary font-extrabold  text-2xl "
-                  />  */}
-      {/* ) : (  */}
-      <FaDroplet
-        onClick={() => handleLikedClick(postId)}
-        className="text-primary text-2xl font-extrabold "
-      />
-      {/* )}  */}
+      {/* blood/like icon */}
+      {allLikes
+        .filter((likes) => likes.postsID === postId)
+        .find((l) => l.likerEmail === user?.email) ? (
+        <FaDroplet
+          onClick={() => handleLikedClick(postId)}
+          className="text-primary text-2xl font-extrabold "
+        />
+      ) : (
+        <BsDroplet
+          onClick={() => handleLikedClick(postId)}
+          className="text-primary font-extrabold  text-2xl "
+        />
+      )}
     </>
   );
 };

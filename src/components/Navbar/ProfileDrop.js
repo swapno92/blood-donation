@@ -16,8 +16,8 @@ const ProfileDrop = () => {
   };
   const handleSignOut = () => {
     logOut().then(() => {
-      toast.success("Successfully Logged Out!");
       router.push("/");
+      toast.success("Successfully Logged Out!");
     });
   };
   return (
