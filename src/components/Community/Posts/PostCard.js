@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 import { AuthContext } from "@/components/provider/AuthProvider";
 import toast from "react-hot-toast";
 import moment from "moment";
+import axios from "axios";
 const PostCard = () => {
   const { user } = useContext(AuthContext);
   const [post, setPost] = useState();
@@ -18,7 +19,7 @@ const PostCard = () => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [isCommentVisible, setCommentVisible] = useState(false);
   const [comment, setComment] = useState("");
-  const [liked, setLiked] = useState(false);
+  // const [liked, setLiked] = useState(false);
 
   const toggleDropdown = () => {
     setDropdownOpen(!isDropdownOpen);
@@ -28,10 +29,6 @@ const PostCard = () => {
   const toggleCommentVisibility = () => {
     setCommentVisible(!isCommentVisible);
     console.log("oky2");
-  };
-
-  const handleLikedClick = () => {
-    setLiked(!liked); 
   };
 
   // getPosts
@@ -91,7 +88,101 @@ const PostCard = () => {
         router.refresh();
       });
   }, []);
-  console.log(allcomments);
+  // console.log(allcomments);
+
+  // get Likes
+  const [allLikes, setAllLikes] = useState([]);
+  // const [fl, setFl] = useState([]);
+
+  const handleLikedClick = (id) => {
+    // setLiked(!liked);
+    // console.log(id);
+    const postsID = id;
+    const likerEmail = user?.email;
+    const likesInfo = {
+      postsID,
+      likerEmail,
+    };
+
+    fetch(`http://localhost:5000/likes/${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        // setAllLikes(data);
+        // // router.refresh();
+        // console.log(allLikes);
+        console.log(id);
+        console.log(data);
+        if (data.length === 0) {
+          axios
+            .post("http://localhost:5000/likes", likesInfo)
+            .then((data) => {
+              // console.log(data);
+              if (data.data.insertedId) {
+                toast("like");
+                console.log("ager teke id nai tai like hoise");
+                // router.refresh();
+              }
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+        } else {
+          const em = data.filter((uEm) => uEm.likerEmail == user?.email);
+          // console.log(em[0]?.likerEmail);
+          // console.log(uEm?.likerEmail)
+          if (em[0]?.likerEmail == user?.email) {
+            // console.log(uEm);
+            // console.log(user?.email);
+            fetch(`http://localhost:5000/likes/${user?.email}`, {
+              method: "DELETE",
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                // console.log(data);
+                if (data.deletedCount > 0) {
+                  toast("delete");
+                  console.log(
+                    "ei id te ei email dia like kora hoise tai delete"
+                  );
+                  const remainingLikes = allLikes.filter(
+                    (lik) => lik.postID !== id
+                  );
+                  setAllLikes(remainingLikes);
+                }
+              });
+            return;
+          } else {
+            axios
+              .post("http://localhost:5000/likes", likesInfo)
+              .then((data) => {
+                // console.log(data);
+                if (data.data.insertedId) {
+                  toast("like");
+                  console.log("ager teke id nai tai like hoise");
+                  // router.refresh();
+                }
+              });
+            console.log("currnet email dia ei id te like hoy ni tai like");
+          }
+        }
+      });
+    fetch(`http://localhost:5000/likes`)
+      .then((res) => res.json())
+      .then((data) => {
+        setAllLikes(data);
+        // router.refresh();
+      });
+    // console.log(allLikes.length)
+  };
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/likes`)
+      .then((res) => res.json())
+      .then((data) => {
+        setAllLikes(data);
+        // router.refresh();
+      });
+  }, []);
 
   return (
     <>
@@ -175,9 +266,22 @@ const PostCard = () => {
 
           <div className="border-y-2 mt-4">
             <div className="flex justify-evenly py-2 ">
-              <div className="cursor-pointer" onClick={handleLikedClick}>
-                {liked ? <FaDroplet className="text-primary text-2xl font-extrabold " /> : <BsDroplet className="text-primary font-extrabold  text-2xl " />}
+              <div className="cursor-pointer flex">
+                {allLikes.filter((likes) => likes.postsID === data?._id).length}
+                {/* {emailData.filter((final) => final.postsID === data?._id)
+                   .length === 0 ? (  */}
+                {/* <BsDroplet */}
+                {/* // onClick={() => handleLikedClick(data?._id)} */}
+                {/* className="text-primary font-extrabold  text-2xl "
+                  />  */}
+                {/* ) : (  */}
+                <FaDroplet
+                  onClick={() => handleLikedClick(data?._id)}
+                  className="text-primary text-2xl font-extrabold "
+                />
+                {/* )}  */}
               </div>
+
               <button
                 onClick={toggleCommentVisibility}
                 className="inline-flex items-center p-2 text-sm font-medium text-center text-gray-900 bg-white rounded-lg hover:bg-gray-100"

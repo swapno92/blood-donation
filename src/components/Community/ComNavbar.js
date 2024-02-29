@@ -9,7 +9,7 @@ const ComNavbar = () => {
   const pathname = usePathname()
 
   return (
-    <section className="lg:top-[86px] md:top-[60px] top-[46px] z-30   sticky bg-white pb-3">
+    <section className="lg:top-[86px] md:top-[60px] top-[46px] z-30 line  sticky bg-white pb-3">
       <div className=" border-b-2">
         <div className="max-w-screen-md mx-auto ">
           <ul className="flex justify-center  md:items-center items-center  md:gap-5 gap-2 text-gray-500">
