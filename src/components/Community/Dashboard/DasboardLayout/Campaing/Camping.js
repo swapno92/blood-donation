@@ -36,7 +36,7 @@ const Camping = () => {
           toast.success("Campaign Post Successfully");
           from.reset();
         }
-        refatch()
+        refatch();
       })
       .catch((error) => {
         console.log(error);
