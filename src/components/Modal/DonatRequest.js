@@ -8,8 +8,8 @@ import UseRequest from "../Hooks/UseRequest";
 
 const DonatRequest = () => {
   const { user } = useContext(AuthContext);
-  const [refatch]=UseRequest();
-  const axiosSecure = UseAxiosSecure()
+  const [refatch] = UseRequest();
+  const axiosSecure = UseAxiosSecure();
   const currentDate = moment().format("MM-DD-YYYY");
   const [selectedValue, setSelectedValue] = useState("");
 
@@ -17,7 +17,7 @@ const DonatRequest = () => {
     setSelectedValue(event.target.value);
   };
 
-  const status = 'pending'
+  const status = "pending";
 
   const submitFrom = (e) => {
     e.preventDefault();
@@ -47,22 +47,19 @@ const DonatRequest = () => {
       quantity,
       gender,
       currentDate,
-      status
+      status,
     };
     console.log(requestBlood);
 
     axiosSecure
-      .post(
-        "/requests",
-        requestBlood
-      )
+      .post("/requests", requestBlood)
       .then((data) => {
         console.log(data);
         if (data.data.insertedId) {
           toast.success("User Request successfully");
-          from.reset()
+          from.reset();
         }
-        refatch()
+        refatch();
       })
       .catch((error) => {
         console.log(error);
