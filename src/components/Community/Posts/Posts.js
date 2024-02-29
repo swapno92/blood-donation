@@ -7,6 +7,7 @@ import { AuthContext } from "../../provider/AuthProvider";
 import { axiosPublic } from "../../Hooks/useAxiosSecure";
 import toast from "react-hot-toast";
 import PostCard from "./PostCard";
+import SmDashBoard from "./SmDashBoard";
 import PostModal from "./PostModal";
 import Link from "next/link";
 
@@ -18,7 +19,8 @@ const Posts = () => {
     <div className="max-w-screen-xl mx-auto ">
       <div className="flex   gap-5  ">
         {/* Profile section */}
-        <div className="bg-gray-50 border w-3/12  lg:px-3 lg:top-[143px] md:top-[117px] max-h-screen sticky  md:block hidden">
+        <div className="bg-gray-50 border w-3/12 lg:px-3 lg:top-[143px] md:top-[117px] max-h-screen sticky  md:block hidden">
+
           <div className="flex items-center js ">
             <Image
               className="w-14 rounded-full object-cover m-2"
@@ -39,12 +41,16 @@ const Posts = () => {
           </div>
           <div className="divider "></div>
           <div className="space-y-4 px-3">
-            <h2 className="hover:bg-slate-600 py-2 px-2 hover:text-white rounded-md post">
-              My Post
-            </h2>
-            <h2 className="hover:bg-slate-600 py-2 px-2 hover:text-white rounded-md post">
-              Emergency
-            </h2>
+            <Link href="/community/dasboardlayout/profile">
+              <h2 className="hover:bg-slate-600 py-2 px-2 hover:text-white rounded-md post">
+                My Post
+              </h2>
+            </Link>
+            <Link href="/community/dasboardlayout/profile">
+              <h2 className="hover:bg-slate-600 py-2 px-2 hover:text-white rounded-md post">
+                Emergency
+              </h2>
+            </Link>
             <Link href="/community/dasboardlayout/profile">
               <h2 className="hover:bg-slate-600 py-2 px-2 hover:text-white rounded-md post">
                 Dashboard
@@ -53,8 +59,11 @@ const Posts = () => {
           </div>
           <div className="divider"></div>
         </div>
+
         {/* Feed section */}
-        <div className="bg- md:w-6/12 ">
+        <div className="md:w-1/2 w-full ">
+          <SmDashBoard></SmDashBoard>
+
           <div className="bg-red-50 border-y-2  py-">
             <div className="flex ">
               <div className="flex">
@@ -79,15 +88,14 @@ const Posts = () => {
               </Marquee>
             </div>
           </div>
-          <PostCard/>
+          <PostCard />
         </div>
         <PostModal
           showModal={showModal}
           closeModal={() => setshowModal(false)}
         ></PostModal>
-
         {/* Top sectionm */}
-        <div className="bg-gray-50 border w-3/12 lg:ectop-[143px] md:top-[117px] max-h-screen sticky  md:block hidden">
+        <div className="bg-gray-50 border w-3/12 lg:top-[143px] md:top-[117px] max-h-screen sticky  md:block hidden">
           <h2 className="lg:text-3xl md:text-2xl text-primary  text-center font-bold mt-5  border-b-2 pb-3 ">
             TOP DONNER
           </h2>
