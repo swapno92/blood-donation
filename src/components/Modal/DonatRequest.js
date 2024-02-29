@@ -1,12 +1,15 @@
 import { ImCross } from "react-icons/im";
 import React, { useContext, useState } from "react";
 import { AuthContext } from "@/components/provider/AuthProvider";
-import axios from "axios";
 import moment from "moment";
 import toast from "react-hot-toast";
+import UseAxiosSecure from "../Hooks/useAxiosSecure";
+import UseRequest from "../Hooks/UseRequest";
 
 const DonatRequest = () => {
   const { user } = useContext(AuthContext);
+  const [refatch]=UseRequest();
+  const axiosSecure = UseAxiosSecure()
   const currentDate = moment().format("MM-DD-YYYY");
   const [selectedValue, setSelectedValue] = useState("");
 
@@ -48,17 +51,18 @@ const DonatRequest = () => {
     };
     console.log(requestBlood);
 
-    axios
+    axiosSecure
       .post(
-        "https://blood-donation-server-binary-avanger.vercel.app/requests",
+        "/requests",
         requestBlood
       )
       .then((data) => {
         console.log(data);
         if (data.data.insertedId) {
-          toast("User Request successfully");
+          toast.success("User Request successfully");
           from.reset()
         }
+        refatch()
       })
       .catch((error) => {
         console.log(error);

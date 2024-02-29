@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 
 const Camping = () => {
  const axiosSecure = UseAxiosSecure();
- const [ refatch]=UseCampaign()
+ const [ refatch]=UseCampaign();
   const currentDate = moment().format("MM-DD-YYYY");
   const addCampaign = (e) => {
     e.preventDefault();

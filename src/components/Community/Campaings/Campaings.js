@@ -4,20 +4,12 @@ import { FiClock } from "react-icons/fi";
 import { FaLocationDot } from "react-icons/fa6";
 import { FaArrowRightLong } from "react-icons/fa6";
 import Image from "next/image";
-import { useEffect, useState } from "react";
 import Link from "next/link";
 import UseCampaign from "@/components/Hooks/UseCampaign";
 
 const Campaings = () => {
   const [campaign] = UseCampaign();
-  // const [showCampaign, setShowCampaign] = useState();
-  // useEffect(() => {
-  //   fetch("https://blood-donation-server-binary-avanger.vercel.app/campaign")
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       setShowCampaign(data);
-  //     });
-  // }, []);
+
   return (
     <div className="md:my-16  my-4">
       <div className="md:mb-10 mb-5">
