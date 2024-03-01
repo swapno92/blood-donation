@@ -4,8 +4,6 @@ import Marquee from "react-fast-marquee";
 import { IoCreateOutline } from "react-icons/io5";
 import Image from "next/image";
 import { AuthContext } from "../../provider/AuthProvider";
-import { axiosPublic } from "../../Hooks/useAxiosSecure";
-import toast from "react-hot-toast";
 import PostCard from "./PostCard";
 import SmDashBoard from "./SmDashBoard";
 import PostModal from "./PostModal";
@@ -90,7 +88,7 @@ const Posts = () => {
           </div>
           <PostCard />
         </div>
-        <PostModal
+        <PostModal 
           showModal={showModal}
           closeModal={() => setshowModal(false)}
         ></PostModal>
