@@ -45,8 +45,8 @@ const PostModal = ({ showModal, closeModal }) => {
     });
   };
   return (
-    <div className=" z-10 flex justify-center items-center  fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm">
-      <div className="w-1/2 flex flex-col ">
+    <div className="-mb-[80px] z-10 flex justify-center items-center  fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm">
+      <div className="w-[40%] flex flex-col ">
         <button
           onClick={() => closeModal()}
           className="text-4xl place-self-end text-primary font-semibold shadow-xl "
@@ -81,7 +81,7 @@ const PostModal = ({ showModal, closeModal }) => {
                 type="checkbox "
                 id="floating_standard"
                 name="description"
-                class="block h-32 py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                class="block h-32 py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-blue-600 peer "
                 placeholder=" "
               />
               <label

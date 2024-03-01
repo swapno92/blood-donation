@@ -75,7 +75,7 @@ const Likes = ({ postId }) => {
         />
       )}
       {/* blood/like count */}
-      {allLikes.filter((likes) => likes.postsID === postId).length}
+      <h2 className="font-bold">{allLikes.filter((likes) => likes.postsID === postId).length}</h2>
     </>
   );
 };
