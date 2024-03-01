@@ -1,22 +1,21 @@
 import React, { useContext } from "react";
 import { CiSquareRemove } from "react-icons/ci";
-import { useRouter } from "next/navigation";
 import { AuthContext } from "@/components/provider/AuthProvider";
-import { axiosPublic } from "@/components/Hooks/useAxiosSecure";
+import UseAxiosSecure from "@/components/Hooks/useAxiosSecure";
 import moment from "moment";
 import toast from "react-hot-toast";
+import UsePosts from "@/components/Hooks/usePosts";
 
 const PostModal = ({ showModal, closeModal }) => {
+    const [post, refetch] = UsePosts();
+
+  const axiosSecure = UseAxiosSecure();
   if (!showModal) return null;
-  const router = useRouter();
   let likes = 0;
   const { user } = useContext(AuthContext);
-  const currentDate = moment().format(" D MMM YYYY");
-  console.log(currentDate);
   const userName = user?.displayName;
   const userPhoto = user?.photoURL;
   const userEmail = user?.email;
-  const axiosURL = axiosPublic();
 
   // ............. post .....................
   const handleSubmit = async (e) => {
@@ -24,25 +23,25 @@ const PostModal = ({ showModal, closeModal }) => {
     const form = new FormData(e.target);
     const description = form.get("description");
     const images = form.get("image");
+        const currentDateTime = moment().format("D MMM YYYY, h:mm:ss a");
+
     const postInfo = {
       description,
       images,
       likes,
       userName,
-      currentDate,
       userPhoto,
       userEmail,
+      currentDateTime,
     };
 
     console.log(postInfo);
 
-    axiosPublic.post("/posts", postInfo).then((res) => {
+    axiosSecure.post("/posts", postInfo).then((res) => {
       toast.success("post added successfully");
       e.target.reset();
-      // router.push(
-      //   "https://blood-donation-binary-avengers.vercel.app/community/posts"
-      // );
-      router.refresh();
+      refetch()
+      closeModal()
     });
   };
   return (
@@ -95,7 +94,10 @@ const PostModal = ({ showModal, closeModal }) => {
           </div>
 
           <div className="mx-auto text-center">
-            <button className="btn xrounded text-white text-xl mt-3 bg-primary">
+            <button
+              
+              className="btn xrounded text-white text-xl mt-3 bg-primary"
+            >
               Post
             </button>
           </div>

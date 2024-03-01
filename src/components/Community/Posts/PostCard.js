@@ -8,9 +8,10 @@ import moment from "moment";
 import axios from "axios";
 import UseComment from "@/components/Hooks/UseComment";
 import Likes from "./Likes";
+import UsePosts from "@/components/Hooks/usePosts";
 const PostCard = () => {
   const { user } = useContext(AuthContext);
-  const [post, setPost] = useState();
+  const [post, refetch] = UsePosts();
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [isCommentVisible, setCommentVisible] = useState(false);
   const [comment, setComment] = useState("");
@@ -22,30 +23,8 @@ const PostCard = () => {
     setCommentVisible(!isCommentVisible);
   };
 
-  // getPosts
-  useEffect(() => {
-    fetch("https://blood-donation-server-binary-avanger.vercel.app/posts")
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error(`HTTP error! Status: ${res.status}`);
-        }
-        return res.json();
-      })
-      .then((data) => {
-        if (data.length === 0) {
-          // Handle the case when the response is empty
-          console.warn("Empty response from the server");
-        } else {
-          setPost(data);
-        }
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-  }, []);
-
   // get comment
-  const [allcomments, refetch] = UseComment();
+  const [allcomments, commentRefetch] = UseComment();
   // post comment
   const handleComment = (id) => {
     const userImage = user?.photoURL;
@@ -67,22 +46,32 @@ const PostCard = () => {
       .then((data) => {
         if (data.data.insertedId) {
         }
-        refetch();
+        commentRefetch();
       })
       .catch((error) => {
         console.log(error);
       });
   };
 
+  const sortedPosts = post.sort((a, b) => {
+    const dateA = moment(a.currentDateTime, "D MMM YYYY, h:mm:ss a");
+    const dateB = moment(b.currentDateTime, "D MMM YYYY, h:mm:ss a");
+    return dateB - dateA;
+  });
+
   return (
     <>
-      {post?.map((data) => (
+      {sortedPosts?.map((data) => (
         <div className="md:mt-12 mt-4 md:px-0 px-2" key={data?._id}>
           <div className="flex justify-between">
             <div className="flex gap-2">
               <Image
                 className="h-12 w-12 rounded-lg"
-                src={data?.userPhoto}
+                src={
+                  data?.userPhoto
+                    ? data.userPhoto
+                    : "https://i.ibb.co/xFC9GFr/profile-circle-icon.png"
+                }
                 alt="userPhoto"
                 width={1000}
                 height={1000}
@@ -90,7 +79,9 @@ const PostCard = () => {
               <div className="">
                 <h2 className="text-lg font-semibold">{data?.userName}</h2>
                 <h2 className="text-sm">
-                  {data?.currentDate ? data?.currentDate : "10 Feb 2024"}
+                  {moment(data?.currentDateTime, "D MMM YYYY, h:mm:ss a").format(
+                    "D MMM YYYY"
+                  )}
                 </h2>
               </div>
             </div>
