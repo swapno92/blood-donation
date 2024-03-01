@@ -31,6 +31,7 @@
     "react-responsive-carousel": "^3.2.23",
     "socket.io-client": "^4.7.4",
     "stripe": "^14.17.0",
+    "sweetalert2": "^11.10.5",
     "swiper": "^11.0.5"
   },
   "devDependencies": {
