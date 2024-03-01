@@ -220,7 +220,10 @@ const DonatRequest = () => {
               Others
             </div>
             <div className="">
-              <button className="btn py-3 rounded text-white text-xl btn-block mt-3 bg-primary">
+              <button
+                method="dialog"
+                className="btn py-3 rounded text-white text-xl btn-block mt-3 bg-primary"
+              >
                 Send Request
               </button>
             </div>

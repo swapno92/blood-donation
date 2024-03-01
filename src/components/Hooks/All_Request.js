@@ -3,15 +3,14 @@ import UseAxiosSecure from "./useAxiosSecure";
 
 const All_Request = () => {
   const axiosSecure = UseAxiosSecure();
-  const { refetch, data: all_request = [] } = useQuery({
-    queryKey: ["all_request"],
+  const { refetch, data: allRequest = [] } = useQuery({
+    queryKey: ["allRequest"],
     queryFn: async () => {
       const res = await axiosSecure.get("/requests");
-      refetch();
       return res.data;
     },
   });
-  return [all_request, refetch];
+  return [allRequest, refetch];
 };
 
 export default All_Request;

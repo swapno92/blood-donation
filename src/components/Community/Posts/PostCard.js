@@ -73,6 +73,10 @@ const PostCard = () => {
       });
   };
 
+  const handleEdit = (id) =>{
+console.log(id)
+  }
+
   return (
     <>
       {sortedPosts?.map((data) => (
@@ -128,7 +132,10 @@ const PostCard = () => {
                     className="py-2 text-sm text-gray-700"
                     aria-labelledby="dropdownMenuIconHorizontalButton"
                   >
-                    <li className="flex items-center ">
+                    <li
+                      onClick={() => handleEdit(data?._id)}
+                      className="flex items-center "
+                    >
                       <FiEdit className="text-lg" />
                       <a href="#" className="block px-4 py-2 hover:bg-gray-100">
                         Edit
