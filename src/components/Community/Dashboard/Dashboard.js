@@ -11,16 +11,13 @@ import { AuthContext } from "@/components/provider/AuthProvider";
 
 const Dashboard = () => {
   const [users, setUsers] = useState();
-  console.log(users);
+  // console.log(users);
   const { user } = useContext(AuthContext);
   const currentUser = user?.email;
-  console.log(currentUser);
+  // console.log(currentUser);
 
   useEffect(() => {
-    fetch("http://localhost:5000/users")
-    fetch(
-      `http://localhost:5000/users/${currentUser}`
-    )
+    fetch(`http://localhost:5000/users/${currentUser}`)
       .then((res) => res.json())
       .then((data) => {
         setUsers(data);
@@ -119,7 +116,7 @@ const Dashboard = () => {
         </div>
       ) : (
         <div className="mt-4 flex flex-col gap-4 relative">
-          <h2 className='text-2xl font-semibold mx-auto border-b-4'>Admin </h2>
+          <h2 className="text-2xl font-semibold mx-auto border-b-4">Admin </h2>
           {menusAdmin?.map((menu, i) => (
             <Link href={menu?.link} key={i} passHref legacyBehavior={true}>
               <a

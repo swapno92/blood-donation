@@ -1,10 +1,71 @@
 "use client";
 import UseRequest from "@/components/Hooks/UseRequest";
-import deafuletUserPhoto from '../../../../../../public/images/profile-circle-icon.png'
+import deafuletUserPhoto from "../../../../../../public/images/profile-circle-icon.png";
 import Image from "next/image";
+import UseAxiosSecure from "@/components/Hooks/useAxiosSecure";
+import moment from "moment";
+import Swal from "sweetalert2";
 
 const DonnerRequest = () => {
   const [request] = UseRequest();
+
+  const axiosSecure = UseAxiosSecure();
+  const processingtDate = moment().format("MM-DD-YYYY");
+  // const [
+  //   _id,
+  //   name,
+  //   email,
+  //   img,
+
+  //   date,
+  //   contactNumber,
+  //   location,
+  //   himoglobing,
+  //   patient,
+  //   bloodGroup,
+  //   quantity,
+  //   gender,
+  //   currentDate,
+  //   status,
+  // ] = request;
+
+  // const allData = {
+  //   requestId: _id,
+  //   name,
+  //   email,
+  //   img,
+  //   date,
+  //   contactNumber,
+  //   location,
+  //   himoglobing,
+  //   patient,
+  //   bloodGroup,
+  //   quantity,
+  //   gender,
+  //   status: "processing"
+  // }
+
+  const handleAcceptReq = (request) => {
+    axiosSecure
+      .post("/doneted", { request, processingtDate }) 
+      .then((res) => {
+        console.log(res.data);
+        if (res.data.insertedId) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Request Now Procesing ",
+            showConfirmButton: false,
+            timer: 1000,
+          });
+        }
+        refetch();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    // console.log(request);
+  };
 
   return (
     <div className="">
@@ -50,9 +111,21 @@ const DonnerRequest = () => {
                 <td>{request?.location}</td>
                 <td>Pending</td>
                 <td className="flex gap-3">
-                  <button className="btn btn-accent btn-sm">Accept</button>
+                  {request?.status === "pending" ? (
+                    <button
+                      onClick={() => handleAcceptReq(request)}
+                      className="btn btn-primary btn-sm"
+                    >
+                      Accept
+                    </button>
+                  ) : (
+                    <button disabled={true} className="btn btn-primary btn-sm">
+                      Accept
+                    </button>
+                  )}
                   <button className="btn btn-secondary btn-sm">Rejected</button>
-                </td>
+                </td>{" "}
+                ``
               </tr>
             ))}
           </tbody>
