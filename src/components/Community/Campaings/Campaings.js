@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import { BsCalendar2Check } from "react-icons/bs";
 import { FiClock } from "react-icons/fi";
 import { FaLocationDot } from "react-icons/fa6";
@@ -22,7 +22,7 @@ const Campaings = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:w-[60%] mx-auto gap-8 px-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:w-[60%] mx-auto gap-8 px-6 ">
         {campaign?.map((campign) => (
           <div
             key={campign._id}
@@ -37,7 +37,7 @@ const Campaings = () => {
                 className="w-full  object-center object-cover h-full"
               />
             </div>
-            <div className="py-2  px-5">
+            <div className="py-2  px-5 w-full">
               <div className="flex items-center gap-3 lg:pt-2 lg:pb-4">
                 <h2 className="flex items-center gap-3 text-sm">
                   <BsCalendar2Check className="text-primary text-2xl" />

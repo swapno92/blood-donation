@@ -1,8 +1,8 @@
 import React from 'react';
 import member1 from '../../../public/images/tuhin.png'
-import member2 from '../../../public/images/member_2.webp'
-import member3 from '../../../public/images/member_3.webp'
-import member4 from '../../../public/images/member_4.webp'
+import member2 from '../../../public/images/nazmul.webp'
+import member3 from '../../../public/images/choyon.webp'
+import member4 from '../../../public/images/shopno.webp'
 import Image from 'next/image';
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { FaTwitter } from 'react-icons/fa6';
@@ -38,7 +38,7 @@ const Volunteers = () => {
                             <Image src={member3} alt="member3" className="w-full  object-center object-cover h-full" />
                         </div>
                         <div className="card-body items-center text-center">
-                            <h2 className="card-title text-primary">JOHN ABRAHAM</h2>
+                            <h2 className="card-title text-primary">Choyon Khan</h2>
                             <p className=''>Co-founder</p>
                             <div className='social-icon flex gap-3 text-2xl bottom-0 w-full justify-center py-2 mt-2'>
                                 <FaFacebook className='text-[#3b5998] hover-icon'></FaFacebook>
@@ -53,7 +53,7 @@ const Volunteers = () => {
                             <Image src={member2} alt="member2" className="w-full  object-center object-cover h-full" />
                         </dive>
                         <div className="card-body items-center text-center">
-                            <h2 className="card-title text-primary">ALEXANDER GARY</h2>
+                            <h2 className="card-title text-primary">Nazmul Huda</h2>
                             <p className=''>Co-Founder</p>
                             <div className='social-icon flex gap-3 text-2xl bottom-0 w-full justify-center py-2 mt-2'>
                                 <FaFacebook className='text-[#3b5998] hover-icon'></FaFacebook>
@@ -68,7 +68,7 @@ const Volunteers = () => {
                             <Image src={member4} alt="Shoes" className="w-full  object-center object-cover h-full" />
                         </div>
                         <div className="card-body items-center text-center">
-                            <h2 className="card-title text-primary">MELISSA MUNOZ</h2>
+                            <h2 className="card-title text-primary">Shopno Dey</h2>
                             <p className=''>Manager</p>
                             <div className='social-icon flex gap-3 text-2xl bottom-0 w-full justify-center py-2 mt-2'>
                                 <FaFacebook className='text-[#3b5998] hover-icon'></FaFacebook>
