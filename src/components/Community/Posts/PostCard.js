@@ -8,7 +8,7 @@ import moment from "moment";
 import axios from "axios";
 import UseComment from "@/components/Hooks/UseComment";
 import Likes from "./Likes";
-import UsePosts from "@/components/Hooks/usePosts";
+import UsePosts from "@/components/Hooks/UsePosts";
 const PostCard = () => {
   const { user } = useContext(AuthContext);
   const [post, refetch] = UsePosts();
@@ -47,6 +47,7 @@ const PostCard = () => {
         if (data.data.insertedId) {
         }
         commentRefetch();
+        setCommentVisible(false);
       })
       .catch((error) => {
         console.log(error);
@@ -58,6 +59,19 @@ const PostCard = () => {
     const dateB = moment(b.currentDateTime, "D MMM YYYY, h:mm:ss a");
     return dateB - dateA;
   });
+
+  // deletePost
+  const handleDelete = (id) => {
+    fetch(`http://localhost:5000/posts/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.deletedCount > 0) {
+        }
+        refetch();
+      });
+  };
 
   return (
     <>
@@ -79,9 +93,10 @@ const PostCard = () => {
               <div className="">
                 <h2 className="text-lg font-semibold">{data?.userName}</h2>
                 <h2 className="text-sm">
-                  {moment(data?.currentDateTime, "D MMM YYYY, h:mm:ss a").format(
-                    "D MMM YYYY"
-                  )}
+                  {moment(
+                    data?.currentDateTime,
+                    "D MMM YYYY, h:mm:ss a"
+                  ).format("D MMM YYYY")}
                 </h2>
               </div>
             </div>
@@ -119,7 +134,10 @@ const PostCard = () => {
                         Edit
                       </a>
                     </li>
-                    <li className="flex items-center ">
+                    <li
+                      onClick={() => handleDelete(data?._id)}
+                      className="flex items-center "
+                    >
                       <MdOutlineDelete className="text-2xl" />
                       <a href="#" className="block px-4 py-2 hover:bg-gray-100">
                         Delete
@@ -166,12 +184,11 @@ const PostCard = () => {
                 type="text "
                 placeholder="Comment"
                 onChange={(e) => setComment(e.target.value)}
-                value={comment}
                 className="border bg-gray-100 hover:bg-white rounded-md w-full py-2.5 px-3 my-3 outline-none"
               />
               <div
                 onClick={() => handleComment(data?._id)}
-                className="btn bg-blue-700  hover:bg-blue-600 btn-md line"
+                className="btn bg-blue-700  hover:bg-blue-600 btn-md"
               >
                 <LuSend className="text-3xl text-white mx-2" />
               </div>
