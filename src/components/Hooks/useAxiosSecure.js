@@ -1,15 +1,15 @@
 import axios from "axios";
 
-export const axiosPublic = axios.create({
+const axiosSecure = axios.create({
     headers: {
         'Content-Type': 'application/json',
     },
 
-    baseURL: 'https://blood-donation-server-binary-avanger.vercel.app/'
+    baseURL: 'http://localhost:5000'
 })
 
-const useAxiosSecure = () => {
-    return axiosPublic()
+const UseAxiosSecure = () => {
+    return axiosSecure;
 };
 
-export default useAxiosSecure;
+export default UseAxiosSecure;

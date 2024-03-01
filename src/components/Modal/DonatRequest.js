@@ -1,12 +1,15 @@
 import { ImCross } from "react-icons/im";
 import React, { useContext, useState } from "react";
 import { AuthContext } from "@/components/provider/AuthProvider";
-import axios from "axios";
 import moment from "moment";
 import toast from "react-hot-toast";
+import UseAxiosSecure from "../Hooks/useAxiosSecure";
+import UseRequest from "../Hooks/UseRequest";
 
 const DonatRequest = () => {
   const { user } = useContext(AuthContext);
+  const [refatch] = UseRequest();
+  const axiosSecure = UseAxiosSecure();
   const currentDate = moment().format("MM-DD-YYYY");
   const [selectedValue, setSelectedValue] = useState("");
 
@@ -14,7 +17,7 @@ const DonatRequest = () => {
     setSelectedValue(event.target.value);
   };
 
-  const status = 'pending'
+  const status = "pending";
 
   const submitFrom = (e) => {
     e.preventDefault();
@@ -44,21 +47,19 @@ const DonatRequest = () => {
       quantity,
       gender,
       currentDate,
-      status
+      status,
     };
     console.log(requestBlood);
 
-    axios
-      .post(
-        "https://blood-donation-server-binary-avanger.vercel.app/requests",
-        requestBlood
-      )
+    axiosSecure
+      .post("/requests", requestBlood)
       .then((data) => {
         console.log(data);
         if (data.data.insertedId) {
-          toast("User Request successfully");
-          from.reset()
+          toast.success("User Request successfully");
+          from.reset();
         }
+        refatch();
       })
       .catch((error) => {
         console.log(error);
@@ -219,7 +220,10 @@ const DonatRequest = () => {
               Others
             </div>
             <div className="">
-              <button className="btn py-3 rounded text-white text-xl btn-block mt-3 bg-primary">
+              <button
+                method="dialog"
+                className="btn py-3 rounded text-white text-xl btn-block mt-3 bg-primary"
+              >
                 Send Request
               </button>
             </div>

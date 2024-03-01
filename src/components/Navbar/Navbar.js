@@ -9,6 +9,7 @@ import { AuthContext } from "../provider/AuthProvider";
 import toast from "react-hot-toast";
 import ProfileDrop from "./ProfileDrop";
 import { IoIosNotificationsOutline } from "react-icons/io";
+import Notficaiton from "../Notification/Notficaiton";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -44,12 +45,7 @@ const Navbar = () => {
             />
           </Link>
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse items-center ">
-            <div  className="flex items-center">
-              <IoIosNotificationsOutline className="text-4xl mr-3" />
-              <h2 className=" bg-red-700 relative text-[10px]   border  bottom-3 -left-8 rounded-full  font-semi text-white text-center  px-[5px] py-[3px]  ">
-               0
-              </h2>
-            </div>
+           <Notficaiton/>
             <ProfileDrop />
 
             <button
