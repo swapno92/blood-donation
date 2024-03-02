@@ -10,13 +10,14 @@ import Link from "next/link";
 import { AuthContext } from "@/components/provider/AuthProvider";
 
 const Dashboard = () => {
-  const [users, setUsers] = useState();
-  console.log(users?.roll);
   const { user } = useContext(AuthContext);
+  const [users, setUsers] = useState();
   const currentUser = user?.email;
 
   useEffect(() => {
-    fetch(`https://blood-donation-binary-avengers.vercel.app/users/${currentUser}`)
+    fetch(
+      `https://blood-donation-server-binary-avanger.vercel.app/users/${currentUser}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setUsers(data);
@@ -34,11 +35,7 @@ const Dashboard = () => {
       link: "/community/dasboardlayout/donner-list",
       icon: AiOutlineUser,
     },
-    {
-      name: "Campaing",
-      link: "/community/dasboardlayout/campaing",
-      icon: AiOutlineUser,
-    },
+
     {
       name: "Available Donner",
       link: "/community/dasboardlayout/available-dooner",
@@ -48,10 +45,25 @@ const Dashboard = () => {
   ];
   const menusAdmin = [
     {
+      name: "Profile",
+      link: "/community/dasboardlayout/profile",
+      icon: RiProfileLine,
+    },
+    {
+      name: "All User",
+      link: "/community/dasboardlayout/admin/alluser",
+      icon: RiProfileLine,
+    },
+    {
       name: "Request For Blood",
       link: "/community/dasboardlayout/blood-request",
       icon: TbReportAnalytics,
       margin: true,
+    },
+    {
+      name: " Add Campaing",
+      link: "/community/dasboardlayout/campaing",
+      icon: AiOutlineUser,
     },
     { name: "Log Out", link: "/logout", icon: CiLogout },
   ];
@@ -59,9 +71,8 @@ const Dashboard = () => {
   console.log(users?.roll);
 
   return (
-
     <div
-      className={`bg-primary min-h-screen ${open ? "w-72" : "w-16"
+      className={`bg-primary min-h-[710px] ${open ? "w-72" : "w-16"
         } duration-500 text-gray-100 px-4 md:{ope}`}
     >
       <div className="py-3 flex justify-end">
@@ -71,7 +82,7 @@ const Dashboard = () => {
           onClick={() => setOpen(!open)}
         />
       </div>
-      {user ? (
+      {users?.roll === "user" ? (
         <div className="mt-4 flex flex-col gap-4 relative">
           {menusUser?.map((menu, i) => (
             <Link href={menu?.link} key={i} passHref legacyBehavior={true}>
@@ -101,10 +112,11 @@ const Dashboard = () => {
         </div>
       ) : (
         <div className="mt-4 flex flex-col gap-4 relative">
+          <h2 className="text-2xl font-semibold mx-auto border-b-4">Admin </h2>
           {menusAdmin?.map((menu, i) => (
             <Link href={menu?.link} key={i} passHref legacyBehavior={true}>
               <a
-                className={` ${menu?.margin && "mt-5"
+                className={` ${menu?.margin && "mt-2"
                   } group flex items-center text-sm  gap-3.5 font-medium p-2 hover:bg-secondary rounded-md`}
               >
                 <div>{React.createElement(menu?.icon, { size: "20" })}</div>
@@ -129,7 +141,6 @@ const Dashboard = () => {
         </div>
       )}
     </div>
-
   );
 };
 

@@ -8,6 +8,8 @@ import logo from "../../../public/logo.png";
 import { AuthContext } from "../provider/AuthProvider";
 import toast from "react-hot-toast";
 import ProfileDrop from "./ProfileDrop";
+import { IoIosNotificationsOutline } from "react-icons/io";
+import Notficaiton from "../Notification/Notficaiton";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -29,7 +31,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="">
+    <div className=" sticky top-0 z-30  ">
       <nav className="bg-white w-full z-20 top-0 start-0 border-b border-gray-200 md:px-2">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto md:py-1">
           <Link
@@ -42,7 +44,8 @@ const Navbar = () => {
               className="w-28 md:w-32 lg:w-48"
             />
           </Link>
-          <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+          <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse items-center ">
+           <Notficaiton/>
             <ProfileDrop />
 
             <button
@@ -112,7 +115,7 @@ const Navbar = () => {
                       : "font-semibold no-underline hover:text-primary"
                   } `}
                 >
-                  community
+                  Community
                 </Link>
               </li>
               <li>

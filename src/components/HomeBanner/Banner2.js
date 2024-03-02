@@ -30,9 +30,9 @@ const Banner2 = () => {
                   YOUR BLOOD <br /> CAN BRING SMILE <br /> IN OTHER PERSON FACE
                 </h2>
                 <div className="flex gap-5 md:flex-row flex-col">
-                  <button className="btn bg-primary hover:bg-secondary border-0 text-white rounded-none px-10 md:text-lg text-base  font-medium">
+                  {/* <button  className="btn bg-primary hover:bg-secondary border-0 text-white rounded-none px-10 md:text-lg text-base  font-medium">
                     Donate Now
-                  </button>
+                  </button> */}
 
                   <button className="btn bg-gray-700 hover:bg-primary border-0 text-white rounded-none px-10 md:text-lg text-base font-medium">
                     Call: +91 234 5678
