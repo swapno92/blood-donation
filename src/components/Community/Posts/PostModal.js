@@ -4,7 +4,7 @@ import { AuthContext } from "@/components/provider/AuthProvider";
 import UseAxiosSecure from "@/components/Hooks/useAxiosSecure";
 import moment from "moment";
 import toast from "react-hot-toast";
-import UsePosts from "@/components/Hooks/usePosts";
+import UsePosts from "@/components/Hooks/UsePosts";
 
 const PostModal = ({ showModal, closeModal }) => {
     const [post, refetch] = UsePosts();

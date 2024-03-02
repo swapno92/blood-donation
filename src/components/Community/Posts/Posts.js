@@ -88,7 +88,7 @@ const Posts = () => {
           </div>
           <PostCard />
         </div>
-        <PostModal 
+        <PostModal
           showModal={showModal}
           closeModal={() => setshowModal(false)}
         ></PostModal>

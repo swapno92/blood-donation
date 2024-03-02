@@ -8,7 +8,7 @@ import All_Request from "../Hooks/All_Request";
 
 const Notification = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [ allRequest, refetch] = All_Request();
+  const [allRequest, refetch] = All_Request();
   console.log(allRequest);
 
   const toggleDropdown = () => {
@@ -16,7 +16,7 @@ const Notification = () => {
   };
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/requests/${id}`, {
+    fetch(`https://blood-donation-server-binary-avanger.vercel.app/requests/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

@@ -42,7 +42,7 @@ const PostCard = () => {
     };
 
     axios
-      .post("http://localhost:5000/comments", commentInfo)
+      .post("https://blood-donation-server-binary-avanger.vercel.app/comments", commentInfo)
       .then((data) => {
         if (data.data.insertedId) {
         }
@@ -62,7 +62,7 @@ const PostCard = () => {
 
   // deletePost
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/posts/${id}`, {
+    fetch(`https://blood-donation-server-binary-avanger.vercel.app/posts/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -73,8 +73,8 @@ const PostCard = () => {
       });
   };
 
-  const handleEdit = (id) =>{
-console.log(id)
+  const handleEdit = (id) => {
+    console.log(id)
   }
 
   return (

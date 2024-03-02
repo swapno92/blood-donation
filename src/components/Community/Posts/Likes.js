@@ -18,12 +18,12 @@ const Likes = ({ postId }) => {
       likerEmail,
     };
 
-    fetch(`http://localhost:5000/likes/${id}`)
+    fetch(`https://blood-donation-server-binary-avanger.vercel.app/likes/${id}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.length === 0) {
           axios
-            .post("http://localhost:5000/likes", likesInfo)
+            .post("https://blood-donation-server-binary-avanger.vercel.app/likes", likesInfo)
             .then((data) => {
               if (data.data.insertedId) {
               }
@@ -35,7 +35,7 @@ const Likes = ({ postId }) => {
         } else {
           const em = data.filter((uEm) => uEm.likerEmail == user?.email);
           if (em[0]?.likerEmail == user?.email) {
-            fetch(`http://localhost:5000/likes/${user?.email}`, {
+            fetch(`https://blood-donation-server-binary-avanger.vercel.app/likes/${user?.email}`, {
               method: "DELETE",
             })
               .then((res) => res.json())
@@ -47,7 +47,7 @@ const Likes = ({ postId }) => {
             return;
           } else {
             axios
-              .post("http://localhost:5000/likes", likesInfo)
+              .post("https://blood-donation-server-binary-avanger.vercel.app/likes", likesInfo)
               .then((data) => {
                 if (data.data.insertedId) {
                 }
