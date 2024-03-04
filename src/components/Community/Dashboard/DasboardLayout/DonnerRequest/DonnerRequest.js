@@ -7,7 +7,7 @@ import moment from "moment";
 import Swal from "sweetalert2";
 
 const DonnerRequest = () => {
-  const [request] = UseRequest();
+  const [request, refetch] = UseRequest();
 
   const axiosSecure = UseAxiosSecure();
   const processingtDate = moment().format("MM-DD-YYYY");
@@ -58,8 +58,8 @@ const DonnerRequest = () => {
             showConfirmButton: false,
             timer: 1000,
           });
+          refetch();
         }
-        refetch();
       })
       .catch((error) => {
         console.log(error);

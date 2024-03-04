@@ -1,14 +1,11 @@
 "use-client";
 import React, { useState } from "react";
 import { IoIosNotificationsOutline } from "react-icons/io";
-import deafuletUserPhoto from "./../../../public/images/profile-circle-icon.png";
-import axios from "axios";
-import Image from "next/image";
-import All_Request from "../Hooks/All_Request";
+import UseRequest from "../Hooks/UseRequest";
 
 const Notification = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [allRequest, refetch] = All_Request();
+  const [allRequest, refetch] = UseRequest();
   console.log(allRequest);
 
   const toggleDropdown = () => {
@@ -47,7 +44,7 @@ const Notification = () => {
       {isDropdownOpen && (
         <div
           id="dropdownAvatar"
-          className="z-40 bg-red-100 absolute right-0 mt-2 divide-y shadow shadow-[#fb8a8a6d] divide-gray-100   rounded-lg  ease-in-out duration-300 "
+          className="line z-40 bg-red-100 absolute md:right-0  -right-[105px] mt-2 divide-y shadow shadow-[#fb8a8a6d] divide-gray-100   rounded-lg  ease-in-out duration-300 "
           style={{
             maxHeight: isDropdownOpen ? "300px" : "0",
             overflow: "scroll",
@@ -58,7 +55,7 @@ const Notification = () => {
             {allRequest?.map((request) => (
               <div
                 key={request._id}
-                className="w-[380px] py-4 md:px-2 flex justify-center text-black font-semibold text-center "
+                className="md:w-[380px] w-[350px] py-4 md:px-2 flex justify-center text-black font-semibold text-center "
               >
                 {/* <h2 className="text-[12px]">{index + 1}</h2> */}
                 <h2 className="text-[12px] ">

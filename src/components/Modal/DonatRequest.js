@@ -8,7 +8,7 @@ import UseRequest from "../Hooks/UseRequest";
 
 const DonatRequest = () => {
   const { user } = useContext(AuthContext);
-  const [refatch] = UseRequest();
+  const [request, refetch] = UseRequest();
   const axiosSecure = UseAxiosSecure();
   const currentDate = moment().format("MM-DD-YYYY");
   const [selectedValue, setSelectedValue] = useState("");
@@ -54,12 +54,12 @@ const DonatRequest = () => {
     axiosSecure
       .post("/requests", requestBlood)
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         if (data.data.insertedId) {
+          refetch();
           toast.success("User Request successfully");
           from.reset();
         }
-        refatch();
       })
       .catch((error) => {
         console.log(error);
