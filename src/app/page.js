@@ -8,6 +8,7 @@ import Banner2 from "@/components/HomeBanner/Banner2";
 import DonationProcess from "@/components/HomeBanner/DonationProcess";
 import Volunteers from "@/components/HomeBanner/Volunteers";
 import Sponsors from "@/components/HomeBanner/Sponsors";
+import AbleToDonate from "@/components/AbleToDonate/AbleToDonate";
 
 
 
@@ -18,6 +19,7 @@ const Home = () => {
       <Banner2></Banner2>
       <Donate></Donate>
       <DonationProcess></DonationProcess>
+      <AbleToDonate></AbleToDonate>
       <ServiceSection />
       <Misstion></Misstion>
       <CounterSection />
