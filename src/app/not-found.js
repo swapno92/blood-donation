@@ -1,15 +1,12 @@
 'use client'
-// import Lottie from 'lottie-react';
-import Error from '../../public/animations/404NotFound.json'
+import Lottie from 'lottie-react';
+import notFound404 from '../../public/animations/404NotFound.json'
 const NotFoundPage = () => {
-    return <div></div>
+    // return <div></div>
     return (
-        
         <>
-            <div className='max-w-screen-xl mx-auto h-screen flex items-center'>
-                <div className="w-1/2 mx-auto">
-                    <Lottie animationData={Error} />
-                </div>
+            <div className="w-full  flex items-center justify-center">
+                <Lottie animationData={notFound404} />
             </div>
         </>
     );
