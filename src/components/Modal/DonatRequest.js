@@ -78,7 +78,7 @@ const DonatRequest = () => {
             </button>
           </form>
         </div>
-        <div className="mt-5 px-5  mb-3">
+        <div className="mt-5 px-5  mb-3 text-black">
           <h2 className="text-3xl font-bold  text-center  mb-6">
             Blood Request
           </h2>

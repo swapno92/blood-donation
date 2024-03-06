@@ -5,9 +5,7 @@ import { AuthContext } from "../provider/AuthProvider";
 
 const useCurrentUser = () => {
   const { user } = useContext(AuthContext);
-  console.log(currentUser);
   const [userInfo, setuserInfo] = useState([]);
-  console.log(userInfo);
   const currentUser = user?.email;
 
   useEffect(() => {

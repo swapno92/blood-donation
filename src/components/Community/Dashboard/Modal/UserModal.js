@@ -4,7 +4,6 @@ import Swal from "sweetalert2";
 
 const UpdateModal = ({ isOpen, closeModal, yours, }) => {
   const { adminname, email, bithdayDate, _id } = yours;
-  console.log(adminname, email, bithdayDate, _id);
   if (!isOpen) {
     return null;
   }

@@ -11,12 +11,9 @@ const Notification = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const { user } = useContext(AuthContext);
   const currentUser = user?.email;
-  console.log(currentUser);
   const [all_Doneted, refetch] = UseDoneted();
   const [userInfo, setuserInfo] = useState([]);
-  console.log(userInfo);
   const userBlood = userInfo?.blood;
-  console.log(userBlood);
 
   useEffect(() => {
     fetch(
@@ -40,10 +37,10 @@ const Notification = () => {
         console.error("Error fetching data:", error);
       });
   }, [currentUser]);
-  // console.log(all_Doneted);
+ 
 
   const specificRerquest = all_Doneted && all_Doneted?.length > 0   && all_Doneted?.filter((ouser) => ouser.bloodGroup === userBlood);
-  console.log(specificRerquest);
+  
 
 
   const handleDelete = (id) => {

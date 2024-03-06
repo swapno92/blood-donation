@@ -7,7 +7,6 @@ import toast from "react-hot-toast";
 const UserUpdateModal = ({ showModal, closeModal, userInfo }) => {
   const { user } = useContext(AuthContext);
   const { _id } = userInfo;
-  console.log(_id);
   const router = useRouter()
 
   if (!showModal) return null;
@@ -28,7 +27,6 @@ const UserUpdateModal = ({ showModal, closeModal, userInfo }) => {
       address,
       blood,
     };
-    console.log(userInfo);
 
     fetch(`https://blood-donation-server-binary-avanger.vercel.app/users/${_id}`, {
       method: "PUT",
@@ -41,7 +39,6 @@ const UserUpdateModal = ({ showModal, closeModal, userInfo }) => {
       .then((data) => {
         toast('User Information Update successfully')
         from.reset()
-        console.log(data);
         router.refresh()
       });
   };

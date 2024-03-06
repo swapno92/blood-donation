@@ -16,7 +16,6 @@ const SmDashBoard = () => {
   const toggleDropdownUserPost = () => {
     setDropdownOpenUserPost(!isDropdownOpenUserPost);
     setDropdownOpenTopDonner(false);
-    console.log("oky");
   };
 
   const [isDropdownOpenTopDonner, setDropdownOpenTopDonner] = useState(false);
