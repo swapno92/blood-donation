@@ -71,6 +71,13 @@ const DonatRequest = () => {
       className="modal modal-bottom sm:modal-middle w-full"
     >
       <div className="modal-box w-full">
+        <div className="modal-action px-5">
+          <form method="dialog">
+            <button className="btn bg-white border-none outline-none text-red-500">
+              <ImCross />
+            </button>
+          </form>
+        </div>
         <div className="mt-5 px-5  mb-3">
           <h2 className="text-3xl font-bold  text-center  mb-6">
             Blood Request
@@ -229,13 +236,7 @@ const DonatRequest = () => {
             </div>
           </form>
         </div>
-        <div className="modal-action px-5">
-          <form method="dialog">
-            <button className="btn btn-block">
-              <ImCross />
-            </button>
-          </form>
-        </div>
+        
       </div>
     </dialog>
   );
