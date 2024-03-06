@@ -6,7 +6,6 @@ import { useContext, useEffect, useState } from "react";
 
 const DynamicPage = () => {
   const { user } = useContext(AuthContext);
-  console.log(user);
   const [data, setData] = useState([]);
   const { id } = useParams();
 

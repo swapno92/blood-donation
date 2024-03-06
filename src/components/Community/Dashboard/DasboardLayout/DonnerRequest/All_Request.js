@@ -11,7 +11,6 @@ const All_Request = ({ request, index, reqRefetch }) => {
   const [all_Doneted, refetch] = UseDoneted();
   const processingtDate = moment().format("MM-DD-YYYY");
   const axiosSecure = UseAxiosSecure();
-  console.log(request);
   const { _id, img, name, bloodGroup, quantity, status, location } = request;
 
   const handleAcceptReq = () => {
@@ -25,10 +24,8 @@ const All_Request = ({ request, index, reqRefetch }) => {
       location,
       processingtDate,
     };
-    console.log(reqInfo);
 
     axiosSecure.post("/doneted", reqInfo).then((res) => {
-      console.log(res.data);
       if (res.data.insertedId) {
         Swal.fire({
           position: "center",

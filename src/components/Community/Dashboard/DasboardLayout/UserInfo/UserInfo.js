@@ -12,7 +12,6 @@ const UserInfo = () => {
   const currentUser = user?.email;
   const [userInfo, setuserInfo] = useState([]);
   const [showModal, setshowModal] = useState(false);
-  console.log(userInfo);
 
   useEffect(() => {
     fetch(
