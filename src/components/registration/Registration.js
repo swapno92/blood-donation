@@ -40,7 +40,6 @@ const Registration = () => {
         roll: 'user'
       };
       axiosSecure.post("/users", userInfo).then((res) => {
-        console.log(res.data);
         if (res.data.insertedId) {
           toast.success("Resgistration  successfully");
           router.push("/");
@@ -58,7 +57,6 @@ const Registration = () => {
         roll: 'user'
       };
       axiosSecure.post("/users", userInfo).then((res) => {
-        console.log(res.data);
         toast.success("Logged In Successful with Google!");
         router.push("/");
       });
