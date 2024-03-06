@@ -1,25 +1,62 @@
 "use-client";
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { IoIosNotificationsOutline } from "react-icons/io";
-import UseRequest from "../Hooks/UseRequest";
+import UseDoneted from "../Hooks/useDoneted";
+import { AuthContext } from "../provider/AuthProvider";
 
 const Notification = () => {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [allRequest, refetch] = UseRequest();
-  console.log(allRequest);
-
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const { user } = useContext(AuthContext);
+  const currentUser = user?.email;
+  console.log(currentUser);
+  const [all_Doneted, refetch] = UseDoneted();
+  const [userInfo, setuserInfo] = useState([]);
+  console.log(userInfo);
+  const userBlood = userInfo?.blood;
+  console.log(userBlood);
+
+  useEffect(() => {
+    fetch(
+      `https://blood-donation-server-binary-avanger.vercel.app/users/${currentUser}`
+    )
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`HTTP error! Status: ${res.status}`);
+        }
+        return res.json();
+      })
+      .then((data) => {
+        if (data.length === 0) {
+          // Handle the case when the response is empty
+          console.warn("Empty response from the server");
+        } else {
+          setuserInfo(data);
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, [currentUser]);
+  // console.log(all_Doneted);
+
+  const specificRerquest = all_Doneted && all_Doneted?.length > 0   && all_Doneted?.filter((ouser) => ouser.bloodGroup === userBlood);
+  console.log(specificRerquest);
+
 
   const handleDelete = (id) => {
-    fetch(`https://blood-donation-server-binary-avanger.vercel.app/requests/${id}`, {
-      method: "DELETE",
-    })
+    fetch(
+      `https://blood-donation-server-binary-avanger.vercel.app/requests/${id}`,
+      {
+        method: "DELETE",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount > 0) {
-          refetch()
+          refetch();
         }
       });
   };
@@ -35,7 +72,7 @@ const Notification = () => {
         <div className="flex items-center">
           <IoIosNotificationsOutline className="text-4xl mr-3" />
           <h2 className=" bg-red-700 relative text-[10px]   border  bottom-3 -left-8 rounded-full  font-semi text-white text-center  px-[5px] py-[1px]  ">
-            {allRequest?.length}
+            {specificRerquest?.length}
           </h2>
         </div>
       </button>
@@ -52,7 +89,7 @@ const Notification = () => {
         >
           {/* Content of the dropdown */}
           <div>
-            {allRequest?.map((request) => (
+            {specificRerquest?.map((request) => (
               <div
                 key={request._id}
                 className="md:w-[380px] w-[350px] py-4 md:px-2 flex justify-center text-black font-semibold text-center "

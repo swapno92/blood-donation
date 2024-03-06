@@ -10,11 +10,14 @@ import toast from "react-hot-toast";
 import ProfileDrop from "./ProfileDrop";
 import { IoIosNotificationsOutline } from "react-icons/io";
 import Notficaiton from "../Notification/Notficaiton";
+import UseRequest from "../Hooks/UseRequest";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const [allRequest, refetch] = UseRequest();
+  
 
   const handleDropdownToggle = () => {
     setDropdownOpen(!isDropdownOpen);
@@ -45,7 +48,7 @@ const Navbar = () => {
             />
           </Link>
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse items-center ">
-           <Notficaiton/>
+           <Notficaiton allRequest={allRequest} refetch={refetch}/>
             <ProfileDrop />
 
             <button
