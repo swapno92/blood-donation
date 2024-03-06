@@ -22,7 +22,6 @@ const SmDashBoard = () => {
   const toggleDropdownTopDonner = () => {
     setDropdownOpenTopDonner(!isDropdownOpenTopDonner);
     setDropdownOpenUserPost(false);
-    console.log("oky");
   };
 
   return (

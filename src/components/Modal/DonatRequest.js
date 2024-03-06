@@ -49,12 +49,11 @@ const DonatRequest = () => {
       currentDate,
       status,
     };
-    console.log(requestBlood);
 
     axiosSecure
       .post("/requests", requestBlood)
       .then((data) => {
-        // console.log(data);
+        
         if (data.data.insertedId) {
           refetch();
           toast.success("User Request successfully");

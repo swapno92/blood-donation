@@ -17,7 +17,6 @@ import DonatRequest from "../Modal/DonatRequest";
 
 const Banner2 = () => {
   const { user } = useContext(AuthContext);
-  console.log(user);
   return (
     <>
       <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
