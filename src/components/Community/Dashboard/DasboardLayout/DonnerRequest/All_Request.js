@@ -5,8 +5,10 @@ import Swal from "sweetalert2";
 import { ImageConfigContext } from "next/dist/server/future/route-modules/app-page/vendored/contexts/entrypoints";
 import Image from "next/image";
 import UseAxiosSecure from "@/components/Hooks/useAxiosSecure";
+import UseDoneted from "@/components/Hooks/useDoneted";
 
-const All_Request = ({ request, index }) => {
+const All_Request = ({ request, index, reqRefetch }) => {
+  const [all_Doneted, refetch] = UseDoneted();
   const processingtDate = moment().format("MM-DD-YYYY");
   const axiosSecure = UseAxiosSecure();
   console.log(request);
@@ -36,7 +38,8 @@ const All_Request = ({ request, index }) => {
           timer: 1000,
         });
       }
-      // refetch()
+      refetch();
+      reqRefetch();
     });
   };
 
@@ -77,7 +80,7 @@ const All_Request = ({ request, index }) => {
             <td className="px-4 py-4 font-medium  text-gray-900 whitespace-nowrap ">
               <Image
                 className="w-12 h-12 mx-auto object-cover rounded-full"
-                src={img}
+                src={img ? img : deafuletUserPhoto}
                 alt="user photo"
                 width={1000}
                 height={1000}
