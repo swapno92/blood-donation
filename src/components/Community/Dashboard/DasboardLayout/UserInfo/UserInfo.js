@@ -47,7 +47,7 @@ const UserInfo = () => {
           width={1200}
           height={1200}
         />
-        <div className="relative -top-[28px]   md:left-20">
+        <div className="relative -top-[28px]  lg:left-20 md:left-12 left-6 w-4/5">
           <div className=" flex items-center gap-6  ">
             <Image
               src={userInfo.photo}
@@ -58,9 +58,16 @@ const UserInfo = () => {
             />
 
             <div>
-              <h2 className="font-bold text-primary md:text-2xl text-md  lg:mt-5 mt-6">
-                {userInfo.name}
-              </h2>
+              <div className=" lg:mt-5 mt-6">
+                <span className="font-bold text-primary md:text-2xl text-md  ">
+                  {userInfo.name}
+                </span>
+                <span className="mt-auto text-xs font-semibold text-red-700 capitalize">
+                  {" "}
+                  ({userInfo?.roll})
+                </span>
+              </div>
+
               <h2 className="text-gray-500 mb-1 flex items-center">
                 <IoLocationOutline className="md:text-2xl text-md" />{" "}
                 {userInfo?.address ? userInfo?.address : "---"}
@@ -104,7 +111,7 @@ const UserInfo = () => {
                     userInfo={userInfo}
                     closeModal={() => setshowModal(false)}
                   />
-                  Blood: {userInfo?.blood ? userInfo?.blood : "---"}
+                  Blooo d doi oijsl  jhls fslkjhj sfkjshfj sdfoshj fjsho sf oooooooooood: {userInfo?.blood ? userInfo?.blood : "---"}
                 </h3>
               </div>
             </div>

@@ -68,12 +68,12 @@ const DonnerRequest = () => {
   };
 
   return (
-    <div className="">
-      <div className="m-6 ">
-        <h1 className="text-2xl font-bold text-center mb-4 mt-4">
-          Donner Request{request.length}
-        </h1>
-        <table className="table max-w-screen-lg mx-auto ">
+    <div className="lg:px-4 md:px-2 px-[1px]">
+      <h1 className="text-2xl font-bold text-center mb-4 mt-4">
+        Donner Request {request.length}
+      </h1>
+      <div className="lg:w-full md:w-[684px] w-[308px] overflow-auto  mx-auto ">
+        <table className="table max-w-screen-lg  ">
           <thead className="text-lg bg-primary text-white text-center">
             <tr>
               <th>No</th>
