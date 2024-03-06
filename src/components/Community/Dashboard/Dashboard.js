@@ -68,7 +68,6 @@ const Dashboard = () => {
     { name: "Log Out", link: "/logout", icon: CiLogout },
   ];
   const [open, setOpen] = useState(true);
-  console.log(users?.roll);
 
   return (
     <div

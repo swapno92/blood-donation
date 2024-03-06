@@ -1,73 +1,11 @@
 "use client";
 import UseRequest from "@/components/Hooks/UseRequest";
-import deafuletUserPhoto from "../../../../../../public/images/profile-circle-icon.png";
-import Image from "next/image";
-import UseAxiosSecure from "@/components/Hooks/useAxiosSecure";
-import moment from "moment";
-import Swal from "sweetalert2";
+import All_Request from "./All_Request";
 
 const DonnerRequest = () => {
-  const [request, refetch] = UseRequest();
-
-  const axiosSecure = UseAxiosSecure();
-  const processingtDate = moment().format("MM-DD-YYYY");
-  // const [
-  //   _id,
-  //   name,
-  //   email,
-  //   img,
-
-  //   date,
-  //   contactNumber,
-  //   location,
-  //   himoglobing,
-  //   patient,
-  //   bloodGroup,
-  //   quantity,
-  //   gender,
-  //   currentDate,
-  //   status,
-  // ] = request;
-
-  // const allData = {
-  //   requestId: _id,
-  //   name,
-  //   email,
-  //   img,
-  //   date,
-  //   contactNumber,
-  //   location,
-  //   himoglobing,
-  //   patient,
-  //   bloodGroup,
-  //   quantity,
-  //   gender,
-  //   status: "processing"
-  // }
-
-  const handleAcceptReq = (request) => {
-    axiosSecure
-      .post("/doneted", { request, processingtDate }) 
-      .then((res) => {
-        console.log(res.data);
-        if (res.data.insertedId) {
-          Swal.fire({
-            position: "center",
-            icon: "success",
-            title: "Request Now Procesing ",
-            showConfirmButton: false,
-            timer: 1000,
-          });
-          refetch();
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    // console.log(request);
-  };
-
+  const [allRequest, refetch] = UseRequest();
   return (
+
     <div className="lg:px-4 md:px-2 px-[1px]">
       <h1 className="text-2xl font-bold text-center mb-4 mt-4">
         Donner Request {request.length}
@@ -131,6 +69,11 @@ const DonnerRequest = () => {
           </tbody>
         </table>
       </div>
+
+    <div className="">
+      <div className="text-center font-bold text-3xl my-10">Total Request - {allRequest?.length}</div>
+      {allRequest?.map((request ,index) => <All_Request key={request?._id} request={request}  index={index} reqRefetch={refetch} />)}
+
     </div>
   );
 };
