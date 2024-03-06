@@ -1,10 +1,13 @@
-"use client"
-import Newsletter from "@/components/Footer/Newsletter";
+
 import AboutSection from "@/components/about/AboutSection";
 import CounterSection from "@/components/about/CounterSection";
 import SharedBanner from "@/components/banner/SharedBanner";
 import ServiceSection from "@/components/services/ServiceSection";
 
+export const metadata = {
+    title: "Drop Sync - About",
+    description: "Drop Sync - Blood Donation Website Created by Binary Avengers",
+};
 const About = () => {
     return (
         <>
@@ -12,7 +15,6 @@ const About = () => {
             <AboutSection />
             <ServiceSection />
             <CounterSection />
-            {/* <Newsletter/> */}
         </>
     );
 };
