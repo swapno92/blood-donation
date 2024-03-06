@@ -3,9 +3,9 @@ import React, { useState } from "react";
 import { IoIosNotificationsOutline } from "react-icons/io";
 import UseRequest from "../Hooks/UseRequest";
 
-const Notification = () => {
+const Notification = ({allRequest, refetch}) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [allRequest, refetch] = UseRequest();
+  // const [allRequest, refetch] = UseRequest();
   console.log(allRequest);
 
   const toggleDropdown = () => {
