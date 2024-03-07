@@ -3,11 +3,14 @@ import React, { useContext, useEffect, useState } from "react";
 import { IoIosNotificationsOutline } from "react-icons/io";
 import UseDoneted from "../Hooks/useDoneted";
 import { AuthContext } from "../provider/AuthProvider";
+import Swal from "sweetalert2";
+import UseAxiosSecure from "../Hooks/useAxiosSecure";
 
 const Notification = () => {
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
+  const axiosSecure = UseAxiosSecure();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const { user } = useContext(AuthContext);
   const currentUser = user?.email;
@@ -45,20 +48,31 @@ const Notification = () => {
       (donated) =>
         donated?.bloodGroup === userBlood && donated?.status === "processing"
     );
-
   const handleDelete = (id) => {
-    fetch(
-      `https://blood-donation-server-binary-avanger.vercel.app/doneted/${id}`,
-      {
-        method: "DELETE",
+    console.log(id);
+
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be egnore  this request!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, egnore it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure.delete(`doneted/${id}`).then((res) => {
+          if (res.data.deletedCount > 0) {
+            Swal.fire({
+              title: "Egnored!",
+              text: "You egnored the  request.",
+              icon: "success",
+            });
+            refetch();
+          }
+        });
       }
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.deletedCount > 0) {
-          refetch();
-        }
-      });
+    });
   };
   return (
     <div className="relative inline-block text-left">
@@ -72,7 +86,7 @@ const Notification = () => {
         <div className="flex items-center">
           <IoIosNotificationsOutline className="text-4xl mr-3" />
           <h2 className=" bg-red-700 relative text-[10px]   border  bottom-3 -left-8 rounded-full  font-semi text-white text-center  px-[5px] py-[0px]  ">
-            {specificRerquest?.length > 0 ? specificRerquest?.length : ''}
+            {specificRerquest?.length > 0 ? specificRerquest?.length : ""}
           </h2>
         </div>
       </button>
@@ -108,7 +122,6 @@ const Notification = () => {
                       Quantity: {request?.quantity}{" "}
                     </span>
                     <button
-                      onClick={() => handleDelete(request?._id)}
                       className=" bg-green-600 px-2 py-1 rounded-md "
                     >
                       Confirm
