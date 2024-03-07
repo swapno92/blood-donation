@@ -37,15 +37,18 @@ const Notification = () => {
         console.error("Error fetching data:", error);
       });
   }, [currentUser]);
- 
 
-  const specificRerquest = all_Doneted && all_Doneted?.length > 0   && all_Doneted?.filter((ouser) => ouser.bloodGroup === userBlood);
-  
-
+  const specificRerquest =
+    all_Doneted &&
+    all_Doneted?.length > 0 &&
+    all_Doneted?.filter(
+      (donated) =>
+        donated?.bloodGroup === userBlood && donated?.status === "processing"
+    );
 
   const handleDelete = (id) => {
     fetch(
-      `https://blood-donation-server-binary-avanger.vercel.app/requests/${id}`,
+      `https://blood-donation-server-binary-avanger.vercel.app/doneted/${id}`,
       {
         method: "DELETE",
       }
@@ -68,8 +71,8 @@ const Notification = () => {
         <span className="sr-only">Open user menu</span>
         <div className="flex items-center">
           <IoIosNotificationsOutline className="text-4xl mr-3" />
-          <h2 className=" bg-red-700 relative text-[10px]   border  bottom-3 -left-8 rounded-full  font-semi text-white text-center  px-[5px] py-[1px]  ">
-            {specificRerquest?.length}
+          <h2 className=" bg-red-700 relative text-[10px]   border  bottom-3 -left-8 rounded-full  font-semi text-white text-center  px-[5px] py-[0px]  ">
+            {specificRerquest?.length > 0 ? specificRerquest?.length : ''}
           </h2>
         </div>
       </button>
@@ -86,36 +89,45 @@ const Notification = () => {
         >
           {/* Content of the dropdown */}
           <div>
-            {specificRerquest?.map((request) => (
-              <div
-                key={request._id}
-                className="md:w-[380px] w-[350px] py-4 md:px-2 flex justify-center text-black font-semibold text-center "
-              >
-                {/* <h2 className="text-[12px]">{index + 1}</h2> */}
-                <h2 className="text-[12px] ">
-                  <span className="font-bold text-sm pr-1">
-                    {request?.name}
-                  </span>
-                  <span className="text-red-600"> {request?.bloodGroup} </span>{" "}
-                  <span className="text-green-600">
-                    Quantity: {request?.quantity}{" "}
-                  </span>
-                  <button
-                    onClick={() => handleDelete(request?._id)}
-                    className=" bg-green-600 px-2 py-1 rounded-md "
-                  >
-                    Confirm
-                  </button>{" "}
-                  or{" "}
-                  <button
-                    onClick={() => handleDelete(request?._id)}
-                    className=" bg-red-600 px-2 py-1 rounded-md "
-                  >
-                    Egnore
-                  </button>
-                </h2>
+            {specificRerquest?.length > 0 ? (
+              specificRerquest?.map((request) => (
+                <div
+                  key={request._id}
+                  className="md:w-[380px] w-[350px] py-4 md:px-2 flex justify-center text-black font-semibold text-center "
+                >
+                  {/* <h2 className="text-[12px]">{index + 1}</h2> */}
+                  <h2 className="text-[12px] ">
+                    <span className="font-bold text-sm pr-1">
+                      {request?.name}
+                    </span>
+                    <span className="text-red-600">
+                      {" "}
+                      {request?.bloodGroup}{" "}
+                    </span>{" "}
+                    <span className="text-green-600">
+                      Quantity: {request?.quantity}{" "}
+                    </span>
+                    <button
+                      onClick={() => handleDelete(request?._id)}
+                      className=" bg-green-600 px-2 py-1 rounded-md "
+                    >
+                      Confirm
+                    </button>{" "}
+                    or{" "}
+                    <button
+                      onClick={() => handleDelete(request?._id)}
+                      className=" bg-red-600 px-2 py-1 rounded-md "
+                    >
+                      Egnore
+                    </button>
+                  </h2>
+                </div>
+              ))
+            ) : (
+              <div className="md:w-[380px] w-[350px] py-4 md:px-2 flex justify-center text-black font-semibold text-center">
+                <h2 className="text-[12px]">No request right now</h2>
               </div>
-            ))}
+            )}
           </div>
         </div>
       )}
