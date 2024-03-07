@@ -110,12 +110,12 @@ const All_Request = ({ request, index, reqRefetch }) => {
                 height={1000}
               />
             </td>
-            <td> {name}</td>
-            <td> {bloodGroup}</td>
-            <td> {quantity}</td>
-            <td> {location}</td>
-            <td> {status}</td>
-            <td className="flex gap-3 items-center justify-center.">
+            <td className="px-4 py-4"> {name}</td>
+            <td className="px-4 py-4"> {bloodGroup}</td>
+            <td className="px-4 py-4"> {quantity}</td>
+            <td className="px-4 py-4"> {location}</td>
+            <td className="px-4 py-4"> {status}</td>
+            <td className="flex gap-3  px-4 py-4">
               {status === "pending" ? (
                 <button
                   onClick={handleAcceptReq}
