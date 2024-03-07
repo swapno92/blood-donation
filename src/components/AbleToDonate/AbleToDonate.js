@@ -42,16 +42,26 @@ const AbleToDonate = () => {
           </div>
         </div>
         <button className='block mx-auto py-2 px-3 bg-red-600 text-white font-bold rounded mt-5 ' onClick={calculateBMI}>Calculate</button>
-        {bmi > 0 && (
-          <div>
-            <p className='text-center text-green-600'>Your BMI is: {bmi.toFixed(2)}. You can donate blood <button className='block mx-auto py-2 px-3 text-white bg-green-600 rounded mt-5 '  onClick={() => document.getElementById("my_modal_5").showModal()}>Donate blood</button> </p>
-            {bmi < 18.5 && (
+        {
+          bmi > 0 ? (
+            bmi < 18.5 ? (
               <p className='text-center text-red-600'>
-                You cannot donate blood. Your BMI is less than 18.5.
+                You cannot donate blood. Your BMI is less than 18.5. <br />
+                <p>Your BMI is: {bmi.toFixed(2)}.</p>
               </p>
-            )}
-          </div>
-        )}
+            ) : (
+              <p className='text-center text-green-600'>
+                Your BMI is: {bmi.toFixed(2)}. You can donate blood{" "}
+                <button
+                  className='block mx-auto py-2 px-3 text-white bg-green-600 rounded mt-5 '
+                  onClick={() => document.getElementById("my_modal_5").showModal()}
+                >
+                  Donate blood
+                </button>
+              </p>
+            )
+          ) : null
+        }
         <DonatRequest></DonatRequest>
       </div></>}
     </>
