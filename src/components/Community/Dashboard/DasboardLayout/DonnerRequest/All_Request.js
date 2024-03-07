@@ -40,6 +40,33 @@ const All_Request = ({ request, index, reqRefetch }) => {
     });
   };
 
+  /* Request Deelte  */
+  const handleDelete = (id) => {
+    console.log(id);
+
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be reject  this request!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, reject it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure.delete(`requests/${id}`).then((res) => {
+          if (res.data.deletedCount > 0) {
+            Swal.fire({
+              title: "rejected!",
+              text: "You rejected the  request.",
+              icon: "success",
+            });
+            reqRefetch();
+          }
+        });
+      }
+    });
+  };
   return (
     <div className="">
       <table className="w-full py-3">
@@ -101,7 +128,12 @@ const All_Request = ({ request, index, reqRefetch }) => {
                   Accept
                 </button>
               )}
-              <button className="btn btn-secondary btn-sm">Reject</button>
+              <button
+                onClick={() => handleDelete(_id)}
+                className="btn btn-secondary btn-sm"
+              >
+                Deelte
+              </button>
             </td>
           </tr>
         </tbody>
