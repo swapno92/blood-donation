@@ -45,7 +45,6 @@ const Login = () => {
               roll: "user",
             };
             axiosSecure.post("/users", userInfo).then((res) => {
-              console.log(res.data);
               toast.success("Logged In Successful with Google!");
               router.push("/");
             });

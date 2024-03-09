@@ -4,9 +4,6 @@ import PrivateRoute from "@/components/PrivateRoute/PrivateRoute";
 
 const page = () => {
 
-
-
-
   return (
     <PrivateRoute>
       <div>

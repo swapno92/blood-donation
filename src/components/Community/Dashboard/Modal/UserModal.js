@@ -4,7 +4,6 @@ import Swal from "sweetalert2";
 
 const UpdateModal = ({ isOpen, closeModal, yours, }) => {
   const { adminname, email, bithdayDate, _id } = yours;
-  console.log(adminname, email, bithdayDate, _id);
   if (!isOpen) {
     return null;
   }
@@ -24,32 +23,7 @@ const UpdateModal = ({ isOpen, closeModal, yours, }) => {
       email: email,
       bithdayDate: bithdayDate,
     };
-    console.log(rqpAsset);
-
-    // fetch(
-    //   `https://server-smart-asset-manager.vercel.app/api/v1/all-users-update/${_id}`,
-    //   {
-    //     method: "PUT",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify(rqpAsset),
-    //   }
-    // )
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     console.log(data);
-    //     form.reset();
-    //     Swal.fire({
-    //       position: "center",
-    //       icon: "success",
-    //       title: " Profile Updadeted successfully",
-    //       showConfirmButton: false,
-    //       timer: 1500,
-    //     });
-    //     refetch();
-    //   });
-  };
+ };
 
   return (
     <div className="fixed inset-0 z-50 overflow-auto bg-black bg-opacity-70 flex items-center justify-center">

@@ -1,6 +1,9 @@
 import Posts from "@/components/Community/Posts/Posts";
 import PrivateRoute from "@/components/PrivateRoute/PrivateRoute";
-// import React from 'react';
+export const metadata = {
+  title: "Drop Sync - Community",
+  description: "Drop Sync - Blood Donation Website Created by Binary Avengers",
+};
 
 const posts = () => {
   return (
