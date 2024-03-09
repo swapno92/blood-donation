@@ -1,5 +1,4 @@
 "use client";
-// import { useForm } from "react-hook-form";
 import { useForm, ValidationError } from "@formspree/react";
 import toast from "react-hot-toast";
 
@@ -15,15 +14,6 @@ import {
 } from "react-icons/fa";
 
 const ContactPage = () => {
-  // const {
-  //     register,
-  //     handleSubmit,
-  //     formState: { errors  },
-  //   } = useForm()
-
-  // const onSubmit = (data) => {
-  //     console.log(data)
-  // }
 
   const [state, handleSubmit] = useForm("xayrqkwq");
   if (state.succeeded) {
@@ -87,7 +77,7 @@ const ContactPage = () => {
                 <div className="flex md:flex-row flex-col lg:gap-10 md:gap-5 gap-5">
                   <div className="form-control md:w-1/2 w-full">
                     <input
-                      // {...register("name", { required: true })}
+                      
                       id="3"
                       type="text"
                       name="name"
@@ -99,17 +89,13 @@ const ContactPage = () => {
                       field="name"
                       errors={state.errors}
                     />
-                    {/* {errors.name && (
-                        <span className="text-red-600 text-sm mt-2">
-                          Enter your Name*
-                        </span>
-                      )} */}
+                    
                   </div>
 
                   <div className="form-control md:w-1/2 w-full">
                     <input
                     id="4"
-                      // {...register("email", { required: true })}
+                      
                       type="email"
                       name="email"
                       placeholder="Your Email..."
@@ -120,18 +106,14 @@ const ContactPage = () => {
                       field="email"
                       errors={state.errors}
                     />
-                    {/* {errors.email && (
-                        <span className="text-red-600 text-sm mt-2">
-                          Enter your Email address*
-                        </span>
-                      )} */}
+                    
                   </div>
                 </div>
 
                 <div className="form-control mt-3">
                   <input
                   id="5"
-                    //   {...register("subject")}
+                    
                     type="text"
                     name="subject"
                     placeholder="Subject..."
@@ -147,7 +129,7 @@ const ContactPage = () => {
                 <div className="form-control mt-3">
                   <textarea
                   id="6"
-                    //   {...register("subject", { required: true })}
+                    
                     type="text"
                     name="description"
                     placeholder="What's on your mind..."
@@ -158,11 +140,7 @@ const ContactPage = () => {
                     field="description"
                     errors={state.errors}
                   />
-                  {/* {errors.subject && (
-                      <span className="text-red-600 text-sm mt-2">
-                        Write something about your needed blood*
-                      </span>
-                    )} */}
+                 
                 </div>
                 <div className="form-control mt-6">
                   <button

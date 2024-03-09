@@ -35,7 +35,6 @@ const PostModal = ({ showModal, closeModal }) => {
       currentDateTime,
     };
 
-    console.log(postInfo);
 
     axiosSecure.post("/posts", postInfo).then((res) => {
       toast.success("post added successfully");

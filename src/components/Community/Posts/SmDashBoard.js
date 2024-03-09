@@ -16,14 +16,12 @@ const SmDashBoard = () => {
   const toggleDropdownUserPost = () => {
     setDropdownOpenUserPost(!isDropdownOpenUserPost);
     setDropdownOpenTopDonner(false);
-    console.log("oky");
   };
 
   const [isDropdownOpenTopDonner, setDropdownOpenTopDonner] = useState(false);
   const toggleDropdownTopDonner = () => {
     setDropdownOpenTopDonner(!isDropdownOpenTopDonner);
     setDropdownOpenUserPost(false);
-    console.log("oky");
   };
 
   return (
