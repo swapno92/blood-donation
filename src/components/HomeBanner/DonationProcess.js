@@ -1,7 +1,7 @@
 import process1 from '../../../public/images/process_1.webp'
 import process2 from '../../../public/images/process_2.webp'
 import process3 from '../../../public/images/process_3.webp'
-import process4 from '../../../public/images/process_4.webp'
+import process4 from '../../../public/images/refreshment.jpg'
 import Image from 'next/image';
 
 const DonationProcess = () => {
@@ -46,7 +46,7 @@ const DonationProcess = () => {
                         </div>
                         <div className="card rounded-none cursor-pointer">
                             <figure className='relative'>
-                                <Image src={process4} alt="blood donation process" />
+                                <Image  src={process4} alt="blood donation process" />
                                 <h2 className='text-5xl font-extrabold absolute px-6 py-4 bg-primary text-white bottom-0 right-0'>4</h2>
                             </figure>
                             <div className="card-body px-0">

@@ -28,7 +28,6 @@ const Registration = () => {
   const onSubmit = (data) => {
     createUser(data.email, data.password).then((res) => {
       const loggedUser = res.user;
-      console.log(loggedUser);
       updateUaserPofile(data.name, data.photo)
         .then(() => {
           console.log("user");
@@ -40,9 +39,7 @@ const Registration = () => {
         photo: "https://i.ibb.co/RCMBXjt/profile-circle-icon.png",
         roll: 'user'
       };
-      console.log(userInfo);
       axiosSecure.post("/users", userInfo).then((res) => {
-        console.log(res.data);
         if (res.data.insertedId) {
           toast.success("Resgistration  successfully");
           router.push("/");
@@ -60,7 +57,6 @@ const Registration = () => {
         roll: 'user'
       };
       axiosSecure.post("/users", userInfo).then((res) => {
-        console.log(res.data);
         toast.success("Logged In Successful with Google!");
         router.push("/");
       });

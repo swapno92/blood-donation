@@ -5,8 +5,8 @@ import moment from "moment";
 import toast from "react-hot-toast";
 
 const Camping = () => {
- const axiosSecure = UseAxiosSecure();
- const [ refatch]=UseCampaign();
+  const axiosSecure = UseAxiosSecure();
+  const [refatch] = UseCampaign();
   const currentDate = moment().format("MM-DD-YYYY");
   const addCampaign = (e) => {
     e.preventDefault();
@@ -29,7 +29,10 @@ const Camping = () => {
     };
 
     axiosSecure
-      .post("https://blood-donation-server-binary-avanger.vercel.app/campaign", addCampaign)
+      .post(
+        "https://blood-donation-server-binary-avanger.vercel.app/campaign",
+        addCampaign
+      )
       .then((data) => {
         if (data.data.insertedId) {
           toast.success("Campaign Post Successfully");
@@ -42,93 +45,100 @@ const Camping = () => {
       });
   };
   return (
-    <div className="w-full my-16">
+    <div className="w-full mx-auto  my-16">
       <h2 className="text-center md:text-4xl text-2xl font-medium text-primary mb-8">
         Our Campaing
       </h2>
-      <div className="md:w-[40%] w-[80%] md:mx-auto md:ml-0 ml-5">
-        <form onSubmit={addCampaign}>
-          <div className="relative z-0 w-full mb-5 group">
-            <input
-              type="text"
-              name="name"
-              className="block py-2.5 px-0 w-full text-sm text-black bg-transparent border-0 border-b-2 border-gray-300 appearance-none   focus:outline-none focus:ring-0 focus:border-primary peer"
-              placeholder=" "
-              required
-            />
-            <label className="peer-focus:font-medium absolute text-sm text-gray-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-              Title Name
-            </label>
-          </div>
-          <div className="relative z-0 w-full mb-5 group">
-            <input
-              type="text"
-              name="img"
-              className="block py-2.5 px-0 w-full text-sm text-black bg-transparent border-0 border-b-2 border-gray-300 appearance-none   focus:outline-none focus:ring-0 focus:border-primary peer"
-              placeholder=" "
-              required
-            />
-            <label className="peer-focus:font-medium absolute text-sm text-gray-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-              Campaing Img
-            </label>
-          </div>
-          <div className="relative z-0 w-full mb-5 group">
-            <input
-              type="text"
-              name="location"
-              className="block py-2.5 px-0 w-full text-sm text-black bg-transparent border-0 border-b-2 border-gray-300 appearance-none   focus:outline-none focus:ring-0 focus:border-primary peer"
-              placeholder=" "
-              required
-            />
-            <label className="peer-focus:font-medium pb-6 absolute text-sm text-gray-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-              Campaign location
-            </label>
-          </div>
-          <div className="flex items-center gap-6">
+      <div className="w-full">
+        <div className="lg:w-[40%] md:w-[80%] w-11/12 mx-auto   ">
+          {/* <h2 className=" md:text-4xl text-2xl font-medium text-primary mb-8">
+            Our Campaing
+          </h2> */}
+          <form onSubmit={addCampaign}>
             <div className="relative z-0 w-full mb-5 group">
               <input
                 type="text"
-                name="start"
-                className="block py-2.5 px-0 w-full text-sm text-blackbg-transparent border-0 border-b-2 border-gray-300 appearance-none   focus:outline-none focus:ring-0 focus:border-primary peer"
-                placeholder=" "
-                required
-              />
-              <label className="peer-focus:font-medium absolute text-sm text-gray-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-                Start Time
-              </label>
-            </div>
-            <div className="relative z-0 w-full mb-5 group">
-              <input
-                type="text"
-                name="end"
+                name="name"
                 className="block py-2.5 px-0 w-full text-sm text-black bg-transparent border-0 border-b-2 border-gray-300 appearance-none   focus:outline-none focus:ring-0 focus:border-primary peer"
                 placeholder=" "
                 required
               />
               <label className="peer-focus:font-medium absolute text-sm text-gray-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-                End Time
+                Title Name
               </label>
             </div>
-          </div>
-          <div className="relative z-0 w-full mb-5 group">
-            <textarea
-              name="description"
-              className="block py-2.5 px-0 w-full h-20 text-sm text-black bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-primary peer"
-              placeholder=" "
-              required
-            ></textarea>
-            <label className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-              Description
-            </label>
-          </div>
+            <div className="relative z-0 w-full mb-5 group">
+              <input
+                type="text"
+                name="img"
+                className="block py-2.5 px-0 w-full text-sm text-black bg-transparent border-0 border-b-2 border-gray-300 appearance-none   focus:outline-none focus:ring-0 focus:border-primary peer"
+                placeholder=" "
+                required
+              />
+              <label className="peer-focus:font-medium absolute text-sm text-gray-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                Campaing Img
+              </label>
+            </div>
+            <div className="relative z-0 w-full mb-5 group">
+              <input
+                type="text"
+                name="location"
+                className="block py-2.5 px-0 w-full text-sm text-black bg-transparent border-0 border-b-2 border-gray-300 appearance-none   focus:outline-none focus:ring-0 focus:border-primary peer"
+                placeholder=" "
+                required
+              />
+              <label className="peer-focus:font-medium pb-6 absolute text-sm text-gray-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                Campaign location
+              </label>
+            </div>
+            <div className="flex items-center gap-6">
+              <div className="relative z-0 w-full mb-5 group">
+                <input
+                  type="text"
+                  name="start"
+                  className="block py-2.5 px-0 w-full text-sm text-blackbg-transparent border-0 border-b-2 border-gray-300 appearance-none   focus:outline-none focus:ring-0 focus:border-primary peer"
+                  placeholder=" "
+                  required
+                />
+                <label className="peer-focus:font-medium absolute text-sm text-gray-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                  Start Time
+                </label>
+              </div>
+              <div className="relative z-0 w-full mb-5 group">
+                <input
+                  type="text"
+                  name="end"
+                  className="block py-2.5 px-0 w-full text-sm text-black bg-transparent border-0 border-b-2 border-gray-300 appearance-none   focus:outline-none focus:ring-0 focus:border-primary peer"
+                  placeholder=" "
+                  required
+                />
+                <label className="peer-focus:font-medium absolute text-sm text-gray-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                  End Time
+                </label>
+              </div>
+            </div>
+            <div className="relative z-0 w-full mb-5 group">
+              <textarea
+                name="description"
+                className="block py-2.5 px-0 w-full h-20 text-sm text-black bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-primary peer"
+                placeholder=" "
+                required
+              ></textarea>
+              <label className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                Description
+              </label>
+            </div>
 
-          <button
-            type="submit"
-            className="text-white bg-primary hover:bg-primary focus:ring-4 focus:outline-none focus:ring-primary font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center "
-          >
-            Add Campaing
-          </button>
-        </form>
+            <div className="flex justify-center">
+              <button
+                type="submit"
+                className="text-white mx-auto bg-primary hover:bg-primary focus:ring-4 focus:outline-none focus:ring-primary font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center "
+              >
+                Add Campaing
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );

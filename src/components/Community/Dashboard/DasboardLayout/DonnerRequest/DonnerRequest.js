@@ -1,136 +1,46 @@
 "use client";
 import UseRequest from "@/components/Hooks/UseRequest";
-import deafuletUserPhoto from "../../../../../../public/images/profile-circle-icon.png";
+import All_Request from "./All_Request";
 import Image from "next/image";
-import UseAxiosSecure from "@/components/Hooks/useAxiosSecure";
-import moment from "moment";
-import Swal from "sweetalert2";
 
 const DonnerRequest = () => {
-  const [request] = UseRequest();
+  const [allRequest, refetch] = UseRequest();
 
-  const axiosSecure = UseAxiosSecure();
-  const processingtDate = moment().format("MM-DD-YYYY");
-  // const [
-  //   _id,
-  //   name,
-  //   email,
-  //   img,
-
-  //   date,
-  //   contactNumber,
-  //   location,
-  //   himoglobing,
-  //   patient,
-  //   bloodGroup,
-  //   quantity,
-  //   gender,
-  //   currentDate,
-  //   status,
-  // ] = request;
-
-  // const allData = {
-  //   requestId: _id,
-  //   name,
-  //   email,
-  //   img,
-  //   date,
-  //   contactNumber,
-  //   location,
-  //   himoglobing,
-  //   patient,
-  //   bloodGroup,
-  //   quantity,
-  //   gender,
-  //   status: "processing"
-  // }
-
-  const handleAcceptReq = (request) => {
-    axiosSecure
-      .post("/doneted", { request, processingtDate }) 
-      .then((res) => {
-        console.log(res.data);
-        if (res.data.insertedId) {
-          Swal.fire({
-            position: "center",
-            icon: "success",
-            title: "Request Now Procesing ",
-            showConfirmButton: false,
-            timer: 1000,
-          });
-        }
-        refetch();
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    // console.log(request);
-  };
+  const pendingRerquest =
+    allRequest &&
+    allRequest?.length > 0 &&
+    allRequest?.filter((donated) => donated?.status === "pending");
+  console.log(pendingRerquest);
 
   return (
     <div className="">
-      <div className="m-6 ">
-        <h1 className="text-2xl font-bold text-center mb-4 mt-4">
-          Donner Request{request.length}
-        </h1>
-        <table className="table max-w-screen-lg mx-auto ">
-          <thead className="text-lg bg-primary text-white text-center">
-            <tr>
-              <th>No</th>
-              <th>Profile</th>
-              <th>Name</th>
-              <th>Blood</th>
-              <th>Quantity</th>
-              <th>Location </th>
-              <th>Status</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {request?.map((request, index) => (
-              <tr
-                key={request._id}
-                className="text-black font-semibold text-center"
-              >
-                <th>{index + 1}</th>
-                <td>
-                  <div className="avatar">
-                    <div className="mask mask-squircle w-12 h-12">
-                      <Image
-                        src={request?.img ? request?.img : deafuletUserPhoto}
-                        alt="Avatar Tailwind CSS Component"
-                        width={1000}
-                        height={1000}
-                      />
-                    </div>
-                  </div>
-                </td>
-                <td>{request?.name}</td>
-                <td>{request?.bloodGroup}</td>
-                <td>{request?.quantity}</td>
-                <td>{request?.location}</td>
-                <td>Pending</td>
-                <td className="flex gap-3">
-                  {request?.status === "pending" ? (
-                    <button
-                      onClick={() => handleAcceptReq(request)}
-                      className="btn btn-primary btn-sm"
-                    >
-                      Accept
-                    </button>
-                  ) : (
-                    <button disabled={true} className="btn btn-primary btn-sm">
-                      Accept
-                    </button>
-                  )}
-                  <button className="btn btn-secondary btn-sm">Rejected</button>
-                </td>{" "}
-                ``
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      <div className="text-center font-bold text-3xl my-10">
+        {pendingRerquest?.length > 0
+          ? `Total Request - ${pendingRerquest.length}`
+          : ""}
       </div>
+      {pendingRerquest?.length > 0 ? (
+        pendingRerquest?.map((request, index) => (
+          <All_Request
+            key={request?._id}
+            request={request}
+            index={index}
+            reqRefetch={refetch}
+          />
+        ))
+      ) : (
+        <div className=" py-4 md:pl-16 px-2  text-black font-semibold text-center">
+          <h2 className="lg:text-5xl md:text-2xl text-base">Haven't
+             Any  <span className="text-red-600">Request</span> Right Now
+          </h2>
+          <Image
+            className="lg:w-32 md:w-20 w-12 mx-auto "
+            src="https://i.ibb.co/C6zZmYr/st-small-507x507-pad-600x600-f8f8f8.png"
+            width={1000}
+            height={1000}
+          />
+        </div>
+      )}
     </div>
   );
 };
