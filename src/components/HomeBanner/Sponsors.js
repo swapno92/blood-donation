@@ -42,7 +42,7 @@ const Sponsors = () => {
           <Image
             alt="a"
             src={sponsor7}
-            className="cursor-pointer border border border-primary/15 shadow-xl hover:shadow-red-100"
+            className="cursor-pointer border border-primary/15 shadow-xl hover:shadow-red-100"
           />
           <Image
             alt="a"

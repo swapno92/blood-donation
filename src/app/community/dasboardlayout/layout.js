@@ -5,7 +5,7 @@ import Dashboard from "@/components/Community/Dashboard/Dashboard";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Drop Sync",
+  title: "Drop Sync - Dashboard",
   description: "Drop Sync - Blood Donation Website Created by Binary Avengers",
 };
 
